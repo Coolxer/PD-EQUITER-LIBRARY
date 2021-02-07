@@ -1,2 +1,2 @@
-# Equation_System_CODE
+# Equations_System_CODE
 Python library that implements approximate methods of solving systems of equations.
