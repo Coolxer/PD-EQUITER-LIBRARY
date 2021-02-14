@@ -1,4 +1,4 @@
-########## Ogólnie o błędach ###################################################################
+########## Ogólnie o błędach ########################################################################################################################
 
 Liczby reprezentowane przez komputer są w systemie binarnym z ograniczoną dokładnością
 Błędy powstają na poszczególnych etapach obliczeń, często się potęgują.
@@ -17,9 +17,10 @@ skończonej długości reprezentacji liczb binarnych.
 Złożoność obliczeniowa - liczba operacji numerycznych niezbędnych do uzyskania wyniku.
 Mała złożoność obliczeniowa (krótszy czas).
 
-################################################################################################
+#####################################################################################################################################################
 
-########## Błędy obliczeń komputerowych ########################################################
+
+########## Błędy obliczeń komputerowych #############################################################################################################
 
 * Ogólne wnioski:
 - nie porównywać bezpośrednio liczb zmiennoprzecinkowych operatorem równości ==
@@ -40,4 +41,4 @@ To powoduje, że są one przybliżane do najbliższej reprezentacji, co powoduje
 
 * Istnieją takie liczby dziesiętne, które mają jednakowe przybliżenie w ułamku binarnym
 
-################################################################################################
+#####################################################################################################################################################

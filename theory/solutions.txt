@@ -1,4 +1,4 @@
-##### Ogólne ######################################################################################
+##### Ogólne ########################################################################################################################################
 
 Rozwiązywanie układów równań jest jednym z podstawowych problemów, którym zajmują się metody numeryczne.
 Możliwy jest dobór wielu metod, a wybór zależy od rozdzaju układu, wymaganej dokładności, a także dostępnych narzędzi.
@@ -21,3 +21,4 @@ metody iteracyjne (przybliżone)
 			- m. bi-CG-STAB
 			- m. GMRES
 
+#####################################################################################################################################################

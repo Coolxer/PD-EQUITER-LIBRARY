@@ -8,6 +8,7 @@
 
 #####################################################################################################################################################
 
+
 ########## Błędy obliczeń numerycznych ##############################################################################################################
 
 W metodach numerycznych trzeba dużą uwagę poświęcać błędom obliczeniowym i ograniczeniom wykorzystywanej metody.
@@ -38,6 +39,7 @@ wykonywanych działań
 
 #####################################################################################################################################################
 
+
 ########## Reprezentacja liczb ######################################################################################################################
 
     a) stałopozycyjna - stała liczba cyfr ułamkowych
@@ -46,6 +48,7 @@ wykonywanych działań
         wartości, co powoduje powstawanie błędów.
 
 #####################################################################################################################################################
+
 
 ########## Algorytm numerycznie stabilny i poprawny #################################################################################################
 
@@ -59,6 +62,7 @@ wykonywanych działań
 
 
 ########## Uwarunkowanie zadania obliczeniowego #####################################################################################################
+
 Jaki jest wpływ zaburzenia danych na końcowy wynik?
 
 Uwarunkowanie zadania jest pewną cechą metody numerycznej, która definiuje możliwość uzyskania prawidłowych
