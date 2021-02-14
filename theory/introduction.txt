@@ -61,6 +61,11 @@ wykonywanych działań
 ########## Uwarunkowanie zadania obliczeniowego #####################################################################################################
 Jaki jest wpływ zaburzenia danych na końcowy wynik?
 
+Uwarunkowanie zadania jest pewną cechą metody numerycznej, która definiuje możliwość uzyskania prawidłowych
+wyników przy dowolnych danych wejściowych, ale z określonego zbioru.
+
+Zadanie może być dobrze uwarunkowe lub źle uwarunkowane ze względu na czułość zadania.
+
 Zadanie jest źle uwarunkowane jeśli małe zmiany danych początkowych powodują duże zmiany wyników
 
 * Uwarunkowanie względne

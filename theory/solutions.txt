@@ -1,0 +1,23 @@
+##### Ogólne ######################################################################################
+
+Rozwiązywanie układów równań jest jednym z podstawowych problemów, którym zajmują się metody numeryczne.
+Możliwy jest dobór wielu metod, a wybór zależy od rozdzaju układu, wymaganej dokładności, a także dostępnych narzędzi.
+
+Ogólne metody rozwiązywania układów równań dzielą się na bezpośrednie (analityczne) oraz iteracyjne (przybliżone).
+Zajmujemy się tą drugą grupą.
+
+Metody iteracyjne wykorzystywane są do bardzo wielkich układów równań przy dużej liczbie niewiadomych.
+Metody te są w takich przypadkach znacznie szybsze, wygodniejsze i tańsze w użyciu niż metody bezpośrednie.
+Zaletą tych metod jest wybór dokładności rozwiązania, co często może redukować czas obliczeń i zwiększać efektywność.
+
+metody iteracyjne (przybliżone)
+	- metody stacjonarne
+		– metoda Jacobiego (iteracji prostej)
+		– metoda Gaussa-Seidla
+		- m. nadrelaksacji (SOR)
+	- metody niestacjonarne
+		- metody przestrzeni Kryłowa
+			- m. CG
+			- m. bi-CG-STAB
+			- m. GMRES
+
