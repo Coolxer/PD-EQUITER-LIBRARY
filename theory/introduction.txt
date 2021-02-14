@@ -1,0 +1,70 @@
+########## Ogólnie o metodach numerycznych ##########################################################################################################
+
+- Metody numeryczne to metody rozwiązywania wszelkich problemów przy użyciu operacji matematycznych. 
+- Stosowane są w logice i algorytmice.
+- Często wyniki są przybliżone, ale dokładność obliczeń jest zazwyczaj wstępnie określona.
+- Częstym powodem użycia metod numerycznych jest problem, który nie ma analitycznego (dokładnego) rozwiązania lub jest ono bardzo złożone.
+- Jednym z takich przypadków jest właśnie rozwiązywanie układów równań liniowych z dużą ilością równań i niewiadomych
+
+#####################################################################################################################################################
+
+########## Błędy obliczeń numerycznych ##############################################################################################################
+
+W metodach numerycznych trzeba dużą uwagę poświęcać błędom obliczeniowym i ograniczeniom wykorzystywanej metody.
+Zadanie numeryczne może być rozwiązane z użyciem różnych algorytmów i z różną dokładnością.
+
+* Źródła błędów:
+    - błędy na wejściu (zaokrąglone parametry wejściowe (błąd zaokrąglenia), bądź błędy pomiarowe)
+    - aktualne błędy zaokrągleń
+    - błędy obcięcia (przerwanie obliczeń przed końcem)-
+    - upraszczanie "wzoru" matematycznego na potrzeby zadania (przyjęcie założeń)
+    - błędy programisty (błędne typy danych)
+
+* Rodzaje błędów (x -> wartość dokładna, ~x -> wartość przybliżona)
+    - bezwględny ~x - x
+    - względny [(~x - x) / x] * 100%
+
+    E = max|x - ~x| - maksymalny błąd bezwględny (błąd graniczny)
+
+* Cyfry istotne (w ułamku nie uwzględnia się 0 na początku)
+
+* Cyfry ułamkowe (wszystkie cyfry po przecinku)
+
+* Przez ograniczoną dokładność reprezentacji liczb przez komputer może powstawać
+zjawisko kumulowania się błędów
+
+* Czasami błędy związane z reprezentacją liczb można zmniejszyć zmieniając kolejność
+wykonywanych działań
+
+#####################################################################################################################################################
+
+########## Reprezentacja liczb ######################################################################################################################
+
+    a) stałopozycyjna - stała liczba cyfr ułamkowych
+    b) zmiennopozycjna - ustalona jest tylko liczba cyfr istotnych
+        Słowa binarne mają ograniczoną długość. Niezbędne jest zatem zaokrąglanie
+        wartości, co powoduje powstawanie błędów.
+
+#####################################################################################################################################################
+
+########## Algorytm numerycznie stabilny i poprawny #################################################################################################
+
+* Niestabilność numeryczna - początkowo mały błąd z czasem się powiększa
+
+* Optymalny poziom błędu - maksymalny przewidywalny błąd powstały tylko z racji przeniesienia błędu reprezentacji liczby
+
+* Algorytm stabilny - to taki algorytm, którego wynik posiada błąd na tym samym poziomie, co optymalny poziom błędu
+
+* Stabilność to minimum, czego wymagamy od każdego algorytmu, a poprawność to maksimum, co możemy oczekiwać 
+
+
+########## Uwarunkowanie zadania obliczeniowego #####################################################################################################
+Jaki jest wpływ zaburzenia danych na końcowy wynik?
+
+Zadanie jest źle uwarunkowane jeśli małe zmiany danych początkowych powodują duże zmiany wyników
+
+* Uwarunkowanie względne
+
+* Uwarunkowanie bezwzględne
+
+#####################################################################################################################################################
