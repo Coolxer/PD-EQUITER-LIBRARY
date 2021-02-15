@@ -1,7 +1,7 @@
 ##### Python ########################################################################################################################################
 
 Język programowania wysokiego poziomu o wielu zastosowaniach.
-Jest stosowany do m.in automatyzacji, analizy danych (sztuczna inteligencja, uczenie maszynowe)
+Jest stosowany m.in do automatyzacji, analizy danych (sztuczna inteligencja, uczenie maszynowe), a także do obliczeń numerycznych.
 Jest czytelny, klarowny, przejrzysty, zwięzły i ma "niski próg wejścia".
 Posiada wiele bibliotek i modułów gotowych do natychmiastowego użycia.
 
