@@ -1,5 +1,8 @@
 ##### Ogólne ########################################################################################################################################
 
+Zadanie numeryczne określane jest jako jednoznaczną relację danych wejściowych, które są przekształcane
+w dane wyjściowe przy pomocy algorytmu definiującego operacje wykonywane na danych wejściowych.
+
 Rozwiązywanie układów równań jest jednym z podstawowych problemów, którym zajmują się metody numeryczne.
 Możliwy jest dobór wielu metod, a wybór zależy od rozdzaju układu, wymaganej dokładności, a także dostępnych narzędzi.
 
@@ -7,7 +10,7 @@ Ogólne metody rozwiązywania układów równań dzielą się na bezpośrednie (
 Zajmujemy się tą drugą grupą.
 
 Metody iteracyjne wykorzystywane są do bardzo wielkich układów równań przy dużej liczbie niewiadomych.
-Metody te są w takich przypadkach znacznie szybsze, wygodniejsze i tańsze w użyciu niż metody bezpośrednie.
+Metody te są w takich przypadkach znacznie szybsze, wygodniejsze i tańsze w użyciu niż metody bezpośrednie (pod warunkiem rzadkich macierzy)
 Zaletą tych metod jest wybór dokładności rozwiązania, co często może redukować czas obliczeń i zwiększać efektywność.
 
 metody iteracyjne (przybliżone)
@@ -20,5 +23,9 @@ metody iteracyjne (przybliżone)
 			- m. CG
 			- m. bi-CG-STAB
 			- m. GMRES
+
+Okazuje się, że wielkie macierze są zazwyczaj macierzami rzadkimi, tzn. posiadają niewiele niezerowych elementów.
+W takim przypadku metoda iteracyjna ma znacznie mniejszą złożoność obliczeniową niż metoda bezpośrednia.
+Metody iteracyjne pozwalają wykorzystać ten fakt w celu szybszych obliczeń, wykonując mniej działań.	
 
 #####################################################################################################################################################

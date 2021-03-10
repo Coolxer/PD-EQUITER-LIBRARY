@@ -1,0 +1,86 @@
+########## Ogólnie o błędach ########################################################################################################################
+
+# Źródła błędów
+    - błędy danych wejściowych (zaokrąglone lub błąd metody pomiarowej)
+    - błędy zaokrągleń podczas obliczeń
+    - błędy przepełnienia (ucinanie wartości krańcowych)
+    - błędy wynikające z upraszczania modelu problemowego
+    - błędy programisty
+
+
+Liczby reprezentowane przez komputer są w systemie binarnym z ograniczoną dokładnością
+Błędy powstają na poszczególnych etapach obliczeń, często się potęgują.
+
+Można wygładzić dane pomiarowe, aby zmniejsztć błędy danych wejściowych, jeśli
+dane wejściowe są wynikami pomiarów
+
+Błędny model procesu - wynika z uproszczonego modelu, redukcji złożonoości.
+Czasami dany model jest po prostu upraszczany, m.in z powodu braku danych
+
+Błąd metody powstaje, gdy stosunkowo poprawny model jest przybliżany przy pomocy formuł
+
+Błędy zaokrągleń wynikają nie tylko ze świadomego zaokrąglania danej liczby, ale również z powodu
+skończonej długości reprezentacji liczb binarnych. 
+
+Niebezpieczne jest kumulowanie się błędów, czyli początkowy błąd powiększa się wraz z kolejnymi obliczeniami.
+Powodem może być ograniczona pamięć komputera.
+
+# Złożoność obliczeniowa - liczba operacji numerycznych niezbędnych do uzyskania wyniku.
+Mała złożoność obliczeniowa (krótszy czas).
+
+# Niestabilność numeryczna to zjawisko, które powstaje, gdy mały błąd się powiększa i powoduje duży błąd wynikowy.
+
+#####################################################################################################################################################
+
+########## Błędy obliczeń numerycznych ##############################################################################################################
+
+W metodach numerycznych trzeba dużą uwagę poświęcać błędom obliczeniowym i ograniczeniom wykorzystywanej metody.
+Zadanie numeryczne może być rozwiązane z użyciem różnych algorytmów i z różną dokładnością.
+
+# Źródła błędów:
+    - błędy na wejściu (zaokrąglone parametry wejściowe (błąd zaokrąglenia), bądź błędy pomiarowe)
+    - aktualne błędy zaokrągleń
+    - błędy obcięcia (przerwanie obliczeń przed końcem)-
+    - upraszczanie "wzoru" matematycznego na potrzeby zadania (przyjęcie założeń)
+    - błędy programisty (błędne typy danych)
+
+# Rodzaje błędów (x -> wartość dokładna, ~x -> wartość przybliżona)
+    - bezwględny ~x - x
+    - względny [(~x - x) / x] * 100%
+
+    E = max|x - ~x| - maksymalny błąd bezwględny (błąd graniczny)
+
+# Cyfry istotne (w ułamku nie uwzględnia się 0 na początku)
+
+# Cyfry ułamkowe (wszystkie cyfry po przecinku)
+
+# Przez ograniczoną dokładność reprezentacji liczb przez komputer może powstawać
+zjawisko kumulowania się błędów
+
+# Czasami błędy związane z reprezentacją liczb można zmniejszyć zmieniając kolejność
+wykonywanych działań
+
+#####################################################################################################################################################
+
+########## Błędy obliczeń komputerowych #############################################################################################################
+
+# Ogólne wnioski:
+    - Nie porównywać bezpośrednio liczb zmiennoprzecinkowych operatorem równości ==
+    Zdecydowanie lepiej jest obliczyć odległość między nimi (różnicę) i porównać ją względem określonej granicy.
+    Inaczej mówiąc należy porównać bezwględną różnicę dwóch liczb z odpowiednim epsilonem.
+    - Pojedyncza precycja IEEE 7 cyfr, podwójna precyzja IEEE 14 cyfr
+    - Precyzja może być utracona przy konwersji liczby dziesiętnej na binarną i odwrotnie
+    - Piebezpieczne może być nawet zwykłe dodawanie, bo komputer nie ma świadomości, które bity są naprawdę znaczące
+    - Obliczenia na liczbach zmiennoprzecinkowych mogą dawać różne wyniki i różną dokładność w zależności od sprzętu
+
+# Liczby zmiennoprzecinkowe są reprezentowane w systemie binarnym.
+
+# Większość ułamków dziesiętnych nie można przedstawić jako ułamków w systemie dwójkowym.
+To powoduje, że są one przybliżane do najbliższej reprezentacji, co powoduje powstawanie błędów zaokrągleń.
+(np. nie da się bezpośrednio zapisać 0.1 w systemie binarnym)
+
+# Wyświetlany wynik jest zaokrąglany, ale w rzeczywistości jest to najbliższy reprezentowalny ułamek binarny.
+
+# Istnieją takie liczby dziesiętne, które mają jednakowe przybliżenie w ułamku binarnym
+
+#####################################################################################################################################################

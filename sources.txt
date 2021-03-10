@@ -1,0 +1,45 @@
+####################### INTERNET #############################
+
+####################### NARZĘDZIA ############################
+######## NAZWA ########     ############## LINK ##############
+Python                  https://www.python.org/
+Numpy                   https://numpy.org/
+Matplotlib              https://matplotlib.org/
+Pytest                  https://docs.pytest.org/en/stable/
+
+######################## WIEDZA ##############################
+######## NAZWA ########     ############## LINK ##############
+
+Wikipedia               https://pl.wikipedia.org/wiki/Metoda_numeryczna
+Python docs             https://docs.python.org/3/tutorial/floatingpoint.html
+Python docs             https://docs.python.org/3/library/decimal.html#module-decimal
+Python docs             https://docs.python.org/3/library/fractions.html#module-fractions
+Geekforgeeks            https://www.geeksforgeeks.org/floating-point-error-in-python/
+Lahey                   http://www.lahey.com/float.htm
+
+####################### INTERNET #############################
+
+
+####################### KSIĄŻKI ##############################
+
+###################### POZYCJA 1 #############################
+Metody numeryczne
+w przykładach
+
+Beata Pańczyk
+Edyta Łukasik
+Jan Sikora
+Teresa Guziak
+
+Politechnika Lubelska
+Lublin 2012
+
+ISBN: 978-83-63569-14-3
+
+###################### POZYCJA 2 #############################
+
+METODY NUMERYCZNE
+DLA INŻYNIERÓW
+(notatki do wykładu)
+
+Wrocław, maj 2018

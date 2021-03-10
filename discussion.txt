@@ -1,0 +1,62 @@
+# JAKIE METODY (są / będą zawarte w bibliotece)
+	metody iteracyjne (przybliżone)
+		- metody stacjonarne
+			– metoda Jacobiego (iteracji prostej)
+			– metoda Gaussa-Seidla
+			- m. nadrelaksacji (SOR)
+		- metody niestacjonarne
+			- metody przestrzeni Kryłowa
+				- m. CG
+				- m. bi-CG-STAB
+				- m. GMRES
+
+
+# METODA (z czego składa się moduł)
+	- teoria
+
+	- treść
+		- full numpy
+		- ograniczone numpy (głównie dane wejściowe) ?
+
+	- testy
+		- dane wejściowe
+		- wyniki
+
+	- przykłady
+		- rozwiązania
+		- wizualizacje ? (matplotlib)
+
+	- dokumentacja
+
+
+# CAŁOŚĆ
+	- porównanie metod
+	- main (showcase)
+	- dokumentacja
+	- strona internetowa ???
+
+# PYTANIA
+	- dotyczące metod
+		- kwestia IEEE 754 (dokładności obliczeń komputerowych), czy powinienem to poruszyć (teoretycznie i praktycznie?)
+		- uwarunkowanie zadania ?
+		- sprawdzanie zbieżności (na każdym kroku ?)
+		- kwestie plagiatowe (głównie w kodzie)
+
+	- dotyczące pracy dyplomowej
+		- podobne tematy z przykładami wykonania ?
+		- wystarczające zgłębienie tematu (dla siebie) 
+		- wystarczające zgłębienie tematu (w pracy dyplomowej)
+			- ogólnie o macierzach ???
+			- ogólnie o metodach numerycznych
+			- ogólnie o błędach metod numerycznych i ograniczeniach
+			- ogólnie o błędach obliczeń komputerowych
+			- o poszczególnych metodach iteracyjnych (teoria + praktyka)
+			- porównanie metod pod względem zastosowania, błędów, złożoności obliczeniowej
+
+	- Ogólne
+		- 2'gi etap to wykonanie instrukcji do laboratorium na podstawie stworzonej biblioteki
+			- Czy należy do pracy dyplomowej, czy jest tylko dodatkowym obowiązkiem ? Kwestia "mocnego wzorowania się na aktualnej instrukcji" -> PLAGIAT
+				- Jeśli nie należy do pracy dyplomowej to nie należy obawiać się o plagiat i można szybko podmienić odpowiednie treści?
+
+		- Rozumiem, że nie ma obaw o powierzchownie zbyt "łatwy" temat pracy dyplomowej, skoro Pan Profesor go zatwierdził i go promuje.
+		Osobiście uważam, że temat jest ciekawy i porusza wiele paradygmatów pracy inżynierskiej i wykorzystuje zdobyte podczas studiów umiejętności.
