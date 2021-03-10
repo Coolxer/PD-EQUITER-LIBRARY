@@ -54,6 +54,9 @@
 			- porównanie metod pod względem zastosowania, błędów, złożoności obliczeniowej
 
 	- Ogólne
+		- licencje ? (praca dyplomowa traktowana jest jako praca edukacjna czy komercyjna?)
+			- licencja matplotlib (https://matplotlib.org/stable/users/license.html)
+			- licencja pytest (https://docs.pytest.org/en/stable/#license)
 		- 2'gi etap to wykonanie instrukcji do laboratorium na podstawie stworzonej biblioteki
 			- Czy należy do pracy dyplomowej, czy jest tylko dodatkowym obowiązkiem ? Kwestia "mocnego wzorowania się na aktualnej instrukcji" -> PLAGIAT
 				- Jeśli nie należy do pracy dyplomowej to nie należy obawiać się o plagiat i można szybko podmienić odpowiednie treści?
