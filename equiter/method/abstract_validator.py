@@ -2,7 +2,7 @@
 # Autor: Łukasz Miłoś, 15.02.2021
 
 import numpy as np
-from .error import Error
+from .parameters import Parameters
 
 """
 # AbstractValidator stanowi bazę (interfejs) dla wszystkich pozostałych walidatorów
@@ -16,12 +16,18 @@ from .error import Error
 
 
 class AbstractValidator:
-    __errors: Error = None
+    _errors: dict = None
+    _SUCCESS: bool = 0
 
     # konstruktor
-    def __init__(self, errors: Error):
-        self.__errors = errors
+    def __init__(self, errors: dict):
+        self._errors = errors
 
-    # funkcja sprawdzająca poprawność parametrów
-    def validate(self, params: dict, showErrorCodes: bool = false):
+    # przetwarza błąd, pokazuje go na ekranie i zwraca kod błędu
+    def _error(self, code: int):
+        print(self._errors[code])
+        return code
+
+    # sprawdza poprawność parametrów, jeśli wszystko jest w porządku to zwraca 0, inaczej zwraca kod błędu <1, ...>
+    def validate(self, params: Parameters):
         return 0

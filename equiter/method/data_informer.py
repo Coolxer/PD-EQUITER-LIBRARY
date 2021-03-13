@@ -14,7 +14,7 @@ from tabulate import tabulate
 
 
 class DataInformer:
-    # konstruktor z wymaganą macierzą
+    # konstruktor z macierzą
     def __init__(self, matrix):
         headers = ['Parametr', 'Wartosc']
         data = []

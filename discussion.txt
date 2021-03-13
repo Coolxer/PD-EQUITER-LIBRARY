@@ -16,7 +16,6 @@
 
 	- treść
 		- full numpy
-		- ograniczone numpy (głównie dane wejściowe) ?
 
 	- testy
 		- dane wejściowe
