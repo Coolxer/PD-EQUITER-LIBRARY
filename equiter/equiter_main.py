@@ -1,6 +1,7 @@
 # Equiter
 # Autor: Łukasz Miłoś, 15.02.2021
 
+'''
 import numpy as np
 
 from .method.parameters import Parameters
@@ -25,3 +26,4 @@ class Equiter:
             return
         elif method == "sor":
             return
+'''

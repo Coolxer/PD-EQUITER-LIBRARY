@@ -47,7 +47,7 @@ Wzór iteracyjny dla metody Jacobiego w zapisie elementowym
 xi^(n + 1) = (1 / aii) * (bi - SUM(aij*xj^n, {j = 1,2...,n, j != i }))
 
 Warunek kończący wykonywanie iteracji(związany z dokładnością obliczeń)
-SUM(xi^(n + 1) - xi^n, {i = 1,2,...,n}) < tol
+SUM(xi^(n + 1) - xi^n), {i = 1,2,...,n}) < tol
 ,gdzie tol - tolerancja, z góry zakładana dokładność
 
 ---------------------------------------------------------------------------
