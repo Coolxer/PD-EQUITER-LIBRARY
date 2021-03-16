@@ -2,12 +2,13 @@
 # Autor: Łukasz Miłoś, 15.02.2021
 
 import numpy as np
-from ...abstract_method import AbstractMethod
-from .validator import JacobiValidator
+
+from equiter.src.method.abstract_method import AbstractMethod
+from equiter.src.method.stationary.jacobi.validator import JacobiValidator
 
 """
-    Wejście (Argumenty funkcji) [wymagania dla argumentów -> patrz: validator]:
-        - A (macierz) - kwadratowa macierz układu równań
+    Wejście (Parametry metody) [wymagania dla parametrów -> patrz: validator]:
+        - A (macierz) - kwadratowa dwuwymiarowa macierz układu równań
         - b (wektor)- wektor wartości po prawej stronie równiania Ax = b
         - x0 (wektor) [opcjonalne] - Początkowe przybliżenie niewiadomych układu
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0

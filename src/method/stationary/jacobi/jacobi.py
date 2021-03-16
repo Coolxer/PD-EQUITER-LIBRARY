@@ -1,8 +1,8 @@
 # Jacobi
 # Autor: Łukasz Miłoś, 15.02.2021
 
-from .method import JacobiMethod
-from .validator import errors, JacobiValidator
+from equiter.src.method.stationary.jacobi.method import JacobiMethod
+from equiter.src.method.stationary.jacobi.validator import JacobiValidator, errors
 
 # Przygotowanie metody Jacobiego do pracy
 

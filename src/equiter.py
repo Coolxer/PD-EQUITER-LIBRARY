@@ -1,11 +1,10 @@
 # Equiter
 # Autor: Łukasz Miłoś, 15.02.2021
 
-'''
 import numpy as np
 
-from .method.parameters import Parameters
-from .method.stationary.jacobi.jacobi import jacobi
+from equiter.src.method.parameters import Parameters
+from equiter.src.method.stationary.jacobi.jacobi import jacobi
 
 # To jest podstawa biblioteki Equiter
 # Użytkownik na początku powinien utworzyć obiekt klasy Equiter
@@ -26,4 +25,3 @@ class Equiter:
             return
         elif method == "sor":
             return
-'''

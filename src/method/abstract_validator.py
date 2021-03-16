@@ -2,7 +2,7 @@
 # Autor: Łukasz Miłoś, 15.02.2021
 
 import numpy as np
-from ..equiter.method.parameters import Parameters
+from equiter.src.method.parameters import Parameters
 
 """
 # AbstractValidator stanowi bazę (interfejs) dla wszystkich pozostałych walidatorów

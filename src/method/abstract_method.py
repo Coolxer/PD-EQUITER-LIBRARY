@@ -4,9 +4,9 @@
 import time
 import numpy as np
 
-from .parameters import Parameters
-from .abstract_validator import AbstractValidator
-from .visualizer import Visualizer
+from equiter.src.method.parameters import Parameters
+from equiter.src.method.abstract_validator import AbstractValidator
+from equiter.src.method.visualizer import Visualizer
 
 """
 # AbstractMethod stanowi bazę (interfejs) dla wszystkich pozostałych metod
@@ -50,8 +50,8 @@ class AbstractMethod:
             return
 
         # sprawdzenie wartunku zbieżności kolejnych rozwiązań
-        if(not self.__checkConditionOfConvergence(params))
-        return
+        if(not self.__checkConditionOfConvergence(params)):
+            return
 
         # pobranie aktualnego czasu przed rozpoczęciem wykonywania metody
         start = time.time()
@@ -112,6 +112,6 @@ class AbstractMethod:
         return 0, 0
 
     # wizualizacja danych wejściowych i wynikowych
-    def __visualize(self, data: list, solution: list):
+    def __visualize(self, data: np.array, solution: np.array):
         visualizer = Visualizer(data, solution)
         visualizer.draw()
