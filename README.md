@@ -22,4 +22,4 @@ Equiter jest biblioteką napisaną w Pythonie i opartą na pakiecie numpy, któr
 ---
 
 ##### Jak używać?
-Użytkownik dostaje dostęp do wszystkich funkcji z poziomu pakietu Equiter, który wystarczy zaimportować, a następnie utworzyć obiekt tego typu. Za pomocą obiektu możlwie jest wykonywanie obliczeń.
+Użytkownik dostaje dostęp do wszystkich funkcji z poziomu pakietu Equiter, który wystarczy zaimportować, a następnie możlwie jest wykonywanie obliczeń.
