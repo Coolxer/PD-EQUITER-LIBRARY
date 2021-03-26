@@ -1,0 +1,30 @@
+------------------------------------------ Opis teoretyczny ------------------------------------------
+
+Metoda jest ulepszeniem metody Gaussa-Seidela, ponieważ wykorzystując właściwość tej metody, wprowadza
+dodatkowe przemnożenie tzw. poprawki przez parametr, co prowadzi do przyspieszenia procesu poszukiwania
+rozwiązania.
+
+Metody SOR jest znacznie efektywniejsza niż metoda Jacobiego i Gausa-Seidla, dla zadań o dużym 
+wskaźniku uwarunkowania.
+
+Parametr w nazywany jest parametrem nadrelaksacji i jeśli znajduje się w zakresie (0, 2) to metoda jest
+zbieżna. W przypadku gdy parametr w == 1 to mamy do czynienia z metodą Gaussa-Seidla, ponieważ 
+parametr wtedy niczego nie zmienia.
+
+Własności wynikające z wartości parametru w:
+
+    ||  Parametr w  ||||          Własność         ||
+    ||   w E (0, 2) ||||     metoda jest zbieżna   ||
+    ||   w > 1      ||||   metoda nadrelaksacji    ||
+    ||   w E (0, 1) ||||     metoda podrelaksacji  ||
+    ||   w == 1     ||||    metoda Gaussa-Seidla   ||
+
+-------------------------------------------------------------------------------------------------------
+
+------------------------------------------ Opis matematyczny ------------------------------------------
+
+Wzór dla metody SOR w zapisie macierzowym (2 warianty): 
+    1) x^(n+1) = [wb - (wU + (w - 1)D)x^(n)] / (D + wL)
+    2) x^(n+1) = (D + wL)^(-1)[wb - (wU + (w - 1)D)x^(n)]
+
+-------------------------------------------------------------------------------------------------------

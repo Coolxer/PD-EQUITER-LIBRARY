@@ -1,3 +1,52 @@
+# OGÓLNE
+	Postanowiłem nieco "rozszerzyć" kod, tak aby było coś więcej niż tylko kilka funkcji konkretnych metod iteracyjnych.
+
+	Wyodrębniłem części wspólne, a także konkretne etapy metod: 
+		- walidacja danych, 
+		- przygotowanie danych do obliczeń 
+		- obliczenia
+
+	Dodałem możliwość prezentacji parametrów macierzy wejściowej i wyjściowej w postaci spisu i w postaci graficznej.
+	Metoda ma także mierzony czas przygotowania danych i obliczeń (bez mierzenia czasu walidacji).
+	Dodałem także testy jednostkowe, głównie walidacji danych wejściowych.
+	Z testowaniem wyników może być różnie, bo operacje na liczbach zmiennoprzecinkowych mogą dać różne rezultaty w zależności od sprzętu.
+	Chociaż testy będą uruchamiane tylko przeze mnie, więc z dużym prawdopodobieństwem będą dodane, aby zautomatyzować sprawdzanie poprawności działania.	
+
+	Całość oparłem na OOP (programowanie obiektowe), bo jest on popularne i "szanowane", tzn. uznawane za poprawne.
+
+	Myślałem nad programowaniem funkcyjnym, które w ostatnim czasie nabrało popularności i w tym przypadku by się sprawdziło,
+	ale tutaj znowu kwestia złożoności. Wydaje mi się, że z udziałem klas wygląda to bardziej profesjonalnie i nie można też posądzić o ewentualny plagiat.
+
+	* Pytania do tej sekcji:
+		- Czy przyjęta koncepcja OOP jest dobra? Czy może jednak zrobić same funkcje (np. 6 plików + ewentualnie prezentację wykresu / test)
+		- Czy nie za bardzo komplikuje to obraz całości?
+
+
+# Główne źrodla teorii, wzorów, implementacji, z których do tej pory korzystałem:
+	Metody numeryczne
+	Wykład 5
+	Układy równań liniowych - metody iteracyjne (PRZ)
+
+	Metody numeryczne - Laboratorium 3
+	Układy równań liniowych (PRZ)
+	
+	METODY NUMERYCZNE
+	DLA INŻYNIERÓW
+	(notatki do wykładu) (PDF)
+	
+	Metody numeryczne
+	w przykładach (PDF)
+	
+	Wikipedia, strony dotyczace poszczegolnych metod:
+		https://en.wikipedia.org/wiki/Jacobi_method
+		https://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method
+		https://en.wikipedia.org/wiki/Successive_over-relaxation
+
+	* Pytania do tej sekcji:
+		- Czy obrane źródła są dobre / wystarczające?
+		- Inne polecane i dostępne źródła, z których można korzystać?
+
+
 # JAKIE METODY (są / będą zawarte w bibliotece)
 	metody iteracyjne (przybliżone)
 		- metody stacjonarne
@@ -10,12 +59,30 @@
 				- m. bi-CG-STAB
 				- m. GMRES
 
+	* Pytania do tej sekcji:
+		- Coś dodać / odjąć?
+
 
 # METODA (z czego składa się moduł)
 	- teoria
 
 	- treść
-		- full numpy
+		etapy:
+			- walidacja danych (w tym macierz dominujaca)
+			- sprawdzanie warunku koniecznego zbieznosci (dostateczny == wystarczający ??) We wszystkich 3 metodach jest jednakowy?
+			- przygotowanie danych
+			- obliczenia
+				- kolejne przyblizenia
+				- warunek konczacy (tzw. warunek stopu)
+					sum |xi^(n+1) - xi^(n)| < tol
+					max |xi^(n+1) - xi^(n)| < tol 
+			
+		rodzaje implementacji:
+			- bez numpy (listy + iteracja po elementach tablicy) [porzucone ?]
+			- numpy tylko dla IO (iteracyjnie po elementach (numpy tylko dla danych wejściowych))) [porzucone ?]
+			- "podstawowe" numpy (IO + operacje na macierzach) ???
+			- "wyższy poziom" numpy (numpy.linalg (https://numpy.org/doc/stable/reference/routines.linalg.html)) ???
+			np.allclose() -> do obliczenia błędu metody, czy zalicza się do wyższego poziomu?
 
 	- testy
 		- dane wejściowe
@@ -25,31 +92,53 @@
 		- rozwiązania
 		- wizualizacje ? (matplotlib)
 
-	- dokumentacja
+	- dokumentacja ?
+
+	* Pytania do tej sekcji:
+		- Kwestia warunku koniecznego zbieżności. Czy ten, co aktualnie jest w porządku dla wszystkich 3. Czy wystarczy sprawdzenie na początku, 
+			bez sprawdzania za każdym razem?
+		- Implementacja ? Myślę, że numpy jest w porządku, a kwestia pakietu numpy.linalg też jest otwarta, bo nie upraszcza to jakoś bardzo implementacji.
+			Jest to raczej kwestia jakiegoś podpakietu
+		- Czy wizualizacja powinna znaleźć się w bibliotece? Jest ona opcjonalnie do wyboru. To zwykła prezentacja macierzy w postaci wykresu.
+			Jakieś inne propozycje?
+		- Domyślam się, że niezbędna pewnie będzie jakaś dokumentacja techniczna biblioteki? Jakie metody zawiera itp. 
+			Czy jeśli ma być, to czy musi być ona stricte techniczna, tzn. opisywać wszystko dokładnie. Czy może być raczej taka pod użytkownika ?.
+			"Pod użytkownika" czyli opisuje funkcje i parametry tych funkcji, ale tylko tych używanych przez użytkownika bezpośrednio, a nie "wewnętrznych".
+			Czy w grę wchodzi dokumentacja generowana automatycznie na podstawie komentarzy w kodzie?
 
 
 # CAŁOŚĆ
-	- porównanie metod
-	- main (showcase)
-	- dokumentacja
-	- strona internetowa ???
+	* Pytania do tej sekcji:
+		- kilka zbiorów danych i kilka przykładowych skryptów (źródła danych do obliczeń ?)
+		- main (showcase) ?
+		- stworzenie paczki do łatwej instalacji? (pip ?)
 
-# PYTANIA
+
+# INNE PYTANIA
 	- dotyczące metod
-		- kwestia IEEE 754 (dokładności obliczeń komputerowych), czy powinienem to poruszyć (teoretycznie i praktycznie?)
-		- kwestia typów danych (ma znaczenie przy dużych układach równań), optymalizacji, złożoności obliczeniowej
-		- uwarunkowanie zadania ?
-		- sprawdzanie zbieżności (na każdym kroku ?)
+		- Błędy:
+			- generalnie kwestia błędów (analityczne i komputerowe)? Zaokrąglanie, obcinanie, dokładność prezentacji liczby (Chyba będzie zaokrąglane do dokładności takiej jak tolerancja)
+			- kwestia IEEE 754 (dokładności obliczeń komputerowych), czy powinienem to poruszyć (teoretycznie i praktycznie?)
+
+		- kwestia typów danych (ma znaczenie przy dużych układach równań), optymalizacji, złożoności obliczeniowej (Tutaj pewnie zostanie domyślnie)
+		- proba zamiany macierzy na dominujaca (widziałem taką próbę, ale czy warto?) Na ten moment jeśli nie jest dominująca to metoda przerywa działanie?
+
+		- uwarunkowanie zadania ? Czy powinienem to jakoś uwzględnić. W jaki sposób?
+
+		- sprawdzanie zbieżności (na każdym kroku ?, bo w dostarczonych skryptach jest tylko na początku)
+		- macierze rzadkie?
+		- zaokrąglanie / ucinanie wyników (w prezentacji? w zależności od dokładności)
 		- kwestie plagiatowe (głównie w kodzie)
 
 	- dotyczące pracy dyplomowej
-		- podobne tematy z przykładami wykonania ?
-		- wystarczające zgłębienie tematu (dla siebie) [czy przedstawiać np. pakiet numpy?]
-		- wystarczające zgłębienie tematu (w pracy dyplomowej)
+		- podobne tematy z przykładami wykonania ? Jakieś wskazówki ?
+		- temat dotyczy stricte algorytmów, czy to oznacza, że analiza matematyczna nie jest tutaj aż tak istotna (obawa o sferę matematyczną)
+		- wystarczające zgłębienie tematu (dla siebie) 
+		- wystarczające zgłębienie tematu (w pracy dyplomowej) 
 			- ogólnie o macierzach ???
 			- ogólnie o metodach numerycznych
 			- ogólnie o błędach metod numerycznych i ograniczeniach
-			- ogólnie o błędach obliczeń komputerowych
+			- ogólnie o błędach obliczeń komputerowych ?
 			- o poszczególnych metodach iteracyjnych (teoria + praktyka)
 			- porównanie metod pod względem zastosowania, błędów, złożoności obliczeniowej
 
@@ -60,7 +149,10 @@
 		- przykłady zadań z rozwiązaniami (realne problemy), tak aby można było posprawdzać
 		- 2'gi etap to wykonanie instrukcji do laboratorium na podstawie stworzonej biblioteki
 			- Czy należy do pracy dyplomowej, czy jest tylko dodatkowym obowiązkiem ? Kwestia "mocnego wzorowania się na aktualnej instrukcji" -> PLAGIAT
-				- Jeśli nie należy do pracy dyplomowej to nie należy obawiać się o plagiat i można szybko podmienić odpowiednie treści?
+				- Jeśli nie należy do pracy dyplomowej to nie należy obawiać się o plagiat i można szybko podmienić odpowiednie treści (tylko związane z metodami iteracyjnymi)?
+			- Udostępnienie edytowalnego pliku zamiast pdf?
 
 		- Rozumiem, że nie ma obaw o powierzchownie zbyt "łatwy" temat pracy dyplomowej, skoro Pan Profesor go zatwierdził i go promuje.
 		Osobiście uważam, że temat jest ciekawy i porusza wiele paradygmatów pracy inżynierskiej i wykorzystuje zdobyte podczas studiów umiejętności.
+
+	

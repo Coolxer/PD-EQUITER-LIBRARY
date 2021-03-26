@@ -1,21 +1,13 @@
-# Informator danych
-# Autor: Łukasz Miłoś, 15.02.2021
 
 import numpy as np
 from tabulate import tabulate
 
-# DataInformer służy do prezentacji danych o macierzy
-# Uzyskiwane informacje to:
-#   - liczba wszystkich elementów
-#   - liczba niezerowych elementów
-#   - liczba wierszy
-#   - liczba kolumn
-#   - typ elementów
+# Klasa View jest klasą pomocniczą i umożliwia wyświetlanie macierzy i informacji o tej macierzy
 
 
-class DataInformer:
-    # konstruktor z macierzą
-    def __init__(self, matrix: np.array):
+class View:
+    @staticmethod
+    def showMatrixInformations(matrix: np.array):
         headers = ['Parametr', 'Wartosc']
         data = []
 
@@ -31,3 +23,10 @@ class DataInformer:
 
         # wyświetlenie tabeli
         print(tabulate(data, headers=headers, tablefmt="grid"))
+
+    @staticmethod
+    def drawMatrix(matrix: np.array):
+        for i in range(3):
+            for j in range(3):
+                print("{0:.4f}".format(matrix[i][j]), end="  ")
+        print()

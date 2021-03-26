@@ -1,0 +1,18 @@
+{ 
+    "1": "Macierz A nie może być pusta!",
+    "2": "Macierz A musi być dwuwymiarowa!",
+    "3": "Macierz A musi być kwadratowa!",
+
+    "4": "Wektor b nie może być pusty!",
+    "5": "Wektor b musi być jednowymiarowy",
+    "6": "Wektor b musi mieć rozmiar równy ilości wierszy/kolumn macierzy A",
+
+    "7": "Liczba max_iterations musi być całkowita dodatnia!",
+    "8": "Liczba tolerance musi być różna od 0!",
+
+    "9": "Wektor x0 nie może być pusty!",
+    "10": "Wektor x0 musi być jednowymiarowy",
+    "11": "Wektor x0 musi mieć rozmiar równy ilości wierszy/kolumn macierzy A",
+
+    "12": "Liczba w musi być z zakresu (0, 2)"
+}

@@ -1,53 +1,29 @@
-# Teoria metody Jacobiego (iteracji prostej)
-# Autor: Łukasz Miłoś, 15.02.2021
+# Plik: theory.txt
+# Zawartość: Opis teoretyczny i matematyczny dla metody Jacobiego.
 
----------------------------- Opis teoretyczny -----------------------------
+------------------------------------------ Opis teoretyczny -------------------------------------------
 
-Metoda pozwala na obliczenie kwadratowego układu n-równań z n-niewiadomymi przy maksymalnej liczbe iteracji z zadaną dokładnością.
-Oznacza to, że jeśli algorytm osiągnie wcześniej wymaganą dokładność, to przerwie swoje działanie przed wykonaniem k-operacji.
-Z drugiej strony algorytm przerwie swoje działanie po wykonaniu k-operacji, nawet jeśli nie osiągnie wymaganej dokładności.
-Algorytm sprawdza też warunek zbieżności ciągu kolejnych przybliżeń i w razie braku spełnienia warunku, kończy działanie.
+Metoda iteracji prostej jak sama nazwa wskazuje jest jedną z najprostszych metod iteracyjnych
+rozwiązywania układu równań.
 
-Im więcej iteracji tym rozwiązanie jest dokładniejsze, ale większa jest złożoność obliczeniowa.
-Należy wybrać złoty środek pomiędzy czasem, a dokładnością obliczeń.
-    
-Zamiast liczyć iteracyjnie, pisząc implementację w czystym pythonie, warto wykorzystać bibliotekę numpy,
-bo działa znacznie lepiej i szybciej i pozwala przyspieszyć obliczenia, co jest bardzo istotne w przypadku dużych układów
+-------------------------------------------------------------------------------------------------------
 
----------------------------------------------------------------------------
+----------------------------------------- Opis matematyczny -------------------------------------------
 
---------------------------- Opis matematyczny -----------------------------
+Przekształcenie układu wejściowego:
+    A = L + D + U
+    (L + D + U)x = b
+    Lx + Dx + Ux = b
+    Dx + (L + U)x = b       // - (L + U)x
+    Dx = b - (L + U)x       // /D      ||     // * D^(-1)
+    x^(n+1) = (b - (L + U)x^(n)) / D             ||     x^(n+1) = (b - (L + U)x^(n)) * D^(-1)
 
-Układ Ax = b
+Wyznaczenie L + U na podstawie wzoru (możliwe jest także zwykłe obliczenie sumy macierzy L i U):
+    A = L + D + U
+    A = D + (L + U)
+    (L + U) = A - D
 
-Macierz wejściowa A układu przedstawiana jest jako:
-A = L + D + U
-
-gdzie:
-    L - macierz dolna trójkątna
-    D - macierz diagonalna
-    U - macierz górna trójkątna
-
-Zatem układ wygląda następująco:
-(L + D + U)x = b
-
-Stąd
-Dx = -(L + U)x + b
-
-Jeśli  macierz D jest nieosobliwa(wyznacznik det(D) != 0)
-x = -D ^ (-1)(L + U)x + D ^ (-1)b
-        
-Warunek konieczny zbieżności kolejnych przybliżeń
-^iE{1,2...,n}|aii| > SUM(|aij|, {j={1,2...,n, j != i}})
-
-Wzór iteracyjny dla metody Jacobiego w zapisie macierzowym
-x ^ (n+1) = -D ^ (-1)(L + U)x ^ n + D(-1)b
-
-Wzór iteracyjny dla metody Jacobiego w zapisie elementowym
-xi^(n + 1) = (1 / aii) * (bi - SUM(aij*xj^n, {j = 1,2...,n, j != i }))
-
-Warunek kończący wykonywanie iteracji(związany z dokładnością obliczeń)
-SUM(xi^(n + 1) - xi^n), {i = 1,2,...,n}) < tol
-,gdzie tol - tolerancja, z góry zakładana dokładność
-
----------------------------------------------------------------------------
+Wzór dla metody Jacobiego w zapisie macierzowym (2 warianty):
+    1) x^(n+1) = (b - (L + U)x^(n)) / D
+    2) x^(n+1) = (b - (L + U)x^(n)) * D^(-1)
+-------------------------------------------------------------------------------------------------------

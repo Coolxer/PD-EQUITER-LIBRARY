@@ -1,0 +1,41 @@
+------------------------------------------ Opis teoretyczny -------------------------------------------
+
+Metody stacjonarne wykorzystują początkowy wektor przybliżający do wyznaczania rozwiązań i błędów.
+
+Do metod stacjonarnych zaliczają się:
+    - metoda Jacobiego
+    - metoda Gaussa-Seidla
+    - metoda SOR (nadrelaksacji)
+
+-------------------------------------------------------------------------------------------------------
+
+----------------------------------------- Opis matematyczny -------------------------------------------
+
+Układ wejściowy:
+    Ax = b
+
+Macierz wejściowa A układu przedstawiana jest jako:
+    A = L + D + U
+
+        gdzie:
+            L - macierz dolna trójkątna
+            D - macierz diagonalna
+            U - macierz górna trójkątna
+
+Zatem przekształcony układ wygląda następująco:
+    (L + D + U)x = b
+
+Warunek konieczny zbieżności ciągu kolejnych przybliżeń (macierz dominująca): 
+    ^iE{1,2...,n}|aii| > SUM(|aij|, {j={1,2...,n, j != i}})"
+
+
+Warunek kończący wykonywanie iteracji(związany z dokładnością obliczeń) :
+    (Jeśli suma wartości bezwzględnych różnic przybliżeń rozwiązań z aktualnej i poprzedniej iteracji
+        jest mniejsza niż zakładana dokładność, to można przerwać obliczenia, ponieważ wachania są niewielkie)
+
+    SUM(xi^(n+1) - xi^(n)) < tol
+    {i = 1,2,...,n})
+        ,gdzie:
+            tol - tolerancja, z góry zakładana dokładność
+
+-------------------------------------------------------------------------------------------------------
