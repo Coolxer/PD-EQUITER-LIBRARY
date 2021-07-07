@@ -15,15 +15,14 @@ Przekształcenie układu wejściowego:
     (L + D + U)x = b
     Lx + Dx + Ux = b
     Dx + (L + U)x = b       // - (L + U)x
-    Dx = b - (L + U)x       // /D      ||     // * D^(-1)
+    Dx = b - (L + U)x       // :D                ||     // * D^(-1)
     x^(n+1) = (b - (L + U)x^(n)) / D             ||     x^(n+1) = (b - (L + U)x^(n)) * D^(-1)
 
-Wyznaczenie L + U na podstawie wzoru (możliwe jest także zwykłe obliczenie sumy macierzy L i U):
-    A = L + D + U
-    A = D + (L + U)
-    (L + U) = A - D
-
-Wzór dla metody Jacobiego w zapisie macierzowym (2 warianty):
+Wzór dla metody Jacobiego w postaci macierzowej (2 warianty):
     1) x^(n+1) = (b - (L + U)x^(n)) / D
     2) x^(n+1) = (b - (L + U)x^(n)) * D^(-1)
+
+Wzór dla metody Jacobiego w postaci elementowej (2 warianty):
+    1) xi^(n+1) = (1/aii)(bi - sum(aij*xj^(n)))
+    2) xi^(n+1) = ((bi - sum(aij*xj^(n))) / aii
 -------------------------------------------------------------------------------------------------------

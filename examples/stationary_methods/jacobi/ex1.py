@@ -1,16 +1,23 @@
-from equiter.data.set1 import parameters
-from equiter.src.main import Equiter
-from equiter.src.core.view import View
+import numpy as np
+from src.stationary_methods.jacobi.method import jacobi
 
-# Przewidywane wyniki dla podanego zestawu danych
+# Parametry wejściowe:
+A = np.array([[3, 1, -1], [-1, 5, -1], [2, 4, 8]])
+b = np.array([6, 10, 2])
+max_iterations = 3
+tolerance = 0.0001
+
+# Rozwiązanie układu:
+# x = [1.0000, 2.0000, -1.0000]
+
+# Przewidywane wyniki:
 # x0: [0.0000, 0.0000, 0.0000]
-# x1: [0.5000, 1.5000, 0.5000]
-# x2: [0.8750, 1.7500, 0.8750]
-# x3: [0.9375, 1.9375, 0.9375]
-# x4: [0.9844, 1.9688, 0.9844]
+# x1: [2.0000, 2.0000, 0.2500]
+# x2: [1.4167, 2.4500, -1.2500]
+# x3: [0.7667, 2.0333, -1.3292]
+# ...
+# x29: [1.0000, 2.0000, -1.0000]
 
-print("##### Metoda stacjonarna - Jacobi - Przykład 1")
+print("##### Metoda iteracyjna stacjonarna - Jacobi - Przykład 1 #####")
 
-View.showMatrix(parameters.A)
-
-Equiter.solve(method='jacobi', parameters=parameters, visualize=True)
+jacobi(A, b, max_iterations, tolerance)

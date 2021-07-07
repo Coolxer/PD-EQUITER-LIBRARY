@@ -19,13 +19,11 @@ Przekształcenie układu wejściowego:
     x^(n+1) = -Ux^(n)(L + D)^(-1) + b(L + D)^(-1)
     x^(n+1) = (L + D)^(-1)[b - Ux^(n)]
 
+Wzór dla metody Gaussa-Seidela w postaci macierzowej (2 warianty):
+    1) x^(n+1) = (L + D)^(-1)[b - Ux^(n)]
+    2) x^(n+1) = (b - Ux^(n)) / (L + D)
 
-Wyznaczenie L + D na podstawie wzoru (możliwe jest także zwykłe obliczenie sumy macierzy L i D):
-    A = L + D + U
-    A = (L + D) + U
-    (L + d) = A - U
-
-Wzór dla metody Gaussa-Seidela w zapisie macierzowym:
-    x^(n+1) = (L + D)^(-1)[b - Ux^(n)]
-
+Wzór dla metody Gaussa-Seidela w postaci elementowej (2 warianty):
+    1) xi^(n+1) = (1 / aii)*(bi - sum(aij * xj^(n+1)) - sum(aij * xj^(n)))
+    1) xi^(n+1) = (bi - sum(aij * xj^(n+1)) - sum(aij * xj^(n))) / aii
 -------------------------------------------------------------------------------------------------------

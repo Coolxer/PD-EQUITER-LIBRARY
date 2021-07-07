@@ -23,8 +23,11 @@ Własności wynikające z wartości parametru w:
 
 ------------------------------------------ Opis matematyczny ------------------------------------------
 
-Wzór dla metody SOR w zapisie macierzowym (2 warianty): 
+Wzór dla metody SOR w postaci macierzowej (2 warianty): 
     1) x^(n+1) = [wb - (wU + (w - 1)D)x^(n)] / (D + wL)
-    2) x^(n+1) = (D + wL)^(-1)[wb - (wU + (w - 1)D)x^(n)]
+    2) x^(n+1) = [wb - (wU + (w - 1)D)x^(n)] * (D + wL)^(-1)
+
+Wzór dla metody SOR w postaci elementowej: 
+    1) xi^(k+1) = (1-w)xi^(k) + (w/aii)[bi - sum(aij * xj^(k+1)) - sum(aij * xj^(k))]
 
 -------------------------------------------------------------------------------------------------------
