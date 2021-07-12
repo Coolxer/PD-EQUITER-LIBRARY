@@ -2,13 +2,13 @@ import numpy as np
 import time
 
 from src.validator import validator
-from src.stationary_methods.convergence import checkConditionOfConvergence
+from src.convergence import checkConditionOfConvergence
 
 """
     Wejście (Parametry metody) [wymagania dla parametrów -> patrz: validator]:
         - A (macierz) - kwadratowa dwuwymiarowa macierz układu równań
-        - b (wektor)- wektor wartości po prawej stronie równiania Ax = b
-         - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec operacji
+        - b (wektor)- wektor wartości po prawej stronie równania Ax = b
+        - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec operacji
         - tolerance (liczba zmiennoprzecinkowa, podwójnej precyzji) - zadana dokładność (tolerancja), która determinuje koniec operacji
         - x0 (wektor) [opcjonalne] - Początkowe przybliżenie niewiadomych układu
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
@@ -19,11 +19,11 @@ from src.stationary_methods.convergence import checkConditionOfConvergence
             - iteration - numer ostatniej wykonanej iteracji
             - elapsedTime - czas obliczeń [s]
 
-        b) w przypadku błędnych danych wejściowych funkcja przerwie swoje działanie i zwróci błąd -> [patrz: validator]
+        b) w przypadku błędnych danych wejściowych funkcja przerwie swoje działanie i zwróci stosowną informację [patrz: validator]
 """
 
 
-def gauss_seidel(A: np.array, b: np.array, max_iterations: int, tolerance: float, x0: np.array = None):
+def jacobi(A: np.array, b: np.array, max_iterations: int, tolerance: float, x0: np.array = None):
 
     # pobranie czasu startu operacji
     startTime = time.time()
@@ -33,7 +33,7 @@ def gauss_seidel(A: np.array, b: np.array, max_iterations: int, tolerance: float
 
     # jeśli wystąpił błąd to funkcja kończy swoje działanie
     if code:
-        return code
+        return
 
     # sprawdzenie warunku zbieżności metody
     if(not checkConditionOfConvergence(A)):
@@ -49,17 +49,11 @@ def gauss_seidel(A: np.array, b: np.array, max_iterations: int, tolerance: float
     else:
         x = x0.copy()
 
-    # wyznaczenie macierzy dolno-trójkątnej
-    L = np.tril(A)
+    # wyznaczenie przekątnej macierzy A
+    D = np.diag(A)
 
-    # wyznaczenie macierzy U
-    U = A - L
-
-    # wyznaczenie sumy macierzy L i D
-    L_plus_D = A - U
-
-    # wyznaczenie odwrotności sumy macierzy L i D
-    L_plus_D_inv = np.linalg.inv(L_plus_D)
+    # wyznaczenie sumy macierzy dolno- i górno- trójkątnych
+    L_plus_U = A - np.diag(D)
 
     # pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations + 1):
@@ -68,7 +62,7 @@ def gauss_seidel(A: np.array, b: np.array, max_iterations: int, tolerance: float
         x_old = x.copy()
 
         # obliczenie kolejnego wektora przybliżeń rozwiązania
-        x = np.dot(L_plus_D_inv, b - np.dot(U, x_old))
+        x = (b - np.dot(L_plus_U, x_old)) / D
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
         if sum(np.abs(np.dot(A, x) - b)) < tolerance:

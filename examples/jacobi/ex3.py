@@ -1,5 +1,5 @@
 import numpy as np
-from src.stationary_methods.jacobi.method import jacobi
+from src.jacobi.method import jacobi
 
 # Parametry wejściowe:
 A = np.array([[10, -1, 2, 0], [-1, 11, -1, 3],

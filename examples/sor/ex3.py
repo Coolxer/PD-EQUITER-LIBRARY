@@ -1,5 +1,5 @@
 import numpy as np
-from src.stationary_methods.sor.method import sor
+from src.sor.method import sor
 
 # Parametry wejściowe:
 A = np.array([[2, 0, 1], [0, 2, 1],
