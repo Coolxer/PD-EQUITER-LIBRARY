@@ -1,5 +1,5 @@
 import numpy as np
-from src.stationary_methods.gauss_seidel.method import gauss_seidel
+from src.gauss_seidel.method import gauss_seidel
 
 # Parametry wejściowe:
 A = np.array([[2, 3], [5, 7]])

@@ -2,7 +2,7 @@ import numpy as np
 import time
 
 from src.validator import validator
-from src.stationary_methods.convergence import checkConditionOfConvergence
+from src.convergence import checkConditionOfConvergence
 
 """
     Wejście (Parametry metody) [wymagania dla parametrów -> patrz: validator]:
@@ -10,7 +10,6 @@ from src.stationary_methods.convergence import checkConditionOfConvergence
         - b (wektor)- wektor wartości po prawej stronie równiania Ax = b
          - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec operacji
         - tolerance (liczba zmiennoprzecinkowa, podwójnej precyzji) - zadana dokładność (tolerancja), która determinuje koniec operacji
-        - w (liczba zmiennoprzecinkowa) - parametr relaksacji (0, 2)
         - x0 (wektor) [opcjonalne] - Początkowe przybliżenie niewiadomych układu
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
 
@@ -24,7 +23,7 @@ from src.stationary_methods.convergence import checkConditionOfConvergence
 """
 
 
-def sor(A: np.array, b: np.array, max_iterations: int, tolerance: float, w: float, x0: np.array = None):
+def gauss_seidel(A: np.array, b: np.array, max_iterations: int, tolerance: float, x0: np.array = None):
 
     # pobranie czasu startu operacji
     startTime = time.time()
@@ -50,6 +49,18 @@ def sor(A: np.array, b: np.array, max_iterations: int, tolerance: float, w: floa
     else:
         x = x0.copy()
 
+    # wyznaczenie macierzy dolno-trójkątnej
+    L = np.tril(A)
+
+    # wyznaczenie macierzy U
+    U = A - L
+
+    # wyznaczenie sumy macierzy L i D
+    L_plus_D = A - U
+
+    # wyznaczenie odwrotności sumy macierzy L i D
+    L_plus_D_inv = np.linalg.inv(L_plus_D)
+
     # pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations + 1):
 
@@ -57,9 +68,7 @@ def sor(A: np.array, b: np.array, max_iterations: int, tolerance: float, w: floa
         x_old = x.copy()
 
         # obliczenie kolejnego wektora przybliżeń rozwiązania
-        for i in range(size):
-            x[i] = (1-w)*x[i] + (w / A[i, i])*(b[i] - np.dot(A[i, :i],
-                                                             x[:i]) - np.dot(A[i, (i+1):], x_old[(i+1):]))
+        x = np.dot(L_plus_D_inv, b - np.dot(U, x_old))
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
         if sum(np.abs(np.dot(A, x) - b)) < tolerance:
