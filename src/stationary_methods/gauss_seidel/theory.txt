@@ -1,0 +1,29 @@
+------------------------------------------ Opis teoretyczny ------------------------------------------
+
+Metoda jest ulepszeniem metody Jacobiego, ponieważ wykorzystuje nowo-obliczone wartości wektora x,
+w bieżącej iteracji, a nie tak jak w przypadku metody Jacobiego, korzysta z wektora z poprzedniej iteracji.
+Dzięki temu zostaje zredukowana liczba niezbędnych operacji.
+
+Metoda pozwala przyspieszyć proces iteracyjny wykonywany za pomocą metody Jacobiego.
+
+-------------------------------------------------------------------------------------------------------
+
+------------------------------------------ Opis matematyczny ------------------------------------------
+
+Przekształcenie układu wejściowego:
+    A = L + D + U
+    (L + D + U)x = b
+    (L + D)x + Ux = b   // -Ux
+    (L + D)x = -Ux + b
+    (L + D)x^(n+1) = -Ux^(n) + b // *(L + D)^(-1)
+    x^(n+1) = -Ux^(n)(L + D)^(-1) + b(L + D)^(-1)
+    x^(n+1) = (L + D)^(-1)[b - Ux^(n)]
+
+Wzór dla metody Gaussa-Seidela w postaci macierzowej (2 warianty):
+    1) x^(n+1) = (L + D)^(-1)[b - Ux^(n)]
+    2) x^(n+1) = (b - Ux^(n)) / (L + D)
+
+Wzór dla metody Gaussa-Seidela w postaci elementowej (2 warianty):
+    1) xi^(n+1) = (1 / aii)*(bi - sum(aij * xj^(n+1)) - sum(aij * xj^(n)))
+    1) xi^(n+1) = (bi - sum(aij * xj^(n+1)) - sum(aij * xj^(n))) / aii
+-------------------------------------------------------------------------------------------------------
