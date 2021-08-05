@@ -4,7 +4,7 @@
 ---
 
 ##### Dlaczego warto wybrać Equiter?
-Equiter jest biblioteką napisaną w Pythonie i opartą na pakiecie numpy, który umożliwia wydajne wykonywanie operacji na macierzach. Metody są odpowiednio zoptymalizowane i szybsze niż ich odpowiedniki na zwykłych tablicach python'a. Biblioteka umożliwia nie tylko znajdowanie rozwiązań przy użyciu metod iteracyjnych, ale także prostą wizualizację wyników w postaci wykresów.
+Equiter jest biblioteką napisaną w Pythonie i opartą na pakiecie numpy, który umożliwia wydajne wykonywanie operacji na macierzach. Metody są odpowiednio zoptymalizowane i szybsze niż ich odpowiedniki na zwykłych tablicach python'a. 
 
 ---
 
@@ -14,11 +14,6 @@ Equiter jest biblioteką napisaną w Pythonie i opartą na pakiecie numpy, któr
 		* Metoda Jacobiego (iteracji prostej)
 		* Metoda Gaussa-Seidla
 		* Metoda nadrelaksacji (SOR)
-	* Metody niestacjonarne
-		* Metody przestrzeni Kryłowa
-			* Metoda CG
-			* Metoda bi-CG-STAB
-			* Metoda GMRES
 ---
 
 ##### Jak używać?
