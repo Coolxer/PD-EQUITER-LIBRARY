@@ -71,7 +71,7 @@ def gauss_seidel(A: np.array, b: np.array, max_iterations: int, tolerance: float
         x = np.dot(L_plus_D_inv, b - np.dot(U, x_old))
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
-        if sum(np.abs(np.dot(A, x) - b)) < tolerance:
+        if sum(np.abs(x - x_old)) < tolerance:
             break
 
     # obliczenie czasu operacji

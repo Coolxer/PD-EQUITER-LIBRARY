@@ -62,7 +62,7 @@ def sor(A: np.array, b: np.array, max_iterations: int, tolerance: float, w: floa
                                                              x[:i]) - np.dot(A[i, (i+1):], x_old[(i+1):]))
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
-        if sum(np.abs(np.dot(A, x) - b)) < tolerance:
+        if sum(np.abs(x - x_old)) < tolerance:
             break
 
     # obliczenie czasu operacji

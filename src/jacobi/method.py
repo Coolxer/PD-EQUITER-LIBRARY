@@ -65,7 +65,7 @@ def jacobi(A: np.array, b: np.array, max_iterations: int, tolerance: float, x0: 
         x = (b - np.dot(L_plus_U, x_old)) / D
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
-        if sum(np.abs(np.dot(A, x) - b)) < tolerance:
+        if sum(np.abs(x - x_old)) < tolerance:
             break
 
     # obliczenie czasu operacji
