@@ -8,7 +8,7 @@ import numpy as np
 
 def checkConditionOfConvergence(A: np.array):
     # obliczenie wartości absolutnych głównej przekątnej macierzy wejściowej A
-    D_abs = np.diag(np.abs(A))
+    D_abs = np.abs(np.diag(A))
 
     # obliczenie sumy absolutnych wartości poszczególnych elementów wierszy z wyjątkiem elementu leżącego na głównej przekątnej
     S = np.sum(np.abs(A), axis=1) - D_abs
