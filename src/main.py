@@ -73,7 +73,7 @@ def f_jacobi(A, b, k_max, tol):
                       b - numpy.dot(L_plus_U, x_old))
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
-        if sum(numpy.abs(numpy.dot(A, x) - b)) < tol:
+        if sum(np.abs(x - x_old)) < tolerance:
             break
 
     # zwrocenie wektora wynikowego iliczby wykonanych iteracji
@@ -152,7 +152,7 @@ def f_gauss_seidel(A, b, k_max, tol):
         x = numpy.dot(L_plus_D_inv, b - numpy.dot(U, x_old))
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
-        if sum(numpy.abs(numpy.dot(A, x) - b)) < tol:
+        if sum(np.abs(x - x_old)) < tolerance:
             break
 
     # zwrocenie liczby wykonanych iteracji i wektora wynikowego
@@ -209,7 +209,7 @@ def f_sor(A, b, k_max, tol, w):
                                                                 x[:i]) - numpy.dot(A[i, (i+1):], x_old[(i+1):]))
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
-        if sum(numpy.abs(numpy.dot(A, x) - b)) < tol:
+        if sum(np.abs(x - x_old)) < tolerance:
             break
 
     # zwrocenie liczby wykonanych iteracji i wektora wynikowego
