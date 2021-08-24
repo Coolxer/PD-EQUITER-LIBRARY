@@ -14,16 +14,8 @@ Do metod stacjonarnych zaliczają się:
 Układ wejściowy:
     Ax = b
 
-Macierz wejściowa A układu przedstawiana jest jako:
-    A = L + D + U
-
-        gdzie:
-            L - macierz dolna trójkątna
-            D - macierz diagonalna
-            U - macierz górna trójkątna
-
-Zatem przekształcony układ wygląda następująco:
-    (L + D + U)x = b
+Schemat Ogólnego rozwiązanie iteracyjnego:
+    x = C + Dx
 
 Warunek konieczny zbieżności ciągu kolejnych przybliżeń (macierz dominująca): 
     ^iE{1,2...,n}|aii| > SUM(|aij|, {j={1,2...,n, j != i}})"
@@ -38,7 +30,7 @@ Warunek kończący wykonywanie iteracji(związany z dokładnością obliczeń) :
         ,gdzie:
             tol - tolerancja, z góry zakładana dokładność
 
-    Alternatywnie:
+Alternatywnie Warunek kończący może być wyrażony za pomocą:
     SUM(|~bi^(k) - i|) < tol, ~b^(k) = Ax^(k)
 
 -------------------------------------------------------------------------------------------------------
