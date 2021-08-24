@@ -38,4 +38,7 @@ Warunek kończący wykonywanie iteracji(związany z dokładnością obliczeń) :
         ,gdzie:
             tol - tolerancja, z góry zakładana dokładność
 
+    Alternatywnie:
+    SUM(|~bi^(k) - i|) < tol, ~b^(k) = Ax^(k)
+
 -------------------------------------------------------------------------------------------------------
