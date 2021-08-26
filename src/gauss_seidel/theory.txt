@@ -11,19 +11,16 @@ Metoda pozwala przyspieszyć proces iteracyjny wykonywany za pomocą metody Jaco
 ------------------------------------------ Opis matematyczny ------------------------------------------
 
 Przekształcenie układu wejściowego:
-    A = L + D + U
+    Ax = b
     (L + D + U)x = b
-    (L + D)x + Ux = b   // -Ux
-    (L + D)x = -Ux + b
-    (L + D)x^(n+1) = -Ux^(n) + b // *(L + D)^(-1)
-    x^(n+1) = -Ux^(n)(L + D)^(-1) + b(L + D)^(-1)
-    x^(n+1) = (L + D)^(-1)[b - Ux^(n)]
+    Lx + Dx + Ux = b
+    (L + D)x + Ux = b
+    (L + D)x = b − Ux
+    x = −(L + D)^(−1)U + (L + D)^(−1)b
 
-Wzór dla metody Gaussa-Seidela w postaci macierzowej (2 warianty):
-    1) x^(n+1) = (L + D)^(-1)[b - Ux^(n)]
-    2) x^(n+1) = (b - Ux^(n)) / (L + D)
+Wzór dla metody Gaussa-Seidela w postaci macierzowej:
+    x^(k + 1) = (L + D)^(−1)(b − Ux^(k))
 
-Wzór dla metody Gaussa-Seidela w postaci elementowej (2 warianty):
-    1) xi^(n+1) = (1 / aii)*(bi - sum(aij * xj^(n+1)) - sum(aij * xj^(n)))
-    1) xi^(n+1) = (bi - sum(aij * xj^(n+1)) - sum(aij * xj^(n))) / aii
+Wzór dla metody Gaussa-Seidela w postaci elementowej:
+    x_i^(k + 1) = (1 / a_ii)*(b_i - sum(a_ij * xj^(k + 1)) - sum(aij * xj^(k)))
 -------------------------------------------------------------------------------------------------------

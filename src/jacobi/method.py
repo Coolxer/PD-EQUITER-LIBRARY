@@ -52,6 +52,9 @@ def jacobi(A: np.array, b: np.array, max_iterations: int, tolerance: float, x0: 
     # wyznaczenie przekątnej macierzy A
     D = np.diag(A)
 
+    # wyznaczenie odwrotnośći przekątnej macierzy
+    D_inv = np.linalg.inv(np.diag(D))
+
     # wyznaczenie sumy macierzy dolno- i górno- trójkątnych
     L_plus_U = A - np.diag(D)
 
@@ -62,7 +65,7 @@ def jacobi(A: np.array, b: np.array, max_iterations: int, tolerance: float, x0: 
         x_old = x.copy()
 
         # obliczenie kolejnego wektora przybliżeń rozwiązania
-        x = (b - np.dot(L_plus_U, x_old)) / D
+        x = np.dot(D_inv, b - np.dot(L_plus_U, x_old))
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
         if sum(np.abs(x - x_old)) < tolerance:

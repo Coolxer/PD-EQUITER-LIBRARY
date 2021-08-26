@@ -11,18 +11,17 @@ rozwiązywania układu równań.
 ----------------------------------------- Opis matematyczny -------------------------------------------
 
 Przekształcenie układu wejściowego:
-    A = L + D + U
+    Ax = b
     (L + D + U)x = b
     Lx + Dx + Ux = b
-    Dx + (L + U)x = b       // - (L + U)x
-    Dx = b - (L + U)x       // :D                ||     // * D^(-1)
-    x^(n+1) = (b - (L + U)x^(n)) / D             ||     x^(n+1) = (b - (L + U)x^(n)) * D^(-1)
+    (L + U)x + Dx = b
+    Dx = −(L + U)x + b
+    x = −D^(−1)(L + U)x + D^(−1)b
+    x = −D^(−1)[(L + U)x + b]
 
-Wzór dla metody Jacobiego w postaci macierzowej (2 warianty):
-    1) x^(n+1) = (b - (L + U)x^(n)) / D
-    2) x^(n+1) = (b - (L + U)x^(n)) * D^(-1)
+Wzór dla metody Jacobiego w postaci macierzowej:
+    x^(k + 1) = D^(-1)*(b - (L + U)x^(k))
 
-Wzór dla metody Jacobiego w postaci elementowej (2 warianty):
-    1) xi^(n+1) = (1/aii)(bi - sum(aij*xj^(n)))
-    2) xi^(n+1) = ((bi - sum(aij*xj^(n))) / aii
+Wzór dla metody Jacobiego w postaci elementowej 
+    x_i^(k + 1) = (1/a_ii)(b_i - sum(a_ij * x_j^(k)))
 -------------------------------------------------------------------------------------------------------
