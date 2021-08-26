@@ -59,7 +59,7 @@ def f_jacobi(A, b, k_max, tol):
     # wyznaczenie przekątnej macierzy A
     D = numpy.diag(A)
 
-    # wyznaczenie odwrotnośći przekątnej macierzy
+    # wyznaczenie odwrotności przekątnej macierzy
     D_inv = numpy.linalg.inv(numpy.diag(D))
 
     # wyznaczenie sumy macierzy dolno- i górno- trójkątnych

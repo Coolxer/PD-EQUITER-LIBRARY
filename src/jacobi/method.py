@@ -52,7 +52,7 @@ def jacobi(A: np.array, b: np.array, max_iterations: int, tolerance: float, x0: 
     # wyznaczenie przekątnej macierzy A
     D = np.diag(A)
 
-    # wyznaczenie odwrotnośći przekątnej macierzy
+    # wyznaczenie odwrotności przekątnej macierzy
     D_inv = np.linalg.inv(np.diag(D))
 
     # wyznaczenie sumy macierzy dolno- i górno- trójkątnych
