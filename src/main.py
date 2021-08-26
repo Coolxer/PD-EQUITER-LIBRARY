@@ -59,6 +59,9 @@ def f_jacobi(A, b, k_max, tol):
     # wyznaczenie przekątnej macierzy A
     D = numpy.diag(A)
 
+    # wyznaczenie odwrotnośći przekątnej macierzy
+    D_inv = numpy.linalg.inv(numpy.diag(D))
+
     # wyznaczenie sumy macierzy dolno- i górno- trójkątnych
     L_plus_U = A - numpy.diag(D)
 
@@ -69,11 +72,10 @@ def f_jacobi(A, b, k_max, tol):
         x_old = x.copy()
 
         # obliczenie kolejnego wektora przybliżeń rozwiązania
-        x = numpy.dot(numpy.linalg.inv(numpy.diag(D)),
-                      b - numpy.dot(L_plus_U, x_old))
+        x = numpy.dot(D_inv, b - numpy.dot(L_plus_U, x_old))
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
-        if sum(np.abs(x - x_old)) < tolerance:
+        if sum(numpy.abs(x - x_old)) < tol:
             break
 
     # zwrocenie wektora wynikowego iliczby wykonanych iteracji
@@ -152,7 +154,7 @@ def f_gauss_seidel(A, b, k_max, tol):
         x = numpy.dot(L_plus_D_inv, b - numpy.dot(U, x_old))
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
-        if sum(np.abs(x - x_old)) < tolerance:
+        if sum(np.abs(x - x_old)) < tol:
             break
 
     # zwrocenie liczby wykonanych iteracji i wektora wynikowego
@@ -209,7 +211,7 @@ def f_sor(A, b, k_max, tol, w):
                                                                 x[:i]) - numpy.dot(A[i, (i+1):], x_old[(i+1):]))
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
-        if sum(np.abs(x - x_old)) < tolerance:
+        if sum(np.abs(x - x_old)) < tol:
             break
 
     # zwrocenie liczby wykonanych iteracji i wektora wynikowego
