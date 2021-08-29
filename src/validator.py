@@ -97,16 +97,16 @@ class Validator:
             if not x0.size:
                 return self.__throwError(9)
 
-            # sprawdzenie czy wektor b jest jednowymiarowy
+            # sprawdzenie czy wektor x0 jest jednowymiarowy
             if x0.ndim != 1:
                 return self.__throwError(10)
 
-            # sprawdzenie czy wektor b ma odpowiedni rozmiar
+            # sprawdzenie czy wektor x0 ma odpowiedni rozmiar
             if x0.size != A.shape[0]:
                 return self.__throwError(11)
 
-        # sprawdzenie czy liczba w jest z zakresu <0, 2>
-        if w is not None and (w <= 0.0 or w >= 2.0):
+        # sprawdzenie czy liczba w jest z zakresu (0, 2)
+        if w is not None and (w < 0.0 or w > 2.0):
             return self.__throwError(12)
 
         return self._SUCCESS
