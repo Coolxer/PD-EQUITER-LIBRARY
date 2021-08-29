@@ -21,7 +21,7 @@ import numpy as np
             - Liczba całkowita dodatnia
 
         - tolerance (double) - zadana dokladność (tolerancja), która determinuje koniec operacji
-            - Liczba różna od 0
+            - Liczba zmiennoprzecinkowa większa od 0
 
         [opcjonalny, walidacja tylko w przypadku podania parametru]
         - x0 (wektor)
@@ -87,8 +87,8 @@ class Validator:
         if not isinstance(max_iterations, int) or max_iterations <= 0:
             return self.__throwError(7)
 
-        # sprawdzenie czy liczba tolerance jest różna od 0
-        if tolerance == 0:
+        # sprawdzenie czy liczba tolerance jest mniejsza badz rowna 0
+        if tolerance <= 0.0:
             return self.__throwError(8)
 
         # sprwadzenie czy x0 jest prawidłowe (jeśli podane)

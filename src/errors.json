@@ -8,7 +8,7 @@
     "6": "Wektor b musi mieć rozmiar równy ilości wierszy/kolumn macierzy A",
 
     "7": "Liczba max_iterations musi być całkowita dodatnia!",
-    "8": "Liczba tolerance musi być różna od 0!",
+    "8": "Liczba tolerance musi być większa od 0!",
 
     "9": "Wektor x0 nie może być pusty!",
     "10": "Wektor x0 musi być jednowymiarowy",
