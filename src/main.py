@@ -66,7 +66,7 @@ def f_jacobi(A, b, k_max, tol):
     L_plus_U = A - numpy.diag(D)
 
     # pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
-    for iteration in range(k_max + 1):
+    for iteration in range(k_max):
 
         # zapisanie poprzedniego wektora przybliżeń
         x_old = x.copy()
@@ -145,7 +145,7 @@ def f_gauss_seidel(A, b, k_max, tol):
     L_plus_D_inv = numpy.linalg.inv(L_plus_D)
 
     # pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
-    for iteration in range(k_max + 1):
+    for iteration in range(k_max):
 
         # zapisanie poprzedniego wektora przybliżeń
         x_old = x.copy()
@@ -200,7 +200,7 @@ def f_sor(A, b, k_max, tol, w):
     x = numpy.zeros(size)
 
     # pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
-    for iteration in range(k_max + 1):
+    for iteration in range(k_max):
 
         # zapisanie poprzedniego wektora przybliżeń
         x_old = x.copy()

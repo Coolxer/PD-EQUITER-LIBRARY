@@ -62,7 +62,7 @@ def gauss_seidel(A: np.array, b: np.array, max_iterations: int, tolerance: float
     L_plus_D_inv = np.linalg.inv(L_plus_D)
 
     # pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
-    for iteration in range(max_iterations + 1):
+    for iteration in range(max_iterations):
 
         # zapisanie poprzedniego wektora przybliżeń
         x_old = x.copy()
