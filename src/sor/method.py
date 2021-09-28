@@ -20,7 +20,7 @@ from src.convergence import checkConditionOfConvergence
             - iteration - numer ostatniej wykonanej iteracji
             - elapsedTime - czas obliczeń [s]
 
-        b) w przypadku błędnych danych wejściowych funkcja przerwie swoje działanie i zwróci błąd -> [patrz: validator]
+        b) w przypadku błędnych danych wejściowych funkcja przerwie swoje działanie i zwróci None, None, None
 """
 
 
@@ -34,11 +34,11 @@ def sor(A: np.array, b: np.array, max_iterations: int, tolerance: float, w: floa
 
     # jeśli wystąpił błąd to funkcja kończy swoje działanie
     if code:
-        return code
+        return None, None, None
 
     # sprawdzenie warunku zbieżności metody
     if(not checkConditionOfConvergence(A)):
-        return
+        return None, None, None
 
     # pobranie liczby wierszy macierzy
     size = np.shape(A)[0]
@@ -69,4 +69,4 @@ def sor(A: np.array, b: np.array, max_iterations: int, tolerance: float, w: floa
     elapsedTime = time.time() - startTime
 
     # zwrocenie liczby wykonanych iteracji i wektora wynikowego
-    return x, iteration, elapsedTime
+    return x, iteration + 1, elapsedTime
