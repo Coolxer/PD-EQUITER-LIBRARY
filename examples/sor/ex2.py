@@ -1,9 +1,10 @@
-import numpy as np
-from src.sor.method import sor
+from numpy import array
+from ...src.sor.method import sor
+
 
 # Parametry wejściowe:
-A = np.array([[4, -1, 0], [-1, 4, -1], [0, -1, 4]])
-b = np.array([2, 6, 2])
+A = array([[4, -1, 0], [-1, 4, -1], [0, -1, 4]])
+b = array([2, 6, 2])
 max_iterations = 3
 tolerance = 0.0001
 w = 1.2
@@ -19,6 +20,11 @@ w = 1.2
 # ...
 # x13: [1.0000, 2.0000, 1.0000]
 
-print("##### Metoda iteracyjna stacjonarna - SOR - Przykład 2 #####")
 
-sor(A, b, max_iterations, tolerance, w)
+def sor_example_2():
+    print("##### Metoda iteracyjna stacjonarna - SOR - Przyklad 2 #####")
+    x, i, t = sor(A, b, max_iterations, tolerance, w)
+
+    print(f"Rozwiazanie: {x}")
+    print(f"Liczba wykonanych iteracji: {i}")
+    print(f"Czas obliczen: {t}s")

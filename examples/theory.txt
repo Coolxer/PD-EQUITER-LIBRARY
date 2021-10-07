@@ -1,0 +1,5 @@
+### Przyklady ###
+
+Przyklady mają jedynie na celu pokazanie działania biblioteki.
+Przedstawione Przyklady dotyczą małych układów równań, do których w praktyce lepsze są metody bezpośrednie niż przybliżone.
+

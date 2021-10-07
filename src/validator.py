@@ -1,6 +1,7 @@
 import os
 import json
-import numpy as np
+from numpy import array
+
 
 """
     Validator sprawdza, czy dane wejściowe metod są prawidłowe.
@@ -13,7 +14,7 @@ import numpy as np
             - musi być kwadratowa
 
         - b (wektor)
-            - musi być wektorem (1 wymiar)
+            - musi być wektorem
             - nie może być pusty
             - musi mieć rozmiar adekwatny do macierzy A
 
@@ -42,7 +43,7 @@ class Validator:
     # konstruktor przygotowujący kody i opisy błędów
     def __init__(self):
         directory = os.path.dirname(os.path.abspath(__file__))
-        path = os.path.join(directory, 'errors.json')
+        path = os.path.join(directory, "errors.json")
 
         # wczytanie kodów i treści błędów z pliku errors.json.
         try:
@@ -50,7 +51,7 @@ class Validator:
             self.__errors = json.load(file)
             file.close()
         except:
-            print('Nie znaleziono pliku błędów errors.json')
+            print("Nie znaleziono pliku błędów errors.json")
 
     # wyświetla treść błędu na ekranie i zwraca jego kod
     def __throwError(self, code: int):
@@ -58,7 +59,15 @@ class Validator:
         return code
 
     # sprawdza poprawność parametrów, jeśli wszystko jest w porządku to zwraca _SUCCESS (0), inaczej zwraca kod błędu <1, ...>
-    def validate(self, A: np.array, b: np.array, max_iterations: int, tolerance: float, x0: np.array = None, w: float = None):
+    def validate(
+        self,
+        A: array,
+        b: array,
+        max_iterations: int,
+        tolerance: float,
+        x0: array = None,
+        w: float = None,
+    ):
         # sprawdzenie czy macierz A jest pusta
         if not A.size:
             return self.__throwError(1)
@@ -67,7 +76,7 @@ class Validator:
         if A.ndim != 2:
             return self.__throwError(2)
 
-         # sprawdzenie czy macierz A jest kwadratowa
+        # sprawdzenie czy macierz A jest kwadratowa
         if A.shape[0] <= 1 or (A.shape[0] != A.shape[1]):
             return self.__throwError(3)
 

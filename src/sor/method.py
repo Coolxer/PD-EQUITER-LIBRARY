@@ -1,8 +1,10 @@
 import numpy as np
 import time
 
-from src.validator import validator
-from src.convergence import checkConditionOfConvergence
+
+from ..validator import validator
+from ..convergence import checkConditionOfConvergence
+
 
 """
     Wejście (Parametry metody) [wymagania dla parametrów -> patrz: validator]:
@@ -24,7 +26,14 @@ from src.convergence import checkConditionOfConvergence
 """
 
 
-def sor(A: np.array, b: np.array, max_iterations: int, tolerance: float, w: float, x0: np.array = None):
+def sor(
+    A: np.array,
+    b: np.array,
+    max_iterations: int,
+    tolerance: float,
+    w: float,
+    x0: np.array = None,
+):
 
     # pobranie czasu startu operacji
     startTime = time.time()
@@ -37,7 +46,7 @@ def sor(A: np.array, b: np.array, max_iterations: int, tolerance: float, w: floa
         return None, None, None
 
     # sprawdzenie warunku zbieżności metody
-    if(not checkConditionOfConvergence(A)):
+    if not checkConditionOfConvergence(A):
         return None, None, None
 
     # pobranie liczby wierszy macierzy
@@ -58,8 +67,11 @@ def sor(A: np.array, b: np.array, max_iterations: int, tolerance: float, w: floa
 
         # obliczenie kolejnego wektora przybliżeń rozwiązania
         for i in range(size):
-            x[i] = (1-w)*x[i] + (w / A[i, i])*(b[i] - np.dot(A[i, :i],
-                                                             x[:i]) - np.dot(A[i, (i+1):], x_old[(i+1):]))
+            x[i] = (1 - w) * x[i] + (w / A[i, i]) * (
+                b[i]
+                - np.dot(A[i, :i], x[:i])
+                - np.dot(A[i, (i + 1) :], x_old[(i + 1) :])
+            )
 
         # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
         if sum(np.abs(x - x_old)) < tolerance:

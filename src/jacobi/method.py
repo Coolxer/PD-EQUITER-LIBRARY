@@ -1,8 +1,8 @@
 import numpy as np
 import time
 
-from src.validator import validator
-from src.convergence import checkConditionOfConvergence
+from ..validator import validator
+from ..convergence import checkConditionOfConvergence
 
 """
     Wejście (Parametry metody) [wymagania dla parametrów -> patrz: validator]:
@@ -23,7 +23,13 @@ from src.convergence import checkConditionOfConvergence
 """
 
 
-def jacobi(A: np.array, b: np.array, max_iterations: int, tolerance: float, x0: np.array = None):
+def jacobi(
+    A: np.array,
+    b: np.array,
+    max_iterations: int,
+    tolerance: float,
+    x0: np.array = None,
+):
 
     # pobranie czasu startu operacji
     startTime = time.time()
@@ -36,7 +42,7 @@ def jacobi(A: np.array, b: np.array, max_iterations: int, tolerance: float, x0: 
         return None, None, None
 
     # sprawdzenie warunku zbieżności metody
-    if(not checkConditionOfConvergence(A)):
+    if not checkConditionOfConvergence(A):
         return None, None, None
 
     # pobranie liczby wierszy macierzy

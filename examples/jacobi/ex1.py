@@ -1,9 +1,10 @@
-import numpy as np
-from src.jacobi.method import jacobi
+from numpy import array
+from ...src.jacobi.method import jacobi
+
 
 # Parametry wejściowe:
-A = np.array([[3, 1, -1], [-1, 5, -1], [2, 4, 8]])
-b = np.array([6, 10, 2])
+A = array([[3, 1, -1], [-1, 5, -1], [2, 4, 8]])
+b = array([6, 10, 2])
 max_iterations = 3
 tolerance = 0.0001
 
@@ -18,6 +19,11 @@ tolerance = 0.0001
 # ...
 # x29: [1.0000, 2.0000, -1.0000]
 
-print("##### Metoda iteracyjna stacjonarna - Jacobi - Przykład 1 #####")
 
-jacobi(A, b, max_iterations, tolerance)
+def jacobi_example_1():
+    print("##### Metoda iteracyjna stacjonarna - Jacobi - Przyklad 1 #####")
+    x, i, t = jacobi(A, b, max_iterations, tolerance)
+
+    print(f"Rozwiazanie: {x}")
+    print(f"Liczba wykonanych iteracji: {i}")
+    print(f"Czas obliczen: {t}s")
