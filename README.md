@@ -59,7 +59,6 @@ import equiter as eq
 
 W celu zapoznania się z biblioteką zalecane jest uruchomienie dowolnego przykładu, np.
 
-
 ```python
 import equiter as eq
 
@@ -102,7 +101,7 @@ print(f"Czas obliczen: {t}s")
 
 ## Jak używać?
 
-Z perspektywy użytkownika najważnejsze jest to w jaki sposób wywoływać poszczególne metody, jakie argumenty są wymagane orraz jakie wartości są zwracane. Pozostałe kwestie nie mają większego znaczenia dla zwykłych użytkowników, zwłaszcza, że biblioteka posiada stosowną walidację i informuje użytkownika o zaistniałych problemach.
+Z perspektywy użytkownika najważniejsze jest to w jaki sposób wywoływać poszczególne metody, jakie argumenty są wymagane orraz jakie wartości są zwracane. Pozostałe kwestie nie mają większego znaczenia dla zwykłych użytkowników, zwłaszcza, że biblioteka posiada stosowną walidację i informuje użytkownika o zaistniałych problemach.
 
 ### Metody
 Dostępne są następujące interfejsy metod:
@@ -142,7 +141,7 @@ def sor(
 )
 ```
 
-### Argumenty
+### Parametry metod
 Poniżej prezentowane są opisy poszczególnych argumentów:
 - A (macierz) - kwadratowa dwuwymiarowa macierz układu równań
     - ***Wymagania***
@@ -186,3 +185,12 @@ Każda metoda zwraca 3 wartości:
 ```python
 x, i, t = method(...)
 ```
+
+---
+
+### Dodatkowe informacje
+
+Biblioteka dostarcza podstawowych informacji dotyczących rozwiązania układu. Mając na celu lekkość pakietu, nie dostarczono tutaj wstępnej analizy danych, umożliwiającej porównanie poszczególnych metod, a także przedstawienie wyników w postaci graficznej.
+
+Dobra informacja jest taka, że przygotowano specjalne środowisko badawcze wykorzystujące tę bibliotekę i opracowująca dane wynikowe w postaci tesktowej i graficznej. Środowisko badwacze dostępne jest [tutaj](https://github.com/Coolxer/PD-EXPERIMENTOR).
+
