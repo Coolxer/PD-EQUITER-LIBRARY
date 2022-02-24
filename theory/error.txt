@@ -1,23 +1,23 @@
 ########## Ogólnie o błędach ########################################################################################################################
 
-# Źródła błędów
-    - błędy danych wejściowych (zaokrąglone lub błąd metody pomiarowej)
-    - błędy zaokrągleń podczas obliczeń
-    - błędy przepełnienia (ucinanie wartości krańcowych)
-    - błędy wynikające z upraszczania modelu problemowego
-    - błędy programisty
+# Źródła błędów:
+    - błędy na wejściu (zaokrąglone parametry wejściowe (błąd zaokrąglenia), bądź błędy pomiarowe)
+    - aktualne błędy zaokrągleń
+    - błędy obcięcia (przerwanie obliczeń przed końcem)-
+    - upraszczanie "wzoru" matematycznego na potrzeby zadania (przyjęcie założeń)
+    - błędy programisty (błędne typy danych)
 
 
-Liczby reprezentowane przez komputer są w systemie binarnym z ograniczoną dokładnością
+Liczby reprezentowane przez komputer są zapisane w systemie binarnym z ograniczoną dokładnością.
 Błędy powstają na poszczególnych etapach obliczeń, często się potęgują.
 
-Można wygładzić dane pomiarowe, aby zmniejsztć błędy danych wejściowych, jeśli
-dane wejściowe są wynikami pomiarów
+Można wygładzić dane pomiarowe, aby zmniejszyć błędy danych wejściowych, ale tylko jeśli
+dane wejściowe są wynikami pomiarów.
 
 Błędny model procesu - wynika z uproszczonego modelu, redukcji złożonoości.
-Czasami dany model jest po prostu upraszczany, m.in z powodu braku danych
+Czasami dany model jest po prostu upraszczany, m.in. z powodu braku danych.
 
-Błąd metody powstaje, gdy stosunkowo poprawny model jest przybliżany przy pomocy formuł
+Błąd metody powstaje, gdy stosunkowo poprawny model jest przybliżany przy pomocy formuł.
 
 Błędy zaokrągleń wynikają nie tylko ze świadomego zaokrąglania danej liczby, ale również z powodu
 skończonej długości reprezentacji liczb binarnych. 
@@ -26,7 +26,7 @@ Niebezpieczne jest kumulowanie się błędów, czyli początkowy błąd powięks
 Powodem może być ograniczona pamięć komputera.
 
 # Złożoność obliczeniowa - liczba operacji numerycznych niezbędnych do uzyskania wyniku.
-Mała złożoność obliczeniowa (krótszy czas).
+Mała złożoność obliczeniowa (krótszy czas wykonania).
 
 # Niestabilność numeryczna to zjawisko, które powstaje, gdy mały błąd się powiększa i powoduje duży błąd wynikowy.
 
@@ -36,13 +36,6 @@ Mała złożoność obliczeniowa (krótszy czas).
 
 W metodach numerycznych trzeba dużą uwagę poświęcać błędom obliczeniowym i ograniczeniom wykorzystywanej metody.
 Zadanie numeryczne może być rozwiązane z użyciem różnych algorytmów i z różną dokładnością.
-
-# Źródła błędów:
-    - błędy na wejściu (zaokrąglone parametry wejściowe (błąd zaokrąglenia), bądź błędy pomiarowe)
-    - aktualne błędy zaokrągleń
-    - błędy obcięcia (przerwanie obliczeń przed końcem)-
-    - upraszczanie "wzoru" matematycznego na potrzeby zadania (przyjęcie założeń)
-    - błędy programisty (błędne typy danych)
 
 # Rodzaje błędów (x -> wartość dokładna, ~x -> wartość przybliżona)
     - bezwględny ~x - x
@@ -55,10 +48,10 @@ Zadanie numeryczne może być rozwiązane z użyciem różnych algorytmów i z r
 # Cyfry ułamkowe (wszystkie cyfry po przecinku)
 
 # Przez ograniczoną dokładność reprezentacji liczb przez komputer może powstawać
-zjawisko kumulowania się błędów
+zjawisko kumulowania się błędów.
 
 # Czasami błędy związane z reprezentacją liczb można zmniejszyć zmieniając kolejność
-wykonywanych działań
+wykonywanych działań.
 
 #####################################################################################################################################################
 
@@ -68,9 +61,9 @@ wykonywanych działań
     - Nie porównywać bezpośrednio liczb zmiennoprzecinkowych operatorem równości ==
     Zdecydowanie lepiej jest obliczyć odległość między nimi (różnicę) i porównać ją względem określonej granicy.
     Inaczej mówiąc należy porównać bezwględną różnicę dwóch liczb z odpowiednim epsilonem.
-    - Pojedyncza precycja IEEE 7 cyfr, podwójna precyzja IEEE 14 cyfr
+    - Pojedyncza precyzja IEEE 7 cyfr, podwójna precyzja IEEE 14 cyfr
     - Precyzja może być utracona przy konwersji liczby dziesiętnej na binarną i odwrotnie
-    - Piebezpieczne może być nawet zwykłe dodawanie, bo komputer nie ma świadomości, które bity są naprawdę znaczące
+    - Niebezpieczne może być nawet zwykłe dodawanie, bo komputer nie ma świadomości, które bity są naprawdę znaczące
     - Obliczenia na liczbach zmiennoprzecinkowych mogą dawać różne wyniki i różną dokładność w zależności od sprzętu
 
 # Liczby zmiennoprzecinkowe są reprezentowane w systemie binarnym.

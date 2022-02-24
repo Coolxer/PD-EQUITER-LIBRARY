@@ -1,19 +1,19 @@
 # PD-EQUITER-LIBRARY
 
-Biblioteka języka Python implementująca stacjonarne metody przybliżone rozwiązywania układów równań liniowych.
+## Biblioteka języka Python implementująca stacjonarne metody przybliżone rozwiązywania układów równań liniowych.
+
+_Realizacja w ramach pracy dyplomowej "Analiza i realizacja wybranych algorytmów przybliżonego rozwiązywania układów równań liniowych" KRK/13/4028_
+
+**\*Autor:** Łukasz Miłoś 161883\*
+
 ---
 
-*Realizacja w ramach pracy dyplomowej "Analiza i realizacja wybranych algorytmów przybliżonego rozwiązywania układów równań liniowych" KRK/13/4028*
-
-***Autor:** Łukasz Miłoś 161883*
-
----
- 
-## Zawartość 
+## Zawartość
 
 W bibliotece można znaleźć wiele wyjaśnień teoretycznych dotyczących tematu rozwiązywania URL.
 
 Biblioteka implementuje następujące stacjonarne metody przybliżone:
+
 - metoda Jacobiego (iteracji prostej)
 - metoda Gaussa-Seidela
 - metoda SOR
@@ -22,8 +22,7 @@ Każda metoda jest odpowiednio udokomentowana, a implementacja jest ściśle opa
 
 Korzystanie z biblioteki jest proste i intuicyjne.
 
-
-***!UWAGA! :***
+**_!UWAGA! :_**
 Warto wypróbować także środowisko laboratoryjne wykorzystujące wspomnianą bibliotekę. Wspomaga ono proces testowania metod i zawiera wstępną analizę wyników. Środowisko dostępne jest [tutaj](https://github.com/Coolxer/PD-EXPERIMENTOR).
 
 ---
@@ -31,7 +30,8 @@ Warto wypróbować także środowisko laboratoryjne wykorzystujące wspomnianą 
 ## Wymagania
 
 Oprócz samej biblioteki niezbędne jest posiadanie:
-- interpreter [Python](https://www.python.org/downloads/) (zalecana wersja 3.*)
+
+- interpreter [Python](https://www.python.org/downloads/) (zalecana wersja 3.\*)
 - biblioteka [NumPy](https://numpy.org/install/) (niekiedy instalowana razem z Python'em)
 - dowolny edytor tekstowy (zalecany edytor kodu źródłowego, np. [Visual Studio Code](https://code.visualstudio.com/))
 
@@ -41,11 +41,11 @@ Oprócz samej biblioteki niezbędne jest posiadanie:
 
 Repozytorium należy pobrać przy pomocy systemu kontroli wersji [git](https://git-scm.com/) albo "ręcznie" w formacie .zip, a następnie wypakować.
 
-***UWAGA:*** Biblioteka powinna być podkatalogiem bieżącego projektu, a więc skrypty wykorzystujące bibliotekę powinny być wyżej w hierarchi katalogów. Innymi słowy nie należy umieszczać własnych skryptów wewnątrz katalogu biblioteki !
+**_UWAGA:_** Biblioteka powinna być podkatalogiem bieżącego projektu, a więc skrypty wykorzystujące bibliotekę powinny być wyżej w hierarchi katalogów. Innymi słowy nie należy umieszczać własnych skryptów wewnątrz katalogu biblioteki!
 
-***UWAGA:*** Po ściągnięciu biblioteki zalecana jest zmiana nazwy głównego katalogu na ***equiter*** Jest to skrótowa nazwa ułatwiająca korzystanie z biblioteki. Jeśli chcesz podążać dalej za poradnikiem zmiana nazwy jest niezbędna !
+**_UWAGA:_** Po ściągnięciu biblioteki zalecana jest zmiana nazwy głównego katalogu na **_equiter_** Jest to skrótowa nazwa ułatwiająca korzystanie z biblioteki. Jeśli chcesz podążać dalej za poradnikiem zmiana nazwy jest niezbędna!
 
-Po przygotowaniu biblioteki, we własnym pliku Python (z rozszerzeniem *.py) można przystąpić do importu biblioteki.
+Po przygotowaniu biblioteki, we własnym pliku Python (z rozszerzeniem \*.py) można przystąpić do importu biblioteki.
 
 ```python
 import equiter as eq
@@ -104,7 +104,9 @@ print(f"Czas obliczen: {t}s")
 Z perspektywy użytkownika najważniejsze jest to w jaki sposób wywoływać poszczególne metody, jakie argumenty są wymagane orraz jakie wartości są zwracane. Pozostałe kwestie nie mają większego znaczenia dla zwykłych użytkowników, zwłaszcza, że biblioteka posiada stosowną walidację i informuje użytkownika o zaistniałych problemach.
 
 ### Metody
+
 Dostępne są następujące interfejsy metod:
+
 - metoda Jacobiego:
 
 ```python
@@ -130,6 +132,7 @@ def gauss_seidel(
 ```
 
 - metoda SOR:
+
 ```python
 def sor(
     A: np.array,
@@ -142,45 +145,52 @@ def sor(
 ```
 
 ### Parametry metod
+
 Poniżej prezentowane są opisy poszczególnych argumentów:
+
 - A (macierz) - kwadratowa dwuwymiarowa macierz układu równań
-    - ***Wymagania***
-      - nie może być pusta
-      - powinna być dwuwymiarowa
-      - musi być kwadratowa
+
+  - **_Wymagania_**
+    - nie może być pusta
+    - powinna być dwuwymiarowa
+    - musi być kwadratowa
 
 - b (wektor)- wektor wartości po prawej stronie równiania Ax = b
-	- ***Wymagania***
-      - musi być wektorem
-      - nie może być pusty
-      - musi mieć rozmiar adekwatny do macierzy A
-  
+  - **_Wymagania_**
+    - musi być wektorem
+    - nie może być pusty
+    - musi mieć rozmiar adekwatny do macierzy A
 - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec operacji
-	- ***Wymagania***
-      - Liczba całkowita dodatnia
+
+  - **_Wymagania_**
+    - Liczba całkowita dodatnia
 
 - tolerance (liczba zmiennoprzecinkowa, podwójnej precyzji) - zadana dokładność (tolerancja), która determinuje koniec operacji
-	- ***Wymagania***
-      - Liczba zmiennoprzecinkowa większa od 0
+
+  - **_Wymagania_**
+    - Liczba zmiennoprzecinkowa większa od 0
 
 - w (liczba zmiennoprzecinkowa) - parametr relaksacji (0, 2)
-	- ***Wymagania***
-      - Liczba z zakresu (0, 2)
+
+  - **_Wymagania_**
+    - Liczba z zakresu (0, 2)
 
 - x0 (wektor) [opcjonalne] - Początkowe przybliżenie niewiadomych układu
-	- ***Wymagania***
-      - musi być wektorem (1 wymiar)
-      - nie może być pusty
-      - musi mieć rozmiar adekwatny do macierzy A
 
-  ***UWAGA!*** Jeśli argument x0 nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
+  - **_Wymagania_**
+    - musi być wektorem (1 wymiar)
+    - nie może być pusty
+    - musi mieć rozmiar adekwatny do macierzy A
+
+  **_UWAGA!_** Jeśli argument x0 nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
 
 ### Wartości zwracane przez poszczególne metody
 
 Każda metoda zwraca 3 wartości:
-- ***x*** - przybliżenie rozwiązania w postaci wektora
-- ***i*** - liczba wykonanych iteracji
-- ***t*** - czas obliczeń w sekundach [s]
+
+- **_x_** - przybliżenie rozwiązania w postaci wektora
+- **_i_** - liczba wykonanych iteracji
+- **_t_** - czas obliczeń w sekundach [s]
 
 ```python
 x, i, t = method(...)
@@ -193,4 +203,3 @@ x, i, t = method(...)
 Biblioteka dostarcza podstawowych informacji dotyczących rozwiązania układu. Mając na celu lekkość pakietu, nie dostarczono tutaj wstępnej analizy danych, umożliwiającej porównanie poszczególnych metod, a także przedstawienie wyników w postaci graficznej.
 
 Dobra informacja jest taka, że przygotowano specjalne środowisko badawcze wykorzystujące tę bibliotekę i opracowująca dane wynikowe w postaci tesktowej i graficznej. Środowisko badwacze dostępne jest [tutaj](https://github.com/Coolxer/PD-EXPERIMENTOR).
-

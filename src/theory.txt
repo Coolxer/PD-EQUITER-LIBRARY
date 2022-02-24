@@ -20,7 +20,6 @@ Schemat Ogólnego rozwiązanie iteracyjnego:
 Warunek konieczny zbieżności ciągu kolejnych przybliżeń (macierz dominująca): 
     ^iE{1,2...,n}|aii| > SUM(|aij|, {j={1,2...,n, j != i}})"
 
-
 Warunek kończący wykonywanie iteracji(związany z dokładnością obliczeń) :
     (Jeśli suma wartości bezwzględnych różnic przybliżeń rozwiązań z aktualnej i poprzedniej iteracji
         jest mniejsza niż zakładana dokładność, to można przerwać obliczenia, ponieważ wachania są niewielkie)

@@ -1,6 +1,6 @@
 ##### Ogólne ########################################################################################################################################
 
-Zadanie numeryczne określane jest jako jednoznaczną relację danych wejściowych, które są przekształcane
+Zadanie numeryczne określane jest jako jednoznaczna relację danych wejściowych, które są przekształcane
 w dane wyjściowe przy pomocy algorytmu definiującego operacje wykonywane na danych wejściowych.
 
 Rozwiązywanie układów równań jest jednym z podstawowych problemów, którym zajmują się metody numeryczne.
@@ -25,7 +25,7 @@ metody iteracyjne (przybliżone)
 			- metoda GMRES
 
 Okazuje się, że wielkie macierze są zazwyczaj macierzami rzadkimi, tzn. posiadają niewiele niezerowych elementów.
-W takim przypadku metoda iteracyjna ma znacznie mniejszą złożoność obliczeniową niż metoda bezpośrednia.
+W takim przypadku metody iteracyjne mają znacznie mniejszą złożoność obliczeniową niż metody bezpośrednie.
 Metody iteracyjne pozwalają wykorzystać ten fakt w celu szybszych obliczeń, wykonując mniej działań.	
 
 #####################################################################################################################################################
