@@ -10,42 +10,42 @@ _Realizacja w ramach pracy dyplomowej "Analiza i realizacja wybranych algorytmó
 
 ## Zawartość
 
-W bibliotece można znaleźć wiele wyjaśnień teoretycznych dotyczących tematu rozwiązywania URL.
-
 Biblioteka implementuje następujące stacjonarne metody przybliżone:
 
-- metoda Jacobiego (iteracji prostej)
+- metoda Jacobiego
 - metoda Gaussa-Seidela
 - metoda SOR
 
-Każda metoda jest odpowiednio udokomentowana, a implementacja jest ściśle oparta na zagadnieniach teoretycznych. Dla każdej metody sprawdzany jest warunek zbieżności przybliżonych metod stacjonarnych. Nie zabrakło także pełnej walidacji danych wejściowych gwarantujących poprawność obliczeń.
+Każda metoda jest odpowiednio udokomentowana, a implementacja jest ściśle oparta na zagadnieniach teoretycznych. Dla każdej metody sprawdzany jest warunek zbieżności przybliżonych metod stacjonarnych. Nie zabrakło także pełnej walidacji danych wejściowych, gwarantującej poprawność obliczeń.
 
 Korzystanie z biblioteki jest proste i intuicyjne.
 
+Dodatkowo dla każdej z metod przygotowano po 3 przykłady testowe.
+
 **_!UWAGA! :_**
-Warto wypróbować także środowisko laboratoryjne wykorzystujące wspomnianą bibliotekę. Wspomaga ono proces testowania metod i zawiera wstępną analizę wyników. Środowisko dostępne jest [tutaj](https://github.com/Coolxer/PD-EXPERIMENTOR).
+Warto wypróbować także środowisko laboratoryjne wykorzystujące tę bibliotekę. Wspomaga ono proces testowania metod i zawiera wstępną analizę wyników. Środowisko dostępne jest [tutaj](https://github.com/Coolxer/PD-EXPERIMENTOR).
 
 ---
 
 ## Wymagania
 
-Oprócz samej biblioteki niezbędne jest posiadanie:
+Oprócz samej biblioteki niezbędne jest posiadanie następujących komponentów:
 
 - interpreter [Python](https://www.python.org/downloads/) (zalecana wersja 3.\*)
 - biblioteka [NumPy](https://numpy.org/install/) (niekiedy instalowana razem z Python'em)
-- dowolny edytor tekstowy (zalecany edytor kodu źródłowego, np. [Visual Studio Code](https://code.visualstudio.com/))
+- dowolny edytor tekstowy (zalecany jednak edytor kodu źródłowego, np. [Visual Studio Code](https://code.visualstudio.com/))
 
 ---
 
 ## Instalacja
 
-Repozytorium należy pobrać przy pomocy systemu kontroli wersji [git](https://git-scm.com/) albo "ręcznie" w formacie .zip, a następnie wypakować.
+Repozytorium należy pobrać przy pomocy systemu kontroli wersji [git](https://git-scm.com/) albo "ręcznie" w formacie .zip, a następnie wypakować w dowolnym miejscu.
 
 **_UWAGA:_** Biblioteka powinna być podkatalogiem bieżącego projektu, a więc skrypty wykorzystujące bibliotekę powinny być wyżej w hierarchi katalogów. Innymi słowy nie należy umieszczać własnych skryptów wewnątrz katalogu biblioteki!
 
 **_UWAGA:_** Po ściągnięciu biblioteki zalecana jest zmiana nazwy głównego katalogu na **_equiter_** Jest to skrótowa nazwa ułatwiająca korzystanie z biblioteki. Jeśli chcesz podążać dalej za poradnikiem zmiana nazwy jest niezbędna!
 
-Po przygotowaniu biblioteki, we własnym pliku Python (z rozszerzeniem \*.py) można przystąpić do importu biblioteki.
+Po przygotowaniu biblioteki, we własnym pliku Python (z rozszerzeniem \*.py) o dowolnej nazwie, można przystąpić do importu biblioteki.
 
 ```python
 import equiter as eq
@@ -79,8 +79,8 @@ Czas obliczen: 0.0s
 Poniżej prezentowany jest sposób w jaki najprawdopodobniej będziesz korzystać z biblioteki.
 
 ```python
-import equiter as eq
 import numpy as np
+import equiter as eq
 
 # Parametry wejściowe:
 A = np.array([[3, 1, -1], [-1, 5, -1], [2, 4, 8]])
@@ -101,7 +101,7 @@ print(f"Czas obliczen: {t}s")
 
 ## Jak używać?
 
-Z perspektywy użytkownika najważniejsze jest to w jaki sposób wywoływać poszczególne metody, jakie argumenty są wymagane orraz jakie wartości są zwracane. Pozostałe kwestie nie mają większego znaczenia dla zwykłych użytkowników, zwłaszcza, że biblioteka posiada stosowną walidację i informuje użytkownika o zaistniałych problemach.
+Z perspektywy użytkownika najważniejsze jest to w jaki sposób wywoływać poszczególne metody, jakie argumenty są wymagane oraz jakie wartości są zwracane. Pozostałe kwestie nie mają większego znaczenia dla zwykłych użytkowników, zwłaszcza, że biblioteka posiada stosowną walidację i informuje użytkownika o zaistniałych problemach.
 
 ### Metody
 
@@ -148,41 +148,43 @@ def sor(
 
 Poniżej prezentowane są opisy poszczególnych argumentów:
 
-- A (macierz) - kwadratowa dwuwymiarowa macierz układu równań
+- A (macierz) - dwuwymiarowa kwadratowa macierz główna układu równań
 
   - **_Wymagania_**
     - nie może być pusta
-    - powinna być dwuwymiarowa
+    - musi być dwuwymiarowa
     - musi być kwadratowa
 
-- b (wektor)- wektor wartości po prawej stronie równiania Ax = b
+- b (wektor)- wektor wyrazów wolnych
+
   - **_Wymagania_**
-    - musi być wektorem
     - nie może być pusty
-    - musi mieć rozmiar adekwatny do macierzy A
-- max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec operacji
+    - musi być jednowymiarowy
+    - musi mieć rozmiar adekwatny do rozmiaru macierzy A
+
+- max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec obliczeń
 
   - **_Wymagania_**
-    - Liczba całkowita dodatnia
+    - liczba całkowita dodatnia
 
-- tolerance (liczba zmiennoprzecinkowa, podwójnej precyzji) - zadana dokładność (tolerancja), która determinuje koniec operacji
-
-  - **_Wymagania_**
-    - Liczba zmiennoprzecinkowa większa od 0
-
-- w (liczba zmiennoprzecinkowa) - parametr relaksacji (0, 2)
+- tolerance (liczba zmiennoprzecinkowa) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
 
   - **_Wymagania_**
-    - Liczba z zakresu (0, 2)
+    - liczba zmiennoprzecinkowa większa od 0
 
-- x0 (wektor) [opcjonalne] - Początkowe przybliżenie niewiadomych układu
+- x0 (wektor) [opcjonalne] - Początkowe wektor przybliżenia rozwiązania
 
   - **_Wymagania_**
-    - musi być wektorem (1 wymiar)
     - nie może być pusty
-    - musi mieć rozmiar adekwatny do macierzy A
+    - musi być jednowymiarowy
+    - musi mieć rozmiar adekwatny do rozmiaru macierzy A
 
   **_UWAGA!_** Jeśli argument x0 nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
+
+- w (liczba zmiennoprzecinkowa) - parametr relaksacji (0, 2) dla metody SOR
+
+  - **_Wymagania_**
+    - liczba z zakresu (0, 2)
 
 ### Wartości zwracane przez poszczególne metody
 
@@ -198,7 +200,24 @@ x, i, t = method(...)
 
 ---
 
-### Dodatkowe informacje
+### Dostępne przykłady
+
+Przykłady dostępne są bezpośrednio z poziomu modułu jako metody, które można wywołać np.
+
+```python
+import equiter as eq
+eq.sor_example_1()
+```
+
+Poniżej znajduje się tabela wszystkich dostępnych przykładów.
+
+|   m. Jacobiego   |   m. Gaussa-Seidela    |    m. SOR     |
+| :--------------: | :--------------------: | :-----------: |
+| jacobi_example_1 | gauss_seidel_example_1 | sor_example_1 |
+| jacobi_example_2 | gauss_seidel_example_2 | sor_example_2 |
+| jacobi_example_3 | gauss_seidel_example_3 | sor_example_3 |
+
+## Dodatkowe informacje
 
 Biblioteka dostarcza podstawowych informacji dotyczących rozwiązania układu. Mając na celu lekkość pakietu, nie dostarczono tutaj wstępnej analizy danych, umożliwiającej porównanie poszczególnych metod, a także przedstawienie wyników w postaci graficznej.
 

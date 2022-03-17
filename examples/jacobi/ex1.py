@@ -1,10 +1,17 @@
-from numpy import array
+# Autor: Łukasz Miłoś
+# Data: 2021 - 2022
+
+# Plik przykładu nr 1 rozwiązania przy pomocy m. Jacobiego
+
+#########################################
+
+# Import niezbędnych zależności
+import numpy as np
 from ...src.jacobi.method import jacobi
 
-
 # Parametry wejściowe:
-A = array([[3, 1, -1], [-1, 5, -1], [2, 4, 8]])
-b = array([6, 10, 2])
+A = np.array([[3, 1, -1], [-1, 5, -1], [2, 4, 8]])
+b = np.array([6, 10, 2])
 max_iterations = 3
 tolerance = 0.0001
 
@@ -19,7 +26,7 @@ tolerance = 0.0001
 # ...
 # x29: [1.0000, 2.0000, -1.0000]
 
-
+# Definicja metody przykładu
 def jacobi_example_1():
     print("##### Metoda iteracyjna stacjonarna - Jacobi - Przyklad 1 #####")
     x, i, t = jacobi(A, b, max_iterations, tolerance)

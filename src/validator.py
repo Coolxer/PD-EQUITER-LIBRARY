@@ -1,51 +1,58 @@
-import os
-import json
-from numpy import array
+# Autor: Łukasz Miłoś
+# Data: 2021 - 2022
 
+# Plik walidatora danych wejściowych
+
+#########################################
 
 """
-    Validator sprawdza, czy dane wejściowe metod są prawidłowe.
-    Jeśli dane są prawidłowe to zwraca SUCCESS (0), w innym przypadku zwraca kod błędu wraz z czytelną informacją.
+    Walidator sprawdza, czy dane wejściowe metod są prawidłowe.
+    Jeśli dane wejściowe są prawidłowe to zwracane jest 0 (SUCCESS), w innym przypadku zwracany kod błędu <1...> (ERROR) wraz z czytelną informacją.
 
     Wymagania Parametrów:
         - A (macierz)
             - nie może być pusta
-            - powinna być dwuwymiarowa
+            - musi być dwuwymiarowa
             - musi być kwadratowa
 
         - b (wektor)
-            - musi być wektorem
             - nie może być pusty
-            - musi mieć rozmiar adekwatny do macierzy A
+            - musi być jednowymiarowy
+            - musi mieć rozmiar adekwatny do rozmiaru macierzy A
 
-        - max_iterations (wartość całkowita) - maksymalna liczba iteracji, która determinuje koniec operacji
-            - Liczba całkowita dodatnia
+        - max_iterations (liczba całkowita)
+            - liczba całkowita dodatnia
 
-        - tolerance (double) - zadana dokladność (tolerancja), która determinuje koniec operacji
-            - Liczba zmiennoprzecinkowa większa od 0
+        - tolerance (liczba zmiennoprzecinkowa)
+            - liczba zmiennoprzecinkowa większa od 0
 
-        [opcjonalny, walidacja tylko w przypadku podania parametru]
+        [opcjonalny => walidacja tylko w przypadku podania parametru]
         - x0 (wektor)
-            - musi być wektorem (1 wymiar)
             - nie może być pusty
-            - musi mieć rozmiar adekwatny do macierzy A
+            - musi być jednowymiarowy
+            - musi mieć rozmiar adekwatny do rozmiaru macierzy A
 
-        [opcjonalny, walidacja tylko w przypadku podania parametru]
-        - w (double) - współczynnik relaksacji dla metody SOR
-            - Liczba z zakresu (0, 2)
+        [opcjonalny => walidacja tylko w przypadku podania parametru]
+        - w (liczba zmiennoprzecinkowa)
+            - liczba z zakresu (0, 2)
 """
 
+# Import niezbędnych zależności
+import os
+import json
+import numpy as np
 
+# Klasa walidatora
 class Validator:
     __errors: dict = None
     _SUCCESS: bool = 0
 
-    # konstruktor przygotowujący kody i opisy błędów
+    # Konstruktor przygotowujący kody i opisy błędów
     def __init__(self):
         directory = os.path.dirname(os.path.abspath(__file__))
         path = os.path.join(directory, "errors.json")
 
-        # wczytanie kodów i treści błędów z pliku errors.json.
+        # Wczytanie kodów i treści błędów z pliku errors.json.
         try:
             file = open(path)
             self.__errors = json.load(file)
@@ -53,73 +60,73 @@ class Validator:
         except:
             print("Nie znaleziono pliku błędów errors.json")
 
-    # wyświetla treść błędu na ekranie i zwraca jego kod
+    # Metoda wyświetla treść błędu na ekranie i zwraca jego kod
     def __throwError(self, code: int):
         print(self.__errors[str(code)])
         return code
 
-    # sprawdza poprawność parametrów, jeśli wszystko jest w porządku to zwraca _SUCCESS (0), inaczej zwraca kod błędu <1, ...>
+    # Metoda sprawdza poprawność parametrów, jeśli wszystko jest w porządku to zwraca _SUCCESS (0), inaczej zwraca kod błędu <1, ...>
     def validate(
         self,
-        A: array,
-        b: array,
+        A: np.array,
+        b: np.array,
         max_iterations: int,
         tolerance: float,
-        x0: array = None,
+        x0: np.array = None,
         w: float = None,
     ):
-        # sprawdzenie czy macierz A jest pusta
+        # Sprawdzenie czy macierz A jest pusta
         if not A.size:
             return self.__throwError(1)
 
-        # sprawdzenie czy macierz A jest dwuwymiarowa
+        # Sprawdzenie czy macierz A jest dwuwymiarowa
         if A.ndim != 2:
             return self.__throwError(2)
 
-        # sprawdzenie czy macierz A jest kwadratowa
+        # Sprawdzenie czy macierz A jest kwadratowa
         if A.shape[0] <= 1 or (A.shape[0] != A.shape[1]):
             return self.__throwError(3)
 
-        # sprawdzenie czy wektor b jest pusty
+        # Sprawdzenie czy wektor b jest pusty
         if not b.size:
             return self.__throwError(4)
 
-        # sprawdzenie czy wektor b jest jednowymiarowy
+        # Sprawdzenie czy wektor b jest jednowymiarowy
         if b.ndim != 1:
             return self.__throwError(5)
 
-        # sprawdzenie czy wektor b ma odpowiedni rozmiar
+        # Sprawdzenie czy wektor b ma rozmiar adekwatny do rozmiaru macierzy A
         if b.size != A.shape[0]:
             return self.__throwError(6)
 
-        # sprawdzenie czy liczba max_iterations jest całkowita i dodatnia
+        # Sprawdzenie czy liczba max_iterations jest całkowita i dodatnia
         if not isinstance(max_iterations, int) or max_iterations <= 0:
             return self.__throwError(7)
 
-        # sprawdzenie czy liczba tolerance jest mniejsza badz rowna 0
+        # Sprawdzenie czy liczba tolerance jest mniejsza bądź rowna 0
         if tolerance <= 0.0:
             return self.__throwError(8)
 
-        # sprwadzenie czy x0 jest prawidłowe (jeśli podane)
+        # Sprawdzenie czy wektor x0 został podany
         if x0 is not None:
-            # sprawdzenie czy wektor  jest pusty
+            # Sprawdzenie czy wektor x0  jest pusty
             if not x0.size:
                 return self.__throwError(9)
 
-            # sprawdzenie czy wektor x0 jest jednowymiarowy
+            # Sprawdzenie czy wektor x0 jest jednowymiarowy
             if x0.ndim != 1:
                 return self.__throwError(10)
 
-            # sprawdzenie czy wektor x0 ma odpowiedni rozmiar
+            # Sprawdzenie czy wektor x0 ma odpowiedni rozmiar
             if x0.size != A.shape[0]:
                 return self.__throwError(11)
 
-        # sprawdzenie czy liczba w jest z zakresu (0, 2)
+        # Sprawdzenie czy liczba w jest z zakresu (0, 2)
         if w is not None and (w < 0.0 or w > 2.0):
             return self.__throwError(12)
 
         return self._SUCCESS
 
 
-# utworzenie walidatora
+# Utworzenie obiektu walidatora
 validator: Validator = Validator()

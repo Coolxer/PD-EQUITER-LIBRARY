@@ -1,31 +1,34 @@
-import numpy as np
+# Autor: Łukasz Miłoś
+# Data: 2021 - 2022
+
+# Plik definicji metody SOR
+
+#########################################
+
+# Import niezbędnych zależności
 import time
+import numpy as np
 
-
-from ..validator import validator
-from ..convergence import checkConditionOfConvergence
-
+from ..common import common
 
 """
     Wejście (Parametry metody) [wymagania dla parametrów -> patrz: validator]:
-        - A (macierz) - kwadratowa dwuwymiarowa macierz układu równań
-        - b (wektor)- wektor wartości po prawej stronie równiania Ax = b
-         - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec operacji
-        - tolerance (liczba zmiennoprzecinkowa, podwójnej precyzji) - zadana dokładność (tolerancja), która determinuje koniec operacji
+        - A (macierz) - kwadratowa dwuwymiarowa macierz główna układu równań
+        - b (wektor) - wektor wyrazów wolnych
+        - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec obliczeń
+        - tolerance (liczba zmiennoprzecinkowa) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
         - w (liczba zmiennoprzecinkowa) - parametr relaksacji (0, 2)
-        - x0 (wektor) [opcjonalne] - Początkowe przybliżenie niewiadomych układu
+        - x0 (wektor) [opcjonalne] - Początkowe przybliżenie rozwiązania
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
-
+       
     Wyjście (Wartości zwracane przez funkcję):
         a) w przypadku poprawnych danych wejściowych
-            - x - otrzymany wektor rozwiązań
-            - iteration - numer ostatniej wykonanej iteracji
-            - elapsedTime - czas obliczeń [s]
-
-        b) w przypadku błędnych danych wejściowych funkcja przerwie swoje działanie i zwróci None, None, None
+            - x (wektor) - wektor rozwiązań
+            - iteration (liczba całkowita) - numer ostatniej wykonanej iteracji
+            - elapsedTime (liczba zmiennoprzecinkowa) - czas obliczeń [s]
 """
 
-
+# Definicja metody SOR
 def sor(
     A: np.array,
     b: np.array,
@@ -35,50 +38,28 @@ def sor(
     x0: np.array = None,
 ):
 
-    # pobranie czasu startu operacji
-    startTime = time.time()
+    # Wykonanie części wspólnej dla wszystkich metod
+    # Obejmuje to m.in walidację danych wejściowych i sprawdzenie warunku zbieżności
+    startTime, size, x = common(A, b, max_iterations, tolerance, x0, w)
 
-    # walidacja danych wejściowych [patrz: validator]
-    code: int = validator.validate(A, b, max_iterations, tolerance, x0)
-
-    # jeśli wystąpił błąd to funkcja kończy swoje działanie
-    if code:
-        return None, None, None
-
-    # sprawdzenie warunku zbieżności metody
-    if not checkConditionOfConvergence(A):
-        return None, None, None
-
-    # pobranie liczby wierszy macierzy
-    size = np.shape(A)[0]
-
-    # sprawdzenie czy wektor początkowych przybliżeń został podany
-    # jeśli nie,to zostanie tworzony jest wektor wypełniony zerami
-    if x0 is None:
-        x = np.zeros(size)
-    else:
-        x = x0.copy()
-
-    # pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
+    # Pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations):
 
-        # zapisanie poprzedniego wektora przybliżeń
+        # Zapisanie poprzedniego wektora przybliżeń
         x_old = x.copy()
 
-        # obliczenie kolejnego wektora przybliżeń rozwiązania
+        # Obliczenie kolejnego wektora przybliżeń rozwiązania
         for i in range(size):
             x[i] = (1 - w) * x[i] + (w / A[i, i]) * (
-                b[i]
-                - np.dot(A[i, :i], x[:i])
-                - np.dot(A[i, (i + 1) :], x_old[(i + 1) :])
+                b[i] - np.dot(A[i, :i], x[:i]) - np.dot(A[i, (i + 1) :], x_old[(i + 1) :])
             )
 
-        # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
+        # Sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
         if sum(np.abs(x - x_old)) < tolerance:
             break
 
-    # obliczenie czasu operacji
+    # Obliczenie czasu operacji
     elapsedTime = time.time() - startTime
 
-    # zwrocenie liczby wykonanych iteracji i wektora wynikowego
+    # Zwrócenie liczby wykonanych iteracji i wektora wynikowego
     return x, iteration + 1, elapsedTime

@@ -4,7 +4,7 @@ Metoda jest ulepszeniem metody Gaussa-Seidela, ponieważ wykorzystując właści
 dodatkowe przemnożenie tzw. poprawki przez parametr, co prowadzi do przyspieszenia procesu poszukiwania
 rozwiązania.
 
-Metody SOR jest znacznie efektywniejsza niż metoda Jacobiego i Gausa-Seidla, dla zadań o dużym 
+Metody SOR jest znacznie efektywniejsza niż metoda Jacobiego i Gausa-Seidela, dla zadań o dużym 
 wskaźniku uwarunkowania.
 
 Parametr w nazywany jest parametrem relaksacji jeśli znajduje się w zakresie (0, 2) to metoda jest
@@ -13,13 +13,11 @@ parametr wtedy niczego nie zmienia.
 
 Własności wynikające z wartości parametru w:
 
-    ||  Parametr w  ||||          Własność         ||
-    ||   w E (0, 2) ||||     metoda jest zbieżna   ||
+    ||  Parametr w      ||||          Własność         ||
+    ||   w E (0, 2)         ||||     metoda jest zbieżna   ||
     ||   w > 1      ||||   metoda nadrelaksacji    ||
     ||   w E (0, 1) ||||     metoda podrelaksacji  ||
     ||   w == 1     ||||    metoda Gaussa-Seidela   ||
-
--------------------------------------------------------------------------------------------------------
 
 ------------------------------------------ Opis matematyczny ------------------------------------------
 

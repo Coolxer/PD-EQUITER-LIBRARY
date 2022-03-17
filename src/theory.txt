@@ -1,35 +1,28 @@
------------------------------------------- Opis teoretyczny -------------------------------------------
+# Autor: Łukasz Miłoś
+# Data: 2021 - 2022
 
-Metody stacjonarne wykorzystują początkowy wektor przybliżający do wyznaczania rozwiązań i błędów.
+# Plik podstawowych kwestii teoretycznych dot. przybliżonych metod stacjonarnych
 
-Do metod stacjonarnych zaliczają się:
-    - metoda Jacobiego
-    - metoda Gaussa-Seidela
-    - metoda SOR (nadrelaksacji)
+#########################################################
 
--------------------------------------------------------------------------------------------------------
+----------------------------------------------------------- Opis teoretyczny -------------------------------------------------------------------------
 
------------------------------------------ Opis matematyczny -------------------------------------------
+Do metod stacjonarnych przybliżonych rozwiązywania URL zalicza się:
+    - metodę Jacobiego
+    - metodę Gaussa-Seidela
+    - metodę SOR (nadrelaksacji)
 
-Układ wejściowy:
-    Ax = b
-
-Schemat Ogólnego rozwiązanie iteracyjnego:
-    x = C + Dx
+---------------------------------------------------------- Opis matematyczny ----------------------------------------------------------------------
 
 Warunek konieczny zbieżności ciągu kolejnych przybliżeń (macierz dominująca): 
     ^iE{1,2...,n}|aii| > SUM(|aij|, {j={1,2...,n, j != i}})"
 
-Warunek kończący wykonywanie iteracji(związany z dokładnością obliczeń) :
-    (Jeśli suma wartości bezwzględnych różnic przybliżeń rozwiązań z aktualnej i poprzedniej iteracji
-        jest mniejsza niż zakładana dokładność, to można przerwać obliczenia, ponieważ wachania są niewielkie)
-
-    SUM(xi^(n+1) - xi^(n)) < tol
-    {i = 1,2,...,n})
-        ,gdzie:
+Warunek kończący wykonywanie iteracji (związany z dokładnością obliczeń) :
+    SUM(xi^(n+1) - xi^(n)) < tol {i = 1,2,...,n})
+    ,gdzie:
             tol - tolerancja, z góry zakładana dokładność
 
 Alternatywnie Warunek kończący może być wyrażony za pomocą:
     SUM(|~bi^(k) - i|) < tol, ~b^(k) = Ax^(k)
 
--------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------

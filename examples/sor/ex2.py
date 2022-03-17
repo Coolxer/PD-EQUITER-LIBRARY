@@ -1,10 +1,17 @@
-from numpy import array
+# Autor: Łukasz Miłoś
+# Data: 2021 - 2022
+
+# Plik przykładu nr 2 rozwiązania przy pomocy m. SOR
+
+#####################################
+
+# Import niezbędnych zależności
+import numpy as np
 from ...src.sor.method import sor
 
-
 # Parametry wejściowe:
-A = array([[4, -1, 0], [-1, 4, -1], [0, -1, 4]])
-b = array([2, 6, 2])
+A = np.array([[4, -1, 0], [-1, 4, -1], [0, -1, 4]])
+b = np.array([2, 6, 2])
 max_iterations = 3
 tolerance = 0.0001
 w = 1.2
@@ -20,7 +27,7 @@ w = 1.2
 # ...
 # x13: [1.0000, 2.0000, 1.0000]
 
-
+# Definicja metody przykładu
 def sor_example_2():
     print("##### Metoda iteracyjna stacjonarna - SOR - Przyklad 2 #####")
     x, i, t = sor(A, b, max_iterations, tolerance, w)
