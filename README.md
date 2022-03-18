@@ -221,9 +221,4 @@ Poniżej znajduje się tabela wszystkich dostępnych przykładów.
 
 Biblioteka dostarcza podstawowych informacji dotyczących rozwiązania układu. Mając na celu lekkość pakietu, nie dostarczono tutaj wstępnej analizy danych, umożliwiającej porównanie poszczególnych metod, a także przedstawienie wyników w postaci graficznej.
 
-<<<<<<< HEAD
-Dobra informacja jest taka, że przygotowano specjalne środowisko badawcze wykorzystujące tę bibliotekę i opracowująca dane wynikowe w postaci tesktowej i graficznej. Środowisko badwacze dostępne jest [tutaj](https://github.com/Coolxer/PD-EXPERIMENTOR).
-=======
-Dobra informacja jest taka, że przygotowano specjalne środowisko badawcze wykorzystujące tę bibliotekę i opracowująca dane wynikowe w postaci tekstowej i graficznej. Środowisko badawcze dostępne jest [tutaj](https://github.com/Coolxer/PD-EXPERIMENTOR).
-
->>>>>>> 2e641406bdb8977a5a7d55a5da9755fba84c847f
+Dobra informacja jest taka, że przygotowano specjalne środowisko badawcze wykorzystujące tę bibliotekę i opracowujące dane wynikowe w postaci tekstowej i graficznej. Środowisko badawcze dostępne jest [tutaj](https://github.com/Coolxer/PD-EXPERIMENTOR).
