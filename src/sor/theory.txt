@@ -1,38 +1,24 @@
------------------------------------------- Opis teoretyczny ------------------------------------------
+# Autor: Łukasz Miłoś
+# Data: 2021 - 2022
+
+# Plik zawierający podstawową teorię dot. m. SOR
+
+# ------------------------------------------------------------ Opis teoretyczny ----------------------------------------------------------- #
 
 Metoda jest ulepszeniem metody Gaussa-Seidela, ponieważ wykorzystując właściwość tej metody, wprowadza
 dodatkowe przemnożenie tzw. poprawki przez parametr, co prowadzi do przyspieszenia procesu poszukiwania
 rozwiązania.
 
-Metody SOR jest znacznie efektywniejsza niż metoda Jacobiego i Gausa-Seidla, dla zadań o dużym 
-wskaźniku uwarunkowania.
-
-Parametr w nazywany jest parametrem relaksacji jeśli znajduje się w zakresie (0, 2) to metoda jest
-zbieżna. W przypadku gdy parametr w == 1 to mamy do czynienia z metodą Gaussa-Seidla, ponieważ 
-parametr wtedy niczego nie zmienia.
-
 Własności wynikające z wartości parametru w:
 
-    ||  Parametr w  ||||          Własność         ||
-    ||   w E (0, 2) ||||     metoda jest zbieżna   ||
-    ||   w > 1      ||||   metoda nadrelaksacji    ||
-    ||   w E (0, 1) ||||     metoda podrelaksacji  ||
-    ||   w == 1     ||||    metoda Gaussa-Seidela   ||
+    ||  Parametr w          ||        Własność                        ||
+    ======================================
+    ||   w E (0, 2)              ||  metoda jest zbieżna          ||
+    ||   w > 1                     ||  metoda nadrelaksacji        ||
+    ||   w E (0, 1)              ||  metoda podrelaksacji       ||
+    ||   w == 1                   ||  metoda Gaussa-Seidela   ||
 
--------------------------------------------------------------------------------------------------------
-
------------------------------------------- Opis matematyczny ------------------------------------------
-
-Przekształcenie układu wejściowego:
-    ωAx = ωb
-    ω(L + D + U)x = ωb
-    0 = ωb − ω(L + D + U)x
-    Dx = Dx + ωb − ω(L + D + U)x
-    Dx = Dx + ωb − ωLx − ωDx − ωUx
-    Dx + ωLx = Dx + ωb − ωDx − ωUx
-    (D + ωL)x = (1 − ω)Dx + ωb − ωUx
-    (D + ωL)x = [(1 − ω)D − ωU]x + ωb
-    x = (D + ωL)^(−1)[(1 − ω)D − ωU]x + ω(D + ωL)^(−1)b
+# ---------------------------------------------------------- Opis matematyczny --------------------------------------------------------- #
 
 Wzór dla metody SOR w postaci macierzowej : 
 x^(k + 1) = (D + wL)^(-1)[wb - (wU + (w - 1)D)x^(k)] * 

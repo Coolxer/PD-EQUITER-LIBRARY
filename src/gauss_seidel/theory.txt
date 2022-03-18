@@ -1,26 +1,22 @@
------------------------------------------- Opis teoretyczny ------------------------------------------
+# Autor: Łukasz Miłoś
+# Data: 2021 - 2022
+
+# Plik zawierający podstawową teorię dot. m. Gaussa-Seidela
+
+# ------------------------------------------------------------ Opis teoretyczny ----------------------------------------------------------- #
 
 Metoda jest ulepszeniem metody Jacobiego, ponieważ wykorzystuje nowo-obliczone wartości wektora x,
 w bieżącej iteracji, a nie tak jak w przypadku metody Jacobiego, korzysta z wektora z poprzedniej iteracji.
 Dzięki temu zostaje zredukowana liczba niezbędnych operacji.
 
-Metoda pozwala przyspieszyć proces iteracyjny wykonywany za pomocą metody Jacobiego.
-
--------------------------------------------------------------------------------------------------------
-
------------------------------------------- Opis matematyczny ------------------------------------------
-
-Przekształcenie układu wejściowego:
-    Ax = b
-    (L + D + U)x = b
-    Lx + Dx + Ux = b
-    (L + D)x + Ux = b
-    (L + D)x = b − Ux
-    x = −(L + D)^(−1)U + (L + D)^(−1)b
+# ---------------------------------------------------------- Opis matematyczny --------------------------------------------------------- #
 
 Wzór dla metody Gaussa-Seidela w postaci macierzowej:
     x^(k + 1) = (L + D)^(−1)(b − Ux^(k))
 
 Wzór dla metody Gaussa-Seidela w postaci elementowej:
     x_i^(k + 1) = (1 / a_ii)*(b_i - sum(a_ij * xj^(k + 1)) - sum(aij * xj^(k)))
--------------------------------------------------------------------------------------------------------
+
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------- #
+

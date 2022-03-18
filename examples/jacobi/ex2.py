@@ -1,18 +1,25 @@
-from numpy import array
+# Autor: Łukasz Miłoś
+# Data: 2021 - 2022
+
+# Plik przykładu nr 2 rozwiązania przy pomocy m. Jacobiego
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------- #
+
+# Import niezbędnych zależności
+import numpy as np
 from ...src.jacobi.method import jacobi
 
-
-# Parametry wejściowe:
-A = array([[2, 1], [5, 7]])
-b = array([11, 13])
+# Parametry wejściowe
+A = np.array([[2, 1], [5, 7]])
+b = np.array([11, 13])
 max_iterations = 3
 tolerance = 0.0001
-x0 = array([1, 1])
+x0 = np.array([1, 1])
 
-# Rozwiązanie układu:
+# Rozwiązanie układu
 # x = [7.1111, -3.2222]
 
-# Przewidywane wyniki:
+# Przewidywane wyniki
 # x0: [1.0000, 1.0000]
 # x1: [5.0000, 1.1429]
 # x2: [4.9286, -1.7143]
@@ -20,10 +27,10 @@ x0 = array([1, 1])
 # ...
 # x40: [7.1111, -3.2222]
 
-
+# Definicja metody przykładu
 def jacobi_example_2():
     print("##### Metoda iteracyjna stacjonarna - Jacobi - Przyklad 2 #####")
-    x, i, t = jacobi(A, b, max_iterations, tolerance)
+    x, i, t = jacobi(A, b, max_iterations, tolerance, x0)
 
     print(f"Rozwiazanie: {x}")
     print(f"Liczba wykonanych iteracji: {i}")

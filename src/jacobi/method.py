@@ -1,28 +1,36 @@
-import numpy as np
-import time
+# Autor: Łukasz Miłoś
+# Data: 2021 - 2022
 
-from ..validator import validator
-from ..convergence import checkConditionOfConvergence
+# Plik definicji metody Jacobiego
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------- #
+
+# Import niezbędnych zależności
+import time
+import numpy as np
+
+from ..common import common
 
 """
-    Wejście (Parametry metody) [wymagania dla parametrów -> patrz: validator]:
-        - A (macierz) - kwadratowa dwuwymiarowa macierz układu równań
-        - b (wektor)- wektor wartości po prawej stronie równania Ax = b
-        - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec operacji
-        - tolerance (liczba zmiennoprzecinkowa, podwójnej precyzji) - zadana dokładność (tolerancja), która determinuje koniec operacji
-        - x0 (wektor) [opcjonalne] - Początkowe przybliżenie niewiadomych układu
+    Wejście (Parametry metod) [wymagania dla parametrów -> patrz: validator]:
+        - A (macierz) - macierz główna układu równań
+        - b (wektor) - wektor wyrazów wolnych
+        - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec obliczeń, gdy nie osiągnięto założonej dokładności
+        - tolerance (liczba zmiennoprzecinkowa) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
+        - x0 (wektor) [opcjonalne] - początkowy wektor przybliżeń rozwiązania
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
 
     Wyjście (Wartości zwracane przez funkcję):
         a) w przypadku poprawnych danych wejściowych
-            - x - otrzymany wektor rozwiązań
-            - iteration - numer ostatniej wykonanej iteracji
-            - elapsedTime - czas obliczeń [s]
+            - x (wektor) - wektor rozwiązań
+            - iteration (liczba całkowita) - liczba wykonanych iteracji
+            - elapsedTime (liczba zmiennoprzecinkowa) - czas obliczeń [s]
 
-        b) w przypadku błędnych danych wejściowych funkcja przerwie swoje działanie i zwróci None None None
+        b) w przypadku niepoprawnych danych wejściowych
+            - (None, None, None)
 """
 
-
+# Definicja metody Jacobiego
 def jacobi(
     A: np.array,
     b: np.array,
@@ -31,54 +39,38 @@ def jacobi(
     x0: np.array = None,
 ):
 
-    # pobranie czasu startu operacji
-    startTime = time.time()
+    # Wykonanie części wspólnej dla wszystkich metod
+    # Obejmuje to m.in. walidację danych wejściowych i sprawdzenie warunku zbieżności
+    startTime, _, x, valid = common(A, b, max_iterations, tolerance, x0)
 
-    # walidacja danych wejściowych [patrz: validator]
-    code: int = validator.validate(A, b, max_iterations, tolerance, x0)
-
-    # jeśli wystąpił błąd to funkcja kończy swoje działanie
-    if code:
+    # Jeśli dane wejściowe były nieprawidłowe to metoda przerywa działanie i zwraca (None, None, None)
+    if not valid:
         return None, None, None
 
-    # sprawdzenie warunku zbieżności metody
-    if not checkConditionOfConvergence(A):
-        return None, None, None
-
-    # pobranie liczby wierszy macierzy
-    size = np.shape(A)[0]
-
-    # sprawdzenie czy wektor początkowych przybliżeń został podany
-    # jeśli nie,to zostanie tworzony jest wektor wypełniony zerami
-    if x0 is None:
-        x = np.zeros(size)
-    else:
-        x = x0.copy()
-
-    # wyznaczenie przekątnej macierzy A
+    # Wyznaczenie przekątnej macierzy A
     D = np.diag(A)
 
-    # wyznaczenie odwrotności przekątnej macierzy
+    # Wyznaczenie odwrotności przekątnej macierzy
     D_inv = np.linalg.inv(np.diag(D))
 
-    # wyznaczenie sumy macierzy dolno- i górno- trójkątnych
+    # Wyznaczenie sumy macierzy dolno- i górno- trójkątnych
     L_plus_U = A - np.diag(D)
 
-    # pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
+    # Pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations):
 
-        # zapisanie poprzedniego wektora przybliżeń
+        # Zapisanie poprzedniego wektora przybliżeń
         x_old = x.copy()
 
-        # obliczenie kolejnego wektora przybliżeń rozwiązania
+        # Obliczenie kolejnego wektora przybliżeń rozwiązania
         x = np.dot(D_inv, b - np.dot(L_plus_U, x_old))
 
-        # sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
+        # Sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
         if sum(np.abs(x - x_old)) < tolerance:
             break
 
-    # obliczenie czasu operacji
+    # Obliczenie czasu operacji
     elapsedTime = time.time() - startTime
 
-    # zwrocenie liczby wykonanych iteracji i wektora wynikowego
+    # Zwrócenie liczby wykonanych iteracji i wektora wynikowego
     return x, iteration + 1, elapsedTime
