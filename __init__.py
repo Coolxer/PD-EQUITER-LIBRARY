@@ -3,9 +3,9 @@
 
 # Plik udostępnia najważniejsze elementy biblioteki do dyspozycji użytkownika końcowego
 
-#############################################################
+# -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
-# Import metod stacjonarnych rozwiązywania URL
+# Import przybliżonych metod stacjonarnych rozwiązywania URL
 from .src.jacobi.method import jacobi
 from .src.gauss_seidel.method import gauss_seidel
 from .src.sor.method import sor

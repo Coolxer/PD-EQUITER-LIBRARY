@@ -3,23 +3,23 @@
 
 # Plik przykładu nr 3 rozwiązania przy pomocy m. SOR
 
-#####################################
+# -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
 # Import niezbędnych zależności
 import numpy as np
 from ...src.sor.method import sor
 
-# Parametry wejściowe:
+# Parametry wejściowe
 A = np.array([[2, 0, 1], [0, 2, 1], [0, 1, 2]])
 b = np.array([6, 3, 4.5])
 max_iterations = 3
 tolerance = 0.0001
 w = 1.1
 
-# Rozwiązanie układu:
+# Rozwiązanie układu
 # x = [2.0000, 0.5000, 2.0000]
 
-# Przewidywane wyniki:
+# Przewidywane wyniki
 # x0: [0.0000, 0.0000, 0.0000]
 # x1: [3.3000, 1.6500, 1.5675]
 # x2: [2.1079, 0.6229, 1.9757]

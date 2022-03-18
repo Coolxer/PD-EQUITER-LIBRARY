@@ -82,7 +82,7 @@ Poniżej prezentowany jest sposób w jaki najprawdopodobniej będziesz korzysta�
 import numpy as np
 import equiter as eq
 
-# Parametry wejściowe:
+# Parametry wejściowe
 A = np.array([[3, 1, -1], [-1, 5, -1], [2, 4, 8]])
 b = np.array([6, 10, 2])
 max_iterations = 3
@@ -148,7 +148,7 @@ def sor(
 
 Poniżej prezentowane są opisy poszczególnych argumentów:
 
-- A (macierz) - dwuwymiarowa kwadratowa macierz główna układu równań
+- A (macierz) - macierz główna układu równań
 
   - **_Wymagania_**
     - nie może być pusta
@@ -162,7 +162,7 @@ Poniżej prezentowane są opisy poszczególnych argumentów:
     - musi być jednowymiarowy
     - musi mieć rozmiar adekwatny do rozmiaru macierzy A
 
-- max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec obliczeń
+- max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec, , gdy nie osiągnięto założonej dokładności obliczeń
 
   - **_Wymagania_**
     - liczba całkowita dodatnia
@@ -172,7 +172,7 @@ Poniżej prezentowane są opisy poszczególnych argumentów:
   - **_Wymagania_**
     - liczba zmiennoprzecinkowa większa od 0
 
-- x0 (wektor) [opcjonalne] - Początkowe wektor przybliżenia rozwiązania
+- x0 (wektor) [opcjonalne] - początkowy wektor przybliżeń rozwiązania
 
   - **_Wymagania_**
     - nie może być pusty

@@ -3,23 +3,23 @@
 
 # Plik przykładu nr 2 rozwiązania przy pomocy m. Jacobiego
 
-#########################################
+# -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
 # Import niezbędnych zależności
 import numpy as np
 from ...src.jacobi.method import jacobi
 
-# Parametry wejściowe:
+# Parametry wejściowe
 A = np.array([[2, 1], [5, 7]])
 b = np.array([11, 13])
 max_iterations = 3
 tolerance = 0.0001
 x0 = np.array([1, 1])
 
-# Rozwiązanie układu:
+# Rozwiązanie układu
 # x = [7.1111, -3.2222]
 
-# Przewidywane wyniki:
+# Przewidywane wyniki
 # x0: [1.0000, 1.0000]
 # x1: [5.0000, 1.1429]
 # x2: [4.9286, -1.7143]

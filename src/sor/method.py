@@ -3,7 +3,7 @@
 
 # Plik definicji metody SOR
 
-#########################################
+# -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
 # Import niezbędnych zależności
 import time
@@ -13,11 +13,11 @@ from ..common import common
 
 """
     Wejście (Parametry metody) [wymagania dla parametrów -> patrz: validator]:
-        - A (macierz) - kwadratowa dwuwymiarowa macierz główna układu równań
+        - A (macierz) - macierz główna układu równań
         - b (wektor) - wektor wyrazów wolnych
         - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec obliczeń
         - tolerance (liczba zmiennoprzecinkowa) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
-        - w (liczba zmiennoprzecinkowa) - parametr relaksacji (0, 2)
+        - w (liczba zmiennoprzecinkowa) - parametr relaksacji
         - x0 (wektor) [opcjonalne] - Początkowe przybliżenie rozwiązania
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
        
@@ -26,6 +26,9 @@ from ..common import common
             - x (wektor) - wektor rozwiązań
             - iteration (liczba całkowita) - numer ostatniej wykonanej iteracji
             - elapsedTime (liczba zmiennoprzecinkowa) - czas obliczeń [s]
+
+        b) w przypadku niepoprawnych danych wejściowych
+            - (None, None, None)
 """
 
 # Definicja metody SOR
@@ -39,8 +42,12 @@ def sor(
 ):
 
     # Wykonanie części wspólnej dla wszystkich metod
-    # Obejmuje to m.in walidację danych wejściowych i sprawdzenie warunku zbieżności
-    startTime, size, x = common(A, b, max_iterations, tolerance, x0, w)
+    # Obejmuje to m.in. walidację danych wejściowych i sprawdzenie warunku zbieżności
+    startTime, size, x, valid = common(A, b, max_iterations, tolerance, x0, w)
+
+    # Jeśli dane wejściowe były nieprawidłowe to metoda przerywa działanie i zwraca (None, None, None)
+    if not valid:
+        return None, None, None
 
     # Pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations):

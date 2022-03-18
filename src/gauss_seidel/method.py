@@ -3,7 +3,7 @@
 
 # Plik definicji metody Gaussa-Seidela
 
-#########################################
+# -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
 # Import niezbędnych zależności
 import time
@@ -13,9 +13,9 @@ from ..common import common
 
 """
     Wejście (Parametry metod) [wymagania dla parametrów -> patrz: validator]:
-        - A (macierz) - kwadratowa dwuwymiarowa macierz główna układu równań
+        - A (macierz) - macierz główna układu równań
         - b (wektor) - wektor wyrazów wolnych
-         - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec obliczeń, gdy nie osiągnięto założonej dokładności
+        - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec obliczeń, gdy nie osiągnięto założonej dokładności
         - tolerance (liczba zmiennoprzecinkowa) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
         - x0 (wektor) [opcjonalne] - początkowy wektor przybliżeń rozwiązania
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
@@ -25,6 +25,9 @@ from ..common import common
             - x (wektor) - wektor rozwiązań
             - iteration (liczba całkowita) - liczba wykonanych iteracji
             - elapsedTime (liczba zmiennoprzecinkowa) - czas obliczeń [s]
+
+        b) w przypadku niepoprawnych danych wejściowych
+            - (None, None, None)
 """
 
 # Definicja metody Gaussa-Seidela
@@ -38,7 +41,11 @@ def gauss_seidel(
 
     # Wykonanie części wspólnej dla wszystkich metod
     # Obejmuje to m.in walidację danych wejściowych i sprawdzenie warunku zbieżności
-    startTime, _, x = common(A, b, max_iterations, tolerance, x0)
+    startTime, _, x, valid = common(A, b, max_iterations, tolerance, x0)
+
+    # Jeśli dane wejściowe były nieprawidłowe to metoda przerywa działanie i zwraca (None, None, None)
+    if not valid:
+        return None, None, None
 
     # Wyznaczenie macierzy dolno-trójkątnej
     L = np.tril(A)

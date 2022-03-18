@@ -3,20 +3,20 @@
 
 # Plik przykładu nr 2 rozwiązania przy pomocy m. Gaussa-Seidela
 
-############################################
+# -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
 # Import niezbędnych zależności
 import numpy as np
 from ...src.gauss_seidel.method import gauss_seidel
 
-# Parametry wejściowe:
+# Parametry wejściowe
 A = np.array([[2, 3], [5, 7]])
 b = np.array([11, 13])
 max_iterations = 100
 tolerance = 0.000001
 x0 = np.array([1.1, 2.3])
 
-# Przewidywane wyniki:
+# Przewidywane wyniki
 # Warunek konieczny zbieżnosci ciągu nie jest spełniony!
 
 # Definicja metody przykładu

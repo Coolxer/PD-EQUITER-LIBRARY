@@ -3,16 +3,14 @@
 
 # Plik podstawowych kwestii teoretycznych dot. przybliżonych metod stacjonarnych
 
-#########################################################
-
------------------------------------------------------------ Opis teoretyczny -------------------------------------------------------------------------
+# ------------------------------------------------------------ Opis teoretyczny ----------------------------------------------------------- #
 
 Do metod stacjonarnych przybliżonych rozwiązywania URL zalicza się:
     - metodę Jacobiego
     - metodę Gaussa-Seidela
     - metodę SOR (nadrelaksacji)
 
----------------------------------------------------------- Opis matematyczny ----------------------------------------------------------------------
+# ---------------------------------------------------------- Opis matematyczny --------------------------------------------------------- #
 
 Warunek konieczny zbieżności ciągu kolejnych przybliżeń (macierz dominująca): 
     ^iE{1,2...,n}|aii| > SUM(|aij|, {j={1,2...,n, j != i}})"
@@ -25,4 +23,4 @@ Warunek kończący wykonywanie iteracji (związany z dokładnością obliczeń) 
 Alternatywnie Warunek kończący może być wyrażony za pomocą:
     SUM(|~bi^(k) - i|) < tol, ~b^(k) = Ax^(k)
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------------------------------------- #

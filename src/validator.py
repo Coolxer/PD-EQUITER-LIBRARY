@@ -3,11 +3,11 @@
 
 # Plik walidatora danych wejściowych
 
-#########################################
+# -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
 """
     Walidator sprawdza, czy dane wejściowe metod są prawidłowe.
-    Jeśli dane wejściowe są prawidłowe to zwracane jest 0 (SUCCESS), w innym przypadku zwracany kod błędu <1...> (ERROR) wraz z czytelną informacją.
+    Jeśli dane wejściowe są prawidłowe to zwracane jest 0 (SUCCESS), w innym przypadku zwracany jest kod błędu <1...> (ERROR) wraz z czytelną informacją.
 
     Wymagania Parametrów:
         - A (macierz)
@@ -45,7 +45,7 @@ import numpy as np
 # Klasa walidatora
 class Validator:
     __errors: dict = None
-    _SUCCESS: bool = 0
+    SUCCESS: bool = 0
 
     # Konstruktor przygotowujący kody i opisy błędów
     def __init__(self):
@@ -103,7 +103,7 @@ class Validator:
         if not isinstance(max_iterations, int) or max_iterations <= 0:
             return self.__throwError(7)
 
-        # Sprawdzenie czy liczba tolerance jest mniejsza bądź rowna 0
+        # Sprawdzenie czy liczba tolerance jest dodatnia
         if tolerance <= 0.0:
             return self.__throwError(8)
 
@@ -125,7 +125,7 @@ class Validator:
         if w is not None and (w < 0.0 or w > 2.0):
             return self.__throwError(12)
 
-        return self._SUCCESS
+        return self.SUCCESS
 
 
 # Utworzenie obiektu walidatora

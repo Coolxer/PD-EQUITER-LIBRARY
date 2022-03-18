@@ -1,27 +1,19 @@
-# Plik: theory.txt
-# Zawartość: Opis teoretyczny i matematyczny dla metody Jacobiego.
+# Autor: Łukasz Miłoś
+# Data: 2021 - 2022
 
------------------------------------------- Opis teoretyczny -------------------------------------------
+# Plik zawierający podstawową teorię dot. m. Jacobiego
 
-Metoda iteracji prostej jak sama nazwa wskazuje jest jedną z najprostszych metod iteracyjnych
-rozwiązywania układu równań.
+# ------------------------------------------------------------ Opis teoretyczny ----------------------------------------------------------- #
 
--------------------------------------------------------------------------------------------------------
+Metoda Jacobiego jest jedną z najprostszych metod iteracyjnych rozwiązywania układu równań,
+ale jednocześnie często najwolniej zbieżną w stosunku do pozostałych metod stacjonarnych.
 
------------------------------------------ Opis matematyczny -------------------------------------------
-
-Przekształcenie układu wejściowego:
-    Ax = b
-    (L + D + U)x = b
-    Lx + Dx + Ux = b
-    (L + U)x + Dx = b
-    Dx = −(L + U)x + b
-    x = −D^(−1)(L + U)x + D^(−1)b
-    x = −D^(−1)[(L + U)x + b]
+# ---------------------------------------------------------- Opis matematyczny --------------------------------------------------------- #
 
 Wzór dla metody Jacobiego w postaci macierzowej:
     x^(k + 1) = D^(-1)*(b - (L + U)x^(k))
 
 Wzór dla metody Jacobiego w postaci elementowej 
     x_i^(k + 1) = (1/a_ii)(b_i - sum(a_ij * x_j^(k)))
--------------------------------------------------------------------------------------------------------
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------- #
