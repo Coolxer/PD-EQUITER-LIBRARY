@@ -148,31 +148,31 @@ def sor(
 
 Poniżej prezentowane są opisy poszczególnych argumentów:
 
-- A (macierz) - macierz główna układu równań
+- **_A (macierz)_** - macierz główna układu równań
 
   - **_Wymagania_**
     - nie może być pusta
     - musi być dwuwymiarowa
     - musi być kwadratowa
 
-- b (wektor)- wektor wyrazów wolnych
+- **_b (wektor)_** - wektor wyrazów wolnych
 
   - **_Wymagania_**
     - nie może być pusty
     - musi być jednowymiarowy
     - musi mieć rozmiar adekwatny do rozmiaru macierzy A
 
-- max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec, , gdy nie osiągnięto założonej dokładności obliczeń
+- **_max_iterations (liczba całkowita)_** - maksymalna liczba iteracji, która determinuje koniec, , gdy nie osiągnięto założonej dokładności obliczeń
 
   - **_Wymagania_**
     - liczba całkowita dodatnia
 
-- tolerance (liczba zmiennoprzecinkowa) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
+- **_tolerance (liczba zmiennoprzecinkowa)_** - zadana dokładność (tolerancja), która determinuje koniec obliczeń
 
   - **_Wymagania_**
     - liczba zmiennoprzecinkowa większa od 0
 
-- x0 (wektor) [opcjonalne] - początkowy wektor przybliżeń rozwiązania
+- **_x0 (wektor) [opcjonalne]_** - początkowy wektor przybliżeń rozwiązania
 
   - **_Wymagania_**
     - nie może być pusty
@@ -181,7 +181,7 @@ Poniżej prezentowane są opisy poszczególnych argumentów:
 
   **_UWAGA!_** Jeśli argument x0 nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
 
-- w (liczba zmiennoprzecinkowa) - parametr relaksacji (0, 2) dla metody SOR
+- **_w (liczba zmiennoprzecinkowa)_** - parametr relaksacji (0, 2) dla metody SOR
 
   - **_Wymagania_**
     - liczba z zakresu (0, 2)
