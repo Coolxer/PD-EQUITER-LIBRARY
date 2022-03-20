@@ -13,18 +13,18 @@ from ..common import common
 
 """
     Wejście (Parametry metod) [wymagania dla parametrów -> patrz: validator]:
-        - A (macierz) - macierz główna układu równań
-        - b (wektor) - wektor wyrazów wolnych
-        - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec obliczeń, gdy nie osiągnięto założonej dokładności
-        - tolerance (liczba zmiennoprzecinkowa) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
-        - x0 (wektor) [opcjonalne] - początkowy wektor przybliżeń rozwiązania
+        - A (macierz => np.array) - macierz główna układu równań
+        - b (wektor => np.array) - wektor wyrazów wolnych
+        - max_iterations (liczba całkowita => int) - maksymalna liczba iteracji, która determinuje koniec obliczeń, gdy nie osiągnięto założonej dokładności
+        - tolerance (liczba zmiennoprzecinkowa => float) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
+        - x0 (wektor => np.array) [opcjonalne] - początkowy wektor przybliżeń rozwiązania
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
 
     Wyjście (Wartości zwracane przez funkcję):
         a) w przypadku poprawnych danych wejściowych
-            - x (wektor) - wektor rozwiązań
-            - iteration (liczba całkowita) - liczba wykonanych iteracji
-            - elapsedTime (liczba zmiennoprzecinkowa) - czas obliczeń [s]
+            - x (wektor => np.array) - wektor rozwiązań
+            - iteration (liczba całkowita => int) - liczba wykonanych iteracji
+            - elapsedTime (liczba zmiennoprzecinkowa => float) - czas obliczeń [s]
 
         b) w przypadku niepoprawnych danych wejściowych
             - (None, None, None)
@@ -37,7 +37,7 @@ def jacobi(
     max_iterations: int,
     tolerance: float,
     x0: np.array = None,
-):
+) -> tuple(np.array, int, float):
 
     # Wykonanie części wspólnej dla wszystkich metod
     # Obejmuje to m.in. walidację danych wejściowych i sprawdzenie warunku zbieżności

@@ -9,8 +9,17 @@
 import numpy as np
 
 # Definicja metody sprawdzającej spełnienie warunku zbieżności
-def checkConditionOfConvergence(A: np.array):
 
+"""
+    Wejście:
+        - A (macierz => np.array) - macierz główna układu równań
+        
+    Wyjście:
+            - (bool) - True - gdy warunek zbieżności jest spełniony / False - gdy warunek zbieżności nie jest spełniony
+"""
+
+
+def checkConditionOfConvergence(A: np.array) -> bool:
     # Obliczenie  absolutnych wartości głównej przekątnej macierzy wejściowej A
     D_abs = np.abs(np.diag(A))
 
