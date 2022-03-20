@@ -13,19 +13,19 @@ from ..common import common
 
 """
     Wejście (Parametry metody) [wymagania dla parametrów -> patrz: validator]:
-        - A (macierz) - macierz główna układu równań
-        - b (wektor) - wektor wyrazów wolnych
-        - max_iterations (liczba całkowita) - maksymalna liczba iteracji, która determinuje koniec obliczeń
-        - tolerance (liczba zmiennoprzecinkowa) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
-        - w (liczba zmiennoprzecinkowa) - parametr relaksacji
-        - x0 (wektor) [opcjonalne] - Początkowe przybliżenie rozwiązania
+        - A (macierz => np.array) - macierz główna układu równań
+        - b (wektor => np.array) - wektor wyrazów wolnych
+        - max_iterations (liczba całkowita => int) - maksymalna liczba iteracji, która determinuje koniec obliczeń
+        - tolerance (liczba zmiennoprzecinkowa => float) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
+        - w (liczba zmiennoprzecinkowa => float) - parametr relaksacji
+        - x0 (wektor => np.array) [opcjonalne] - Początkowe przybliżenie rozwiązania
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
        
     Wyjście (Wartości zwracane przez funkcję):
         a) w przypadku poprawnych danych wejściowych
-            - x (wektor) - wektor rozwiązań
-            - iteration (liczba całkowita) - numer ostatniej wykonanej iteracji
-            - elapsedTime (liczba zmiennoprzecinkowa) - czas obliczeń [s]
+            - x (wektor => np.array) - wektor rozwiązań
+            - iteration (liczba całkowita => int) - numer ostatniej wykonanej iteracji
+            - elapsedTime (liczba zmiennoprzecinkowa => float) - czas obliczeń [s]
 
         b) w przypadku niepoprawnych danych wejściowych
             - (None, None, None)
@@ -39,7 +39,7 @@ def sor(
     tolerance: float,
     w: float,
     x0: np.array = None,
-):
+) -> tuple(np.array, int, float):
 
     # Wykonanie części wspólnej dla wszystkich metod
     # Obejmuje to m.in. walidację danych wejściowych i sprawdzenie warunku zbieżności

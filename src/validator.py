@@ -10,30 +10,30 @@
     Jeśli dane wejściowe są prawidłowe to zwracane jest 0 (SUCCESS), w innym przypadku zwracany jest kod błędu <1...> (ERROR) wraz z czytelną informacją.
 
     Wymagania Parametrów:
-        - A (macierz)
+        - A (macierz => np.array)
             - nie może być pusta
             - musi być dwuwymiarowa
             - musi być kwadratowa
 
-        - b (wektor)
+        - b (wektor => np.array)
             - nie może być pusty
             - musi być jednowymiarowy
             - musi mieć rozmiar adekwatny do rozmiaru macierzy A
 
-        - max_iterations (liczba całkowita)
+        - max_iterations (liczba całkowita => int)
             - liczba całkowita dodatnia
 
-        - tolerance (liczba zmiennoprzecinkowa)
+        - tolerance (liczba zmiennoprzecinkowa => float)
             - liczba zmiennoprzecinkowa większa od 0
 
         [opcjonalny => walidacja tylko w przypadku podania parametru]
-        - x0 (wektor)
+        - x0 (wektor => np.array)
             - nie może być pusty
             - musi być jednowymiarowy
             - musi mieć rozmiar adekwatny do rozmiaru macierzy A
 
         [opcjonalny => walidacja tylko w przypadku podania parametru]
-        - w (liczba zmiennoprzecinkowa)
+        - w (liczba zmiennoprzecinkowa => float)
             - liczba z zakresu (0, 2)
 """
 
@@ -61,7 +61,7 @@ class Validator:
             print("Nie znaleziono pliku błędów errors.json")
 
     # Metoda wyświetla treść błędu na ekranie i zwraca jego kod
-    def __throwError(self, code: int):
+    def __throwError(self, code: int) -> int:
         print(self.__errors[str(code)])
         return code
 
@@ -74,7 +74,7 @@ class Validator:
         tolerance: float,
         x0: np.array = None,
         w: float = None,
-    ):
+    ) -> int:
         # Sprawdzenie czy macierz A jest pusta
         if not A.size:
             return self.__throwError(1)
