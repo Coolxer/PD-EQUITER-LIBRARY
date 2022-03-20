@@ -5,7 +5,8 @@
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
-# Import niezbędnych zależności
+# Import zależności
+from typing import NoReturn
 import numpy as np
 from ...src.gauss_seidel.method import gauss_seidel
 
@@ -28,7 +29,7 @@ x0 = np.array([1, 1])
 # x5: [0.8122, -0.6650]
 
 # Definicja metody przykładu
-def gauss_seidel_example_1():
+def gauss_seidel_example_1() -> NoReturn:
     print("##### Metoda iteracyjna stacjonarna - Gauss-Seidel - Przyklad 1 #####")
     x, i, t = gauss_seidel(A, b, max_iterations, tolerance, x0)
 

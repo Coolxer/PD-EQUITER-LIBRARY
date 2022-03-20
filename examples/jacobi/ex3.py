@@ -5,7 +5,8 @@
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
-# Import niezbędnych zależności
+# Import zależności
+from typing import NoReturn
 import numpy as np
 from ...src.jacobi.method import jacobi
 
@@ -27,7 +28,7 @@ tolerance = 0.0001
 # x23: [1.0000, 2.0000, -1.0000, 1.0000]
 
 # Definicja metody przykładu
-def jacobi_example_3():
+def jacobi_example_3() -> NoReturn:
     print("##### Metoda iteracyjna stacjonarna - Jacobi - Przyklad 3 #####")
     x, i, t = jacobi(A, b, max_iterations, tolerance)
 

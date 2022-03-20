@@ -5,8 +5,9 @@
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
-# Import niezbędnych zależności
+# Import zależności
 import time
+from typing import Tuple
 import numpy as np
 
 from .validator import validator
@@ -39,7 +40,8 @@ def common(
     tolerance: float,
     x0: np.array = None,
     w: float = None,
-) -> tuple(float, tuple, np.array, bool):
+) -> Tuple[float, tuple, np.array, bool]:
+
     # Pobranie czasu startu operacji
     startTime = time.time()
 

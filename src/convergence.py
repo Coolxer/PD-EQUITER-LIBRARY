@@ -5,7 +5,7 @@
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
-# Import niezbędnych zależności
+# Import zależności
 import numpy as np
 
 # Definicja metody sprawdzającej spełnienie warunku zbieżności

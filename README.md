@@ -116,7 +116,7 @@ def jacobi(
     max_iterations: int,
     tolerance: float,
     x0: np.array = None,
-)
+) -> Tuple[np.array, int, float]
 ```
 
 - metoda Gaussa-Seidela:
@@ -128,7 +128,7 @@ def gauss_seidel(
     max_iterations: int,
     tolerance: float,
     x0: np.array = None,
-):
+) -> Tuple[np.array, int, float]
 ```
 
 - metoda SOR:
@@ -141,7 +141,7 @@ def sor(
     tolerance: float,
     w: float,
     x0: np.array = None,
-)
+) -> Tuple[np.array, int, float]
 ```
 
 ### Parametry metod
