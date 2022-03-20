@@ -5,7 +5,8 @@
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
-# Import niezbędnych zależności
+# Import zależności
+from typing import NoReturn
 import numpy as np
 from ...src.sor.method import sor
 
@@ -28,7 +29,7 @@ w = 1.1
 # x10: [1.0000, 2.0000, 1.0000]
 
 # Definicja metody przykładu
-def sor_example_1():
+def sor_example_1() -> NoReturn:
     print("##### Metoda iteracyjna stacjonarna - SOR - Przyklad 1 #####")
     x, i, t = sor(A, b, max_iterations, tolerance, w)
 

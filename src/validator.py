@@ -37,7 +37,7 @@
             - liczba z zakresu (0, 2)
 """
 
-# Import niezbędnych zależności
+# Import zależności
 import os
 import json
 import numpy as np
@@ -48,7 +48,7 @@ class Validator:
     SUCCESS: bool = 0
 
     # Konstruktor przygotowujący kody i opisy błędów
-    def __init__(self):
+    def __init__(self) -> None:
         directory = os.path.dirname(os.path.abspath(__file__))
         path = os.path.join(directory, "errors.json")
 

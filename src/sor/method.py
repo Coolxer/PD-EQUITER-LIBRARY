@@ -5,8 +5,9 @@
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
-# Import niezbędnych zależności
+# Import zależności
 import time
+from typing import Tuple
 import numpy as np
 
 from ..common import common
@@ -28,7 +29,7 @@ from ..common import common
             - elapsedTime (liczba zmiennoprzecinkowa => float) - czas obliczeń [s]
 
         b) w przypadku niepoprawnych danych wejściowych
-            - (None, None, None)
+            - None, None, None (krotka => Tuple)
 """
 
 # Definicja metody SOR
@@ -39,7 +40,7 @@ def sor(
     tolerance: float,
     w: float,
     x0: np.array = None,
-) -> tuple(np.array, int, float):
+) -> Tuple[np.array, int, float]:
 
     # Wykonanie części wspólnej dla wszystkich metod
     # Obejmuje to m.in. walidację danych wejściowych i sprawdzenie warunku zbieżności

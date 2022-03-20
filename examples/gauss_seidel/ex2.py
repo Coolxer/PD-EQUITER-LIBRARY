@@ -5,7 +5,8 @@
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
 
-# Import niezbędnych zależności
+# Import zależności
+from typing import NoReturn
 import numpy as np
 from ...src.gauss_seidel.method import gauss_seidel
 
@@ -20,7 +21,7 @@ x0 = np.array([1.1, 2.3])
 # Warunek konieczny zbieżnosci ciągu nie jest spełniony!
 
 # Definicja metody przykładu
-def gauss_seidel_example_2():
+def gauss_seidel_example_2() -> NoReturn:
     print("##### Metoda iteracyjna stacjonarna - Gauss-Seidel - Przyklad 2 #####")
     x, i, t = gauss_seidel(A, b, max_iterations, tolerance, x0)
 
