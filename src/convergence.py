@@ -15,11 +15,11 @@ import numpy as np
         - A (macierz => np.array) - macierz główna układu równań
         
     Wyjście:
-            - (bool) - True - gdy warunek zbieżności jest spełniony / False - gdy warunek zbieżności nie jest spełniony
+         - (bool) - True - gdy warunek zbieżności jest spełniony / False - gdy warunek zbieżności nie jest spełniony
 """
 
 
-def checkConditionOfConvergence(A: np.array) -> bool:
+def check_condition_of_convergence(A: np.array) -> bool:
     # Obliczenie  absolutnych wartości głównej przekątnej macierzy wejściowej A
     D_abs = np.abs(np.diag(A))
 

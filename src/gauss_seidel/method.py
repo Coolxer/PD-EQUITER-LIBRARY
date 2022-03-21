@@ -24,8 +24,8 @@ from ..common import common
     Wyjście (Wartości zwracane przez funkcję):
         a) w przypadku poprawnych danych wejściowych
             - x (wektor => np.array) - wektor rozwiązań
-            - iteration (liczba całkowita => int) - liczba wykonanych iteracji
-            - elapsedTime (liczba zmiennoprzecinkowa => float) - czas obliczeń [s]
+            - iterations (liczba całkowita => int) - liczba wykonanych iteracji
+            - elapsed_time (liczba zmiennoprzecinkowa => float) - czas obliczeń [s]
 
         b) w przypadku niepoprawnych danych wejściowych
             - None, None, None (krotka => Tuple)
@@ -42,7 +42,7 @@ def gauss_seidel(
 
     # Wykonanie części wspólnej dla wszystkich metod
     # Obejmuje to m.in walidację danych wejściowych i sprawdzenie warunku zbieżności
-    startTime, _, x, valid = common(A, b, max_iterations, tolerance, x0)
+    start_time, _, x, valid = common(A, b, max_iterations, tolerance, x0)
 
     # Jeśli dane wejściowe były nieprawidłowe to metoda przerywa działanie i zwraca (None, None, None)
     if not valid:
@@ -62,7 +62,6 @@ def gauss_seidel(
 
     # Pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations):
-
         # Zapisanie poprzedniego wektora przybliżeń
         x_old = x.copy()
 
@@ -74,7 +73,7 @@ def gauss_seidel(
             break
 
     # Obliczenie czasu operacji
-    elapsedTime = time.time() - startTime
+    elapsed_time = time.time() - start_time
 
     # Zwrócenie liczby wykonanych iteracji i wektora wynikowego
-    return x, iteration + 1, elapsedTime
+    return x, iteration + 1, elapsed_time
