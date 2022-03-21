@@ -11,7 +11,7 @@ from typing import Tuple
 import numpy as np
 
 from .validator import validator
-from .convergence import checkConditionOfConvergence
+from .convergence import check_condition_of_convergence
 
 """
     Wejście (Parametry metod) [wymagania dla parametrów -> patrz: validator]:
@@ -24,7 +24,7 @@ from .convergence import checkConditionOfConvergence
         - w (liczba zmiennoprzecinkowa => float) [tylko dla metody SOR] - parametr relaksacji
         
     Wyjście (Wartości zwracane przez metodę common, a nie przez właściwą metodę):
-            - startTime (liczba zmiennoprzecinkowa => float) - czas rozpoczęcia operacji
+            - start_time (liczba zmiennoprzecinkowa => float) - czas rozpoczęcia operacji
             - size (krotka => tuple) - rozmiar macierzy głównej w postaci (n, m)
             - x (wektor => np.array) - początkowy wektor przybliżeń rozwiązania
             - valid (True/False => bool) - informacja czy wszystko przebiegło pomyślnie (dla poprawnych danych wejściowych zawsze True)
@@ -43,12 +43,12 @@ def common(
 ) -> Tuple[float, tuple, np.array, bool]:
 
     # Pobranie czasu startu operacji
-    startTime = time.time()
+    start_time = time.time()
 
     # Walidacja danych wejściowych [patrz: validator] i sprawdzenie warunku zbieżności metody [patrz: convergence]
     if validator.validate(
         A, b, max_iterations, tolerance, x0, w
-    ) != validator.SUCCESS or not checkConditionOfConvergence(A):
+    ) != validator.SUCCESS or not check_condition_of_convergence(A):
         return None, None, None, False
 
     # Pobranie liczby wierszy macierzy
@@ -63,4 +63,4 @@ def common(
         x = x0.copy()
 
     # Zwrócenie czasu startu operacji, rozmiaru macierzy głównej, początkowego wektora przybliżeń i informacji, że wszystko przebiegło pomyślnie
-    return startTime, size, x, True
+    return start_time, size, x, True

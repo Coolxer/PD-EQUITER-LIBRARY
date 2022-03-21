@@ -198,6 +198,8 @@ Każda metoda zwraca 3 wartości:
 x, i, t = method(...)
 ```
 
+**_UWAGA!_** - Nazwy zmiennych, do których zwracane są wyniki działania metod są dowolne.
+
 ---
 
 ### Dostępne przykłady
