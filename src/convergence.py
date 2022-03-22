@@ -33,4 +33,5 @@ def check_condition_of_convergence(A: np.array) -> bool:
             print("Warunek konieczny zbieznosci ciagu nie jest spelniony")
             return False
 
+    # Jeśli warunek jest spełniony to zwróć True
     return True
