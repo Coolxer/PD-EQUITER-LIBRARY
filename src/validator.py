@@ -65,7 +65,7 @@ class Validator:
         print(self.__errors[str(code)])
         return code
 
-    # Metoda sprawdza poprawność parametrów, jeśli wszystko jest w porządku to zwraca _SUCCESS (0), inaczej zwraca kod błędu <1, ...>
+    # Metoda sprawdza poprawność parametrów, jeśli wszystko jest w porządku to zwraca SUCCESS (0), inaczej zwraca kod błędu <1, ...>
     def validate(
         self,
         A: np.array,
