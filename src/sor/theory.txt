@@ -21,7 +21,7 @@ Własności wynikające z wartości parametru w:
 # ---------------------------------------------------------- Opis matematyczny --------------------------------------------------------- #
 
 Wzór dla metody SOR w postaci macierzowej : 
-x^(k + 1) = (D + wL)^(-1)[wb - (wU + (w - 1)D)x^(k)] * 
+x^(k + 1) = (D + wL)^(-1){wb - [wU + (w - 1)D]x^(k)}
 
 Wzór dla metody SOR w postaci elementowej: 
 x_i^(k + 1) = (1 - w)x_i^(k) + (w/a_ii)[b_i - sum(a_ij * x_j^(k + 1)) - sum(a_ij * x_j^(k))]

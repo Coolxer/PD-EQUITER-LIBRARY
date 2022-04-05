@@ -11,9 +11,9 @@ ale jednocześnie często najwolniej zbieżną w stosunku do pozostałych metod 
 # ---------------------------------------------------------- Opis matematyczny --------------------------------------------------------- #
 
 Wzór dla metody Jacobiego w postaci macierzowej:
-    x^(k + 1) = D^(-1)*(b - (L + U)x^(k))
+    x^(k + 1) = D^(-1)*[b - (L + U)x^(k)]
 
 Wzór dla metody Jacobiego w postaci elementowej 
-    x_i^(k + 1) = (1/a_ii)(b_i - sum(a_ij * x_j^(k)))
+    x_i^(k + 1) = (1/a_ii)[b_i - sum(a_ij * x_j^(k))]
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
