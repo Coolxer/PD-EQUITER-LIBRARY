@@ -13,18 +13,18 @@ import numpy as np
 from ..common import common
 
 """
-    Wejście (Parametry metody) [wymagania dla parametrów -> patrz: validator]:
-        - A (macierz => np.array) - macierz główna układu równań
-        - b (wektor => np.array) - wektor wyrazów wolnych
+    Wejście (Parametry metody) [wymagania dla parametrów -> patrz: validation]:
+        - A (macierz => np.ndarray) - macierz główna układu równań
+        - b (wektor => np.ndarray) - wektor wyrazów wolnych
         - max_iterations (liczba całkowita => int) - maksymalna liczba iteracji, która determinuje koniec obliczeń
-        - tolerance (liczba zmiennoprzecinkowa => float) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
-        - w (liczba zmiennoprzecinkowa => float) - parametr relaksacji
-        - x0 (wektor => np.array) [opcjonalne] - Początkowe przybliżenie rozwiązania
+        - tolerance (liczba całkowita / zmiennoprzecinkowa => int / float) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
+        - w (liczba całkowita / zmiennoprzecinkowa => int / float) - parametr relaksacji
+        - x0 (wektor => np.ndarray) [opcjonalne] - Początkowe przybliżenie rozwiązania
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
        
     Wyjście (Wartości zwracane przez funkcję):
         a) w przypadku poprawnych danych wejściowych
-            - x (wektor => np.array) - wektor rozwiązań
+            - x (wektor => np.ndarray) - wektor rozwiązań
             - iterations (liczba całkowita => int) - liczba wykonanych iteracji
             - elapsed_time (liczba zmiennoprzecinkowa => float) - czas obliczeń [s]
 
@@ -34,13 +34,13 @@ from ..common import common
 
 # Definicja metody SOR
 def sor(
-    A: np.array,
-    b: np.array,
+    A: np.ndarray,
+    b: np.ndarray,
     max_iterations: int,
     tolerance: float,
     w: float,
-    x0: np.array = None,
-) -> Tuple[np.array, int, float]:
+    x0: np.ndarray = None,
+) -> Tuple[np.ndarray, int, float]:
 
     # Wykonanie części wspólnej dla wszystkich metod
     # Obejmuje to m.in. walidację danych wejściowych i sprawdzenie warunku zbieżności
@@ -52,6 +52,7 @@ def sor(
 
     # Pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations):
+
         # Zapisanie poprzedniego wektora przybliżeń
         x_old = x.copy()
 

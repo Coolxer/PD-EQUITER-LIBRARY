@@ -30,9 +30,9 @@ w = 1.1
 
 # Definicja metody przykładu
 def sor_example_1() -> NoReturn:
-    print("##### Metoda iteracyjna stacjonarna - SOR - Przyklad 1 #####")
+    print("##### Metoda iteracyjna stacjonarna - SOR - Przykład 1 #####")
     x, i, t = sor(A, b, max_iterations, tolerance, w)
 
-    print(f"Rozwiazanie: {x}")
+    print(f"Rozwiązanie: {x}")
     print(f"Liczba wykonanych iteracji: {i}")
-    print(f"Czas obliczen: {t}s")
+    print(f"Czas obliczeń: {t}s")

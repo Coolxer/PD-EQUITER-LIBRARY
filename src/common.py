@@ -10,23 +10,23 @@ import time
 from typing import Tuple
 import numpy as np
 
-from .validator import validator
+from .validation import validate_input_parameters, SUCCESS
 from .convergence import check_condition_of_convergence
 
 """
-    Wejście (Parametry metod) [wymagania dla parametrów -> patrz: validator]:
-        - A (macierz => np.array) - macierz główna układu równań
-        - b (wektor => np.array) - wektor wyrazów wolnych
-         - max_iterations (liczba całkowita => int) - maksymalna liczba iteracji, która determinuje koniec obliczeń, gdy nie osiągnięto założonej dokładności
-        - tolerance (liczba zmiennoprzecinkowa => float) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
-        - x0 (wektor => np.array) [opcjonalne] - początkowy wektor przybliżeń rozwiązania
+    Wejście (Parametry metod) [wymagania dla parametrów -> patrz: validation]:
+        - A (macierz => np.ndarray) - macierz główna układu równań
+        - b (wektor => np.ndarray) - wektor wyrazów wolnych
+        - max_iterations (liczba całkowita => int) - maksymalna liczba iteracji, która determinuje koniec obliczeń, gdy nie osiągnięto założonej dokładności
+        - tolerance (liczba całkowita / zmiennoprzecinkowa => int / float) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
+        - x0 (wektor => np.ndarray) [opcjonalne] - początkowy wektor przybliżeń rozwiązania
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
-        - w (liczba zmiennoprzecinkowa => float) [tylko dla metody SOR] - parametr relaksacji
+        - w (liczba całkowita / zmiennoprzecinkowa => int / float) [tylko dla metody SOR] - parametr relaksacji
         
     Wyjście (Wartości zwracane przez metodę common, a nie przez właściwą metodę):
             - start_time (liczba zmiennoprzecinkowa => float) - czas rozpoczęcia operacji
             - size (krotka => tuple) - rozmiar macierzy głównej w postaci (n, m)
-            - x (wektor => np.array) - początkowy wektor przybliżeń rozwiązania
+            - x (wektor => np.ndarray) - początkowy wektor przybliżeń rozwiązania
             - valid (True/False => bool) - informacja czy wszystko przebiegło pomyślnie (dla poprawnych danych wejściowych zawsze True)
 
             Dla niepoprawnych danych wejściowych metoda  zawsze zwraca (None, None, None, False)
@@ -34,21 +34,21 @@ from .convergence import check_condition_of_convergence
 
 # Definicja początkowej części wspólnej dla każdej z metod
 def common(
-    A: np.array,
-    b: np.array,
+    A: np.ndarray,
+    b: np.ndarray,
     max_iterations: int,
     tolerance: float,
-    x0: np.array = None,
+    x0: np.ndarray = None,
     w: float = None,
-) -> Tuple[float, tuple, np.array, bool]:
+) -> Tuple[float, tuple, np.ndarray, bool]:
 
     # Pobranie czasu startu operacji
     start_time = time.time()
 
-    # Walidacja danych wejściowych [patrz: validator] i sprawdzenie warunku zbieżności metody [patrz: convergence]
-    if validator.validate(
+    # Walidacja danych wejściowych [patrz: validation] i sprawdzenie warunku zbieżności metody [patrz: convergence]
+    if validate_input_parameters(
         A, b, max_iterations, tolerance, x0, w
-    ) != validator.SUCCESS or not check_condition_of_convergence(A):
+    ) != SUCCESS or not check_condition_of_convergence(A):
         return None, None, None, False
 
     # Pobranie liczby wierszy macierzy

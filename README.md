@@ -68,10 +68,10 @@ eq.jacobi_example_1()
 Efektem wykonania powyższego kodu będzie wyświetlenie następujących informacji w konsoli / terminalu:
 
 ```console
-##### Metoda iteracyjna stacjonarna - Jacobi - Przyklad 1 #####
-Rozwiazanie: [ 0.76666667  2.03333333 -1.32916667]
+##### Metoda iteracyjna stacjonarna - Jacobi - Przykład 1 #####
+Rozwiązanie: [ 0.76666667  2.03333333 -1.32916667]
 Liczba wykonanych iteracji: 3
-Czas obliczen: 0.0s
+Czas obliczeń: 0.0s
 ```
 
 ### Własny Przykład
@@ -88,13 +88,13 @@ b = np.array([6, 10, 2])
 max_iterations = 3
 tolerance = 0.0001
 
-print("##### Wlasny przyklad #####")
+print("##### Własny przykład #####")
 
 x, i, t = eq.jacobi(A, b, max_iterations, tolerance)
 
-print(f"Rozwiazanie: {x}")
+print(f"Rozwiązanie: {x}")
 print(f"Liczba wykonanych iteracji: {i}")
-print(f"Czas obliczen: {t}s")
+print(f"Czas obliczeń: {t}s")
 ```
 
 ---
@@ -111,86 +111,92 @@ Dostępne są następujące interfejsy metod:
 
 ```python
 def jacobi(
-    A: np.array,
-    b: np.array,
+    A: np.ndarray,
+    b: np.ndarray,
     max_iterations: int,
     tolerance: float,
-    x0: np.array = None,
-) -> Tuple[np.array, int, float]
+    x0: np.ndarray = None,
+) -> Tuple[np.ndarray, int, float]
 ```
 
 - metoda Gaussa-Seidela:
 
 ```python
 def gauss_seidel(
-    A: np.array,
-    b: np.array,
+    A: np.ndarray,
+    b: np.ndarray,
     max_iterations: int,
     tolerance: float,
-    x0: np.array = None,
-) -> Tuple[np.array, int, float]
+    x0: np.ndarray = None,
+) -> Tuple[np.ndarray, int, float]
 ```
 
 - metoda SOR:
 
 ```python
 def sor(
-    A: np.array,
-    b: np.array,
+    A: np.ndarray,
+    b: np.ndarray,
     max_iterations: int,
     tolerance: float,
     w: float,
-    x0: np.array = None,
-) -> Tuple[np.array, int, float]
+    x0: np.ndarray = None,
+) -> Tuple[np.ndarray, int, float]
 ```
 
 ### Parametry metod
 
 Poniżej prezentowane są opisy poszczególnych argumentów:
 
-- **_A (macierz => np.array)_** - macierz główna układu równań
+- **_A (macierz => np.ndarray)_** - macierz główna układu równań
 
   - **_Wymagania_**
+    - musi być typu 'np.ndarray'
     - nie może być pusta
     - musi być dwuwymiarowa
     - musi być kwadratowa
 
-- **_b (wektor => np.array)_** - wektor wyrazów wolnych
+- **_b (wektor => np.ndarray)_** - wektor wyrazów wolnych
 
   - **_Wymagania_**
+    - musi być typu 'np.ndarray'
     - nie może być pusty
     - musi być jednowymiarowy
     - musi mieć rozmiar adekwatny do rozmiaru macierzy A
 
-- **_max_iterations (liczba całkowita => int)_** - maksymalna liczba iteracji, która determinuje koniec, , gdy nie osiągnięto założonej dokładności obliczeń
+- **_max_iterations (liczba całkowita => int)_** - maksymalna liczba iteracji, która determinuje koniec, gdy nie osiągnięto założonej dokładności obliczeń
 
   - **_Wymagania_**
-    - liczba całkowita dodatnia
+    - musi być typu 'int'
+    - musi być dodatnie
 
-- **_tolerance (liczba zmiennoprzecinkowa => float)_** - zadana dokładność (tolerancja), która determinuje koniec obliczeń
-
-  - **_Wymagania_**
-    - liczba zmiennoprzecinkowa większa od 0
-
-- **_x0 (wektor => np.array) [opcjonalne]_** - początkowy wektor przybliżeń rozwiązania
+- **_tolerance (liczba całkowita / zmiennoprzecinkowa => int / float)_** - zadana dokładność (tolerancja), która determinuje koniec obliczeń
 
   - **_Wymagania_**
-    - nie może być pusty
-    - musi być jednowymiarowy
-    - musi mieć rozmiar adekwatny do rozmiaru macierzy A
+    - musi być typu 'int / float'
+    - musi być większe od 0
+
+- **_x0 (wektor => np.ndarray) [opcjonalne]_** - początkowy wektor przybliżeń rozwiązania
+
+  - **_Wymagania_**
+  - musi być typu 'np.ndarray'
+  - nie może być pusty
+  - musi być jednowymiarowy
+  - musi mieć rozmiar adekwatny do rozmiaru macierzy A
 
   **_UWAGA!_** Jeśli argument x0 nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
 
-- **_w (liczba zmiennoprzecinkowa => float)_** - parametr relaksacji (0, 2) dla metody SOR
+- **_w (liczba całkowita / zmiennoprzecinkowa => int / float)_** - parametr relaksacji (0, 2) dla metody SOR
 
   - **_Wymagania_**
-    - liczba z zakresu (0, 2)
+  - musi być typu 'int / float'
+  - musi być z zakresu (0, 2)
 
 ### Wartości zwracane przez poszczególne metody
 
 Każda metoda zwraca 3 wartości:
 
-- **_x_** (np.array) - przybliżenie rozwiązania w postaci wektora
+- **_x_** (np.ndarray) - przybliżenie rozwiązania w postaci wektora
 - **_i_** (int) - liczba wykonanych iteracji
 - **_t_** (float) - czas obliczeń w sekundach [s]
 
