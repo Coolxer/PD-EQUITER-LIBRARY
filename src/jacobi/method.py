@@ -25,7 +25,7 @@ from ..common import common
         a) w przypadku poprawnych danych wejściowych
             - x (wektor => np.ndarray) - wektor rozwiązań
             - iterations (liczba całkowita => int) - liczba wykonanych iteracji
-            - elapsed_time (liczba zmiennoprzecinkowa => float) - czas obliczeń [s]
+            - elapsed_time (liczba zmiennoprzecinkowa => float) - czas obliczeń [s] z dokładnością do mikrosekundy
 
         b) w przypadku niepoprawnych danych wejściowych
             - None, None, None (krotka => Tuple)
@@ -48,14 +48,15 @@ def jacobi(
     if not valid:
         return None, None, None
 
-    # Wyznaczenie przekątnej macierzy A
-    D = np.diag(A)
+    # Wyznaczenie macierzy diagonalnej zbudowanej na podstawie głównej przekątnej macierzy 'A'
+    D = np.diag(np.diag(A))
 
-    # Wyznaczenie odwrotności przekątnej macierzy
-    D_inv = np.linalg.inv(np.diag(D))
+    # Wyznaczenie odwrotności macierzy 'D'
+    D_inv = np.linalg.inv(D)
 
-    # Wyznaczenie sumy macierzy dolno- i górno- trójkątnych
-    L_plus_U = A - np.diag(D)
+    # Wyznaczenie sumy zmodyfikowanych macierzy dolno- i górno-trójkątnych (L + U)
+    # Wnioskowanie:     A = (D + L + U)   =>  (L + U) = A - D
+    L_plus_U = A - D
 
     # Pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations):
@@ -74,4 +75,4 @@ def jacobi(
     elapsed_time = time.time() - start_time
 
     # Zwrócenie liczby wykonanych iteracji i wektora wynikowego
-    return x, iteration + 1, elapsed_time
+    return x, iteration + 1, round(elapsed_time, 6)

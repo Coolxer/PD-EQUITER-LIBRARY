@@ -54,11 +54,11 @@ def common(
     # Pobranie liczby wierszy macierzy
     size = np.shape(A)[0]
 
-    # Sprawdzenie czy początkowy wektor  przybliżeń został podany
+    # Sprawdzenie czy początkowy wektor przybliżeń został podany
     # Jeśli nie, to tworzony jest wektor wypełniony zerami
     if x0 is None:
         x = np.zeros(size)
-    # Jeśli wektor został podany to jest on kopiowany do zmiennej x
+    # Jeśli wektor został podany to jest on kopiowany do zmiennej 'x'
     else:
         x = x0.copy()
 

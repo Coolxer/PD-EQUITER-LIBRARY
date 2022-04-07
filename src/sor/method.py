@@ -26,7 +26,7 @@ from ..common import common
         a) w przypadku poprawnych danych wejściowych
             - x (wektor => np.ndarray) - wektor rozwiązań
             - iterations (liczba całkowita => int) - liczba wykonanych iteracji
-            - elapsed_time (liczba zmiennoprzecinkowa => float) - czas obliczeń [s]
+            - elapsed_time (liczba zmiennoprzecinkowa => float) - czas obliczeń [s] z dokładnością do mikrosekundy
 
         b) w przypadku niepoprawnych danych wejściowych
             - None, None, None (krotka => Tuple)
@@ -50,6 +50,24 @@ def sor(
     if not valid:
         return None, None, None
 
+    # Wyznaczenie macierzy diagonalnej zbudowanej na podstawie głównej przekątnej macierzy 'A'
+    D = np.diag(np.diag(A))
+
+    # Wyznaczenie zmodyfikowanej macierzy dolno-trójkątnej (z zerowymi wartościami na głównej przekątnej)
+    L = np.tril(A) - D
+
+    # Wyznaczenie zmodyfikowanej macierzy górno-trójkątnej (z zerowymi wartościami na głównej przekątnej)
+    U = np.triu(A) - D
+
+    # Wyznaczenie odwróconej sumy macierzy 'D' i iloczynu parametru 'w' z macierzą 'L'
+    D_plus_wL_inv = np.linalg.inv(D + (w * L))
+
+    # Wyznaczenie iloczynu parametru 'w' z wektorem 'b'
+    wb = w * b
+
+    # Wyznaczenie kolejnego składnika wzoru metody
+    wU_plus_w_min_1_dot_D = (w * U) + ((w - 1) * D)
+
     # Pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations):
 
@@ -57,10 +75,7 @@ def sor(
         x_old = x.copy()
 
         # Obliczenie kolejnego wektora przybliżeń rozwiązania
-        for i in range(size):
-            x[i] = (1 - w) * x[i] + (w / A[i, i]) * (
-                b[i] - np.dot(A[i, :i], x[:i]) - np.dot(A[i, (i + 1) :], x_old[(i + 1) :])
-            )
+        x = np.dot(D_plus_wL_inv, (wb - np.dot(wU_plus_w_min_1_dot_D, x_old)))
 
         # Sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
         if sum(np.abs(x - x_old)) < tolerance:
@@ -70,4 +85,4 @@ def sor(
     elapsed_time = time.time() - start_time
 
     # Zwrócenie liczby wykonanych iteracji i wektora wynikowego
-    return x, iteration + 1, elapsed_time
+    return x, iteration + 1, round(elapsed_time, 6)
