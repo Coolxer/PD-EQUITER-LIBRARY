@@ -24,15 +24,15 @@ x0 = np.array([1, 1])
 # x0: [1.0000, 1.0000]
 # x1: [5.0000, 1.1429]
 # x2: [4.9286, -1.7143]
-# x3: [6.3571, 1.6633]
+# x3: [6.3571, -1.6633]
 # ...
 # x40: [7.1111, -3.2222]
 
 # Definicja metody przykładu
 def jacobi_example_2() -> NoReturn:
-    print("##### Metoda iteracyjna stacjonarna - Jacobi - Przyklad 2 #####")
+    print("##### Metoda iteracyjna stacjonarna - Jacobi - Przykład 2 #####")
     x, i, t = jacobi(A, b, max_iterations, tolerance, x0)
 
-    print(f"Rozwiazanie: {x}")
+    print(f"Rozwiązanie: {x}")
     print(f"Liczba wykonanych iteracji: {i}")
-    print(f"Czas obliczen: {t}s")
+    print(f"Czas obliczeń: {t}s")

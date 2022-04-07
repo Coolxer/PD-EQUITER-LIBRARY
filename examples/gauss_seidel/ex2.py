@@ -22,9 +22,9 @@ x0 = np.array([1.1, 2.3])
 
 # Definicja metody przykładu
 def gauss_seidel_example_2() -> NoReturn:
-    print("##### Metoda iteracyjna stacjonarna - Gauss-Seidel - Przyklad 2 #####")
+    print("##### Metoda iteracyjna stacjonarna - Gauss-Seidel - Przykład 2 #####")
     x, i, t = gauss_seidel(A, b, max_iterations, tolerance, x0)
 
-    print(f"Rozwiazanie: {x}")
+    print(f"Rozwiązanie: {x}")
     print(f"Liczba wykonanych iteracji: {i}")
-    print(f"Czas obliczen: {t}s")
+    print(f"Czas obliczeń: {t}s")
