@@ -42,7 +42,7 @@ def jacobi(
 
     # Wykonanie części wspólnej dla wszystkich metod
     # Obejmuje to m.in. walidację danych wejściowych i sprawdzenie warunku zbieżności
-    start_time, _, x, valid = common(A, b, max_iterations, tolerance, x0)
+    start_time, x, valid = common(A, b, max_iterations, tolerance, x0)
 
     # Jeśli dane wejściowe były nieprawidłowe to metoda przerywa działanie i zwraca (None, None, None)
     if not valid:

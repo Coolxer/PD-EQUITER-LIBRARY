@@ -8,7 +8,7 @@
 Do metod stacjonarnych przybliżonych rozwiązywania URL zalicza się:
     - metodę Jacobiego
     - metodę Gaussa-Seidela
-    - metodę SOR (nadrelaksacji)
+    - metodę SOR
 
 # ---------------------------------------------------------- Opis matematyczny --------------------------------------------------------- #
 

@@ -44,7 +44,7 @@ def sor(
 
     # Wykonanie części wspólnej dla wszystkich metod
     # Obejmuje to m.in. walidację danych wejściowych i sprawdzenie warunku zbieżności
-    start_time, size, x, valid = common(A, b, max_iterations, tolerance, x0, w)
+    start_time, x, valid = common(A, b, max_iterations, tolerance, x0, w)
 
     # Jeśli dane wejściowe były nieprawidłowe to metoda przerywa działanie i zwraca (None, None, None)
     if not valid:

@@ -25,14 +25,13 @@ from .convergence import check_condition_of_convergence
         
     Wyjście (Wartości zwracane przez metodę common, a nie przez właściwą metodę):
             - start_time (liczba zmiennoprzecinkowa => float) - czas rozpoczęcia operacji
-            - size (krotka => tuple) - rozmiar macierzy głównej w postaci (n, m)
             - x (wektor => np.ndarray) - początkowy wektor przybliżeń rozwiązania
             - valid (True/False => bool) - informacja czy wszystko przebiegło pomyślnie (dla poprawnych danych wejściowych zawsze True)
 
             Dla niepoprawnych danych wejściowych metoda  zawsze zwraca (None, None, None, False)
 """
 
-# Definicja początkowej części wspólnej dla każdej z metod
+# Definicja początkowej części wspólnej dla każdej z metod obejmujej uruchomienie licznika, walidację parametrów i przygotowanie początkowego wektora przybliżeń
 def common(
     A: np.ndarray,
     b: np.ndarray,
@@ -63,4 +62,4 @@ def common(
         x = x0.copy()
 
     # Zwrócenie czasu startu operacji, rozmiaru macierzy głównej, początkowego wektora przybliżeń i informacji, że wszystko przebiegło pomyślnie
-    return start_time, size, x, True
+    return start_time, x, True
