@@ -1,6 +1,10 @@
 # Autor: Łukasz Miłoś
 # Data: 2021 - 2022
 
+# Źródło układu, dokładnego rozwiązania i przewidywanych wyników:
+# "Metody Numeryczne, Wykład 5, Układy równań liniowych - metody iteracyjne",
+# dr inż. prof. PRz Mariusz Borkowski
+
 # Plik przykładu nr 1 rozwiązania przy pomocy m. Jacobiego
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
@@ -13,7 +17,7 @@ from ...src.jacobi.method import jacobi
 # Parametry wejściowe
 A = np.array([[3, 1, -1], [-1, 5, -1], [2, 4, 8]])
 b = np.array([6, 10, 2])
-max_iterations = 3
+max_iterations = 100
 tolerance = 0.0001
 
 # Rozwiązanie układu

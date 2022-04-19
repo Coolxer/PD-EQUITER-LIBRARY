@@ -72,9 +72,9 @@ Efektem wykonania powyższego kodu będzie wyświetlenie następujących informa
 
 ```console
 ##### Metoda iteracyjna stacjonarna - Jacobi - Przykład 1 #####
-Rozwiązanie: [ 0.76666667  2.03333333 -1.32916667]
-Liczba wykonanych iteracji: 3
-Czas obliczeń: 0.0s
+Rozwiązanie: [ 0.99999762  1.99998634 -0.99998045]
+Liczba wykonanych iteracji: 17
+Czas obliczeń: 0.001024s
 ```
 
 ### Własny Przykład

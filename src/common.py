@@ -28,7 +28,7 @@ from .convergence import check_condition_of_convergence
             - x (wektor => np.ndarray) - początkowy wektor przybliżeń rozwiązania
             - valid (True/False => bool) - informacja czy wszystko przebiegło pomyślnie (dla poprawnych danych wejściowych zawsze True)
 
-            Dla niepoprawnych danych wejściowych metoda  zawsze zwraca (None, None, None, False)
+            Dla niepoprawnych danych wejściowych metoda  zawsze zwraca (None, None, False)
 """
 
 # Definicja początkowej części wspólnej dla każdej z metod obejmujej uruchomienie licznika, walidację parametrów i przygotowanie początkowego wektora przybliżeń
@@ -48,7 +48,7 @@ def common(
     if validate_input_parameters(
         A, b, max_iterations, tolerance, x0, w
     ) != SUCCESS or not check_condition_of_convergence(A):
-        return None, None, None, False
+        return None, None, False
 
     # Pobranie liczby wierszy macierzy
     size = np.shape(A)[0]

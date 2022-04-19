@@ -13,7 +13,7 @@ from ...src.sor.method import sor
 # Parametry wejściowe
 A = np.array([[2, 0, 1], [0, 2, 1], [0, 1, 2]])
 b = np.array([6, 3, 4.5])
-max_iterations = 3
+max_iterations = 100
 tolerance = 0.0001
 w = 1.1
 
