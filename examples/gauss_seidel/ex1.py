@@ -1,6 +1,9 @@
 # Autor: Łukasz Miłoś
 # Data: 2021 - 2022
 
+# Źródło układu, dokładnego rozwiązania i przewidywanych wyników:
+# https://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method
+
 # Plik przykładu nr 1 rozwiązania przy pomocy m. Gaussa-Seidela
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
@@ -13,7 +16,7 @@ from ...src.gauss_seidel.method import gauss_seidel
 # Parametry wejściowe
 A = np.array([[16, 3], [7, -11]])
 b = np.array([11, 13])
-max_iterations = 3
+max_iterations = 100
 tolerance = 0.0001
 x0 = np.array([1, 1])
 

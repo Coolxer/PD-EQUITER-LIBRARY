@@ -1,6 +1,9 @@
 # Autor: Łukasz Miłoś
 # Data: 2021 - 2022
 
+# Źródło układu, dokładnego rozwiązania i przewidywanych wyników:
+# https://en.wikipedia.org/wiki/Jacobi_method
+
 # Plik przykładu nr 3 rozwiązania przy pomocy m. Jacobiego
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
@@ -13,7 +16,7 @@ from ...src.jacobi.method import jacobi
 # Parametry wejściowe
 A = np.array([[10, -1, 2, 0], [-1, 11, -1, 3], [2, -1, 10, -1], [0, 3, -1, 8]])
 b = np.array([6, 25, -11, 15])
-max_iterations = 3
+max_iterations = 100
 tolerance = 0.0001
 
 # Rozwiązanie układu
