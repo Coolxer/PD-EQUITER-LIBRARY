@@ -9,12 +9,7 @@
 import numpy as np
 from .error import throw_error, SUCCESS
 
-
 """
-    Metoda  sprawdza, czy dane wejściowe metod są prawidłowe.
-    Jeśli dane wejściowe są prawidłowe to zwracane jest 0 (SUCCESS), 
-    w innym przypadku zwracany jest kod błędu <1...> (ERROR) wraz z czytelną informacją.
-
     Wejście(+ Wymagania Parametrów) :
         - A (macierz => np.ndarray)
             - musi być typu 'np.ndarray'
@@ -54,7 +49,9 @@ from .error import throw_error, SUCCESS
             - <1, ...> -> gdy walidacja nie przebiegła pomyślnie
 """
 
-# Definicja metody walidującej parametry wejściowe
+# Metoda  sprawdza, czy dane wejściowe metod są prawidłowe.
+# Jeśli dane wejściowe są prawidłowe to zwracane jest 0 (SUCCESS),
+# w innym przypadku zwracany jest kod błędu <1...> (ERROR) wraz z czytelną informacją.
 def validate_input_parameters(
     A: np.ndarray,
     b: np.ndarray,
