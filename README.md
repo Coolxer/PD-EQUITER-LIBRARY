@@ -173,10 +173,10 @@ Poniżej prezentowane są opisy poszczególnych argumentów:
     - musi być typu 'int'
     - musi być dodatnie
 
-- **_tolerance (liczba całkowita / zmiennoprzecinkowa => int / float)_** - zadana dokładność (tolerancja), która determinuje koniec obliczeń
+- **_tolerance (liczba zmiennoprzecinkowa => float)_** - zadana dokładność (tolerancja) przybliżonego rozwiązania, która determinuje koniec obliczeń
 
   - **_Wymagania_**
-    - musi być typu 'int / float'
+    - musi być typu 'float'
     - musi być większe od 0
 
 - **_x0 (wektor => np.ndarray) [opcjonalne]_** - początkowy wektor przybliżeń rozwiązania
@@ -189,10 +189,10 @@ Poniżej prezentowane są opisy poszczególnych argumentów:
 
   **_UWAGA!_** Jeśli argument x0 nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
 
-- **_w (liczba całkowita / zmiennoprzecinkowa => int / float)_** - parametr relaksacji (0, 2) dla metody SOR
+- **_w (liczba zmiennoprzecinkowa => float)_** - parametr relaksacji (0, 2) dla metody SOR
 
   - **_Wymagania_**
-  - musi być typu 'int / float'
+  - musi być typu 'float'
   - musi być z zakresu (0, 2)
 
 ### Wartości zwracane przez poszczególne metody
@@ -232,4 +232,4 @@ Poniżej znajduje się tabela wszystkich dostępnych przykładów.
 
 Biblioteka dostarcza podstawowych informacji dotyczących rozwiązania układu. Mając na celu lekkość pakietu, nie dostarczono tutaj wstępnej analizy danych, umożliwiającej porównanie poszczególnych metod, a także przedstawienie wyników w postaci graficznej.
 
-Dobra informacja jest taka, że przygotowano specjalne środowisko badawcze wykorzystujące tę bibliotekę i opracowująca dane wynikowe w postaci tesktowej i graficznej. Środowisko badwacze dostępne jest [tutaj](https://github.com/Coolxer/PD-EXPERIMENTOR).
+Dobra informacja jest taka, że przygotowano specjalne środowisko badawcze wykorzystujące tę bibliotekę i opracowujące dane wynikowe w postaci tekstowej i graficznej. Środowisko badawcze dostępne jest [tutaj](https://github.com/Coolxer/PD-EXPERIMENTOR).

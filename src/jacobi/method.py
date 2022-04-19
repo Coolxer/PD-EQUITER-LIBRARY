@@ -17,7 +17,7 @@ from ..common import common
         - A (macierz => np.ndarray) - macierz główna układu równań
         - b (wektor => np.ndarray) - wektor wyrazów wolnych
         - max_iterations (liczba całkowita => int) - maksymalna liczba iteracji, która determinuje koniec obliczeń, gdy nie osiągnięto założonej dokładności
-        - tolerance (liczba całkowita / zmiennoprzecinkowa => int / float) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
+        - tolerance (liczba zmiennoprzecinkowa => float) - zadana dokładność (tolerancja) przybliżonego rozwiązania, która determinuje koniec obliczeń
         - x0 (wektor => np.ndarray) [opcjonalne] - początkowy wektor przybliżeń rozwiązania
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
 
