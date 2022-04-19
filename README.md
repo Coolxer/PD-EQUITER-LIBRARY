@@ -173,10 +173,10 @@ Poniżej prezentowane są opisy poszczególnych argumentów:
     - musi być typu 'int'
     - musi być dodatnie
 
-- **_tolerance (liczba całkowita / zmiennoprzecinkowa => int / float)_** - zadana dokładność (tolerancja), która determinuje koniec obliczeń
+- **_tolerance (liczba zmiennoprzecinkowa => float)_** - zadana dokładność (tolerancja) przybliżonego rozwiązania, która determinuje koniec obliczeń
 
   - **_Wymagania_**
-    - musi być typu 'int / float'
+    - musi być typu 'float'
     - musi być większe od 0
 
 - **_x0 (wektor => np.ndarray) [opcjonalne]_** - początkowy wektor przybliżeń rozwiązania
@@ -189,10 +189,10 @@ Poniżej prezentowane są opisy poszczególnych argumentów:
 
   **_UWAGA!_** Jeśli argument x0 nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
 
-- **_w (liczba całkowita / zmiennoprzecinkowa => int / float)_** - parametr relaksacji (0, 2) dla metody SOR
+- **_w (liczba zmiennoprzecinkowa => float)_** - parametr relaksacji (0, 2) dla metody SOR
 
   - **_Wymagania_**
-  - musi być typu 'int / float'
+  - musi być typu 'float'
   - musi być z zakresu (0, 2)
 
 ### Wartości zwracane przez poszczególne metody

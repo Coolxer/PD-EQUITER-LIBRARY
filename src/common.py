@@ -18,10 +18,10 @@ from .convergence import check_condition_of_convergence
         - A (macierz => np.ndarray) - macierz główna układu równań
         - b (wektor => np.ndarray) - wektor wyrazów wolnych
         - max_iterations (liczba całkowita => int) - maksymalna liczba iteracji, która determinuje koniec obliczeń, gdy nie osiągnięto założonej dokładności
-        - tolerance (liczba całkowita / zmiennoprzecinkowa => int / float) - zadana dokładność (tolerancja), która determinuje koniec obliczeń
+        - tolerance (zmiennoprzecinkowa => float) - zadana dokładność (tolerancja) przybliżonego rozwiązania, która determinuje koniec obliczeń
         - x0 (wektor => np.ndarray) [opcjonalne] - początkowy wektor przybliżeń rozwiązania
             - Jeśli argument nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
-        - w (liczba całkowita / zmiennoprzecinkowa => int / float) [tylko dla metody SOR] - parametr relaksacji
+        - w (zmiennoprzecinkowa => float) [tylko dla metody SOR] - parametr relaksacji
         
     Wyjście (Wartości zwracane przez metodę common, a nie przez właściwą metodę):
             - start_time (liczba zmiennoprzecinkowa => float) - czas rozpoczęcia operacji

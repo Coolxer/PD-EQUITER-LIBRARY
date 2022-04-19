@@ -27,8 +27,8 @@ from .error import throw_error, SUCCESS
             - musi być typu 'int'
             - musi być dodatnie
 
-        - tolerance (liczba całkowita / zmiennoprzecinkowa => int / float)
-            - musi być typu 'int / float'
+        - tolerance (liczba zmiennoprzecinkowa => float)
+            - musi być typu 'float'
             - musi być większe od 0
 
         [opcjonalny => walidacja tylko w przypadku podania parametru]
@@ -39,8 +39,8 @@ from .error import throw_error, SUCCESS
             - musi mieć rozmiar adekwatny do rozmiaru macierzy A
 
         [opcjonalny => walidacja tylko w przypadku podania parametru]
-        - w (liczba całkowita / zmiennoprzecinkowa => int / float)
-            - musi być typu 'int / float'
+        - w (liczba zmiennoprzecinkowa => float)
+            - musi być typu 'float'
             - musi być z zakresu (0, 2)
 
     Wyjście:
@@ -101,8 +101,8 @@ def validate_input_parameters(
     if max_iterations <= 0:
         return throw_error(10)
 
-    # Sprawdzenie czy liczba 'tolerance' jest typu 'int / float'
-    if not isinstance(tolerance, (int, float)):
+    # Sprawdzenie czy liczba 'tolerance' jest typu 'float'
+    if not isinstance(tolerance, float):
         return throw_error(11)
 
     # Sprawdzenie czy liczba 'tolerance' jest dodatnia
@@ -131,8 +131,8 @@ def validate_input_parameters(
     # Sprawdzenie czy liczba 'w' została podana
     if w is not None:
 
-        # Sprawdzenie czy liczba w' 'jest typu 'int / float'
-        if not isinstance(w, (int, float)):
+        # Sprawdzenie czy liczba w' 'jest typu 'float'
+        if not isinstance(w, float):
             return throw_error(17)
 
         # Sprawdzenie czy liczba 'w' jest z zakresu (0, 2)

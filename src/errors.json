@@ -12,7 +12,7 @@
   "9": "Liczba 'max_iterations' musi być typu 'int'!",
   "10": "Liczba 'max_iterations' musi być dodatnia!",
 
-  "11": "Liczba 'tolerance' musi być typu 'int /  float'!",
+  "11": "Liczba 'tolerance' musi być typu 'float'!",
   "12": "Liczba 'tolerance' musi być większa od 0!",
 
   "13": "Wektor 'x0' musi być typu 'np.ndarray'!",
@@ -20,6 +20,6 @@
   "15": "Wektor 'x0' musi być jednowymiarowy!",
   "16": "Wektor 'x0' musi mieć rozmiar adekwatny do rozmiaru macierzy 'A'!",
 
-  "17": "Liczba 'w' musi być typu 'int / float'!",
+  "17": "Liczba 'w' musi być typu 'float'!",
   "18": "Liczba 'w' musi być z zakresu (0, 2)!"
 }
