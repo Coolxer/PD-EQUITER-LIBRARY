@@ -50,13 +50,13 @@ def common(
     ) != SUCCESS or not check_condition_of_convergence(A):
         return None, None, False
 
-    # Pobranie liczby wierszy macierzy
-    size = np.shape(A)[0]
+    # Pobranie stopnia macierzy
+    order = np.shape(A)[0]
 
     # Sprawdzenie czy początkowy wektor przybliżeń został podany
     # Jeśli nie, to tworzony jest wektor wypełniony zerami
     if x0 is None:
-        x = np.zeros(size)
+        x = np.zeros(order)
     # Jeśli wektor został podany to jest on kopiowany do zmiennej 'x'
     else:
         x = x0.copy()
