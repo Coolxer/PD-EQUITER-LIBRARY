@@ -7,19 +7,19 @@
   "5": "Wektor 'b' musi być typu 'np.ndarray'!",
   "6": "Wektor 'b' nie może być pusty!",
   "7": "Wektor 'b' musi być jednowymiarowy!",
-  "8": "Wektor 'b' musi mieć rozmiar adekwatny do rozmiaru macierzy 'A'!",
+  "8": "Wektor 'b' musi mieć rozmiar adekwatny do stopnia macierzy 'A'!",
 
-  "9": "Liczba 'max_iterations' musi być typu 'int'!",
+  "9": "Liczba 'max_iterations' musi być całkowita!",
   "10": "Liczba 'max_iterations' musi być dodatnia!",
 
-  "11": "Liczba 'tolerance' musi być typu 'float'!",
+  "11": "Liczba 'tolerance' musi być zmiennoprzecinkowa!",
   "12": "Liczba 'tolerance' musi być większa od 0!",
 
   "13": "Wektor 'x0' musi być typu 'np.ndarray'!",
   "14": "Wektor 'x0' nie może być pusty!",
   "15": "Wektor 'x0' musi być jednowymiarowy!",
-  "16": "Wektor 'x0' musi mieć rozmiar adekwatny do rozmiaru macierzy 'A'!",
+  "16": "Wektor 'x0' musi mieć rozmiar adekwatny do stopnia macierzy 'A'!",
 
-  "17": "Liczba 'w' musi być typu 'float'!",
+  "17": "Liczba 'w' musi być zmiennoprzecinkowa!",
   "18": "Liczba 'w' musi być z zakresu (0, 2)!"
 }
