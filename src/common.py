@@ -61,5 +61,5 @@ def common(
     else:
         x = x0.copy()
 
-    # Zwrócenie czasu startu operacji, rozmiaru macierzy głównej, początkowego wektora przybliżeń i informacji, że wszystko przebiegło pomyślnie
+    # Zwrócenie czasu startu operacji, początkowego wektora przybliżeń i informacji, że wszystko przebiegło pomyślnie
     return start_time, x, True

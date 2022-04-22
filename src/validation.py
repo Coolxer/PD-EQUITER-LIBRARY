@@ -21,14 +21,14 @@ from .error import throw_error, SUCCESS
             - musi być typu 'np.ndarray'
             - nie może być pusty
             - musi być jednowymiarowy
-            - musi mieć rozmiar adekwatny do rozmiaru macierzy A
+            - musi mieć rozmiar adekwatny do stopnia macierzy A
 
         - max_iterations (liczba całkowita => int)
-            - musi być typu 'int'
+            - musi być całkowite
             - musi być dodatnie
 
         - tolerance (liczba zmiennoprzecinkowa => float)
-            - musi być typu 'float'
+            - musi być zmiennoprzecinkowe
             - musi być większe od 0
 
         [opcjonalny => walidacja tylko w przypadku podania parametru]
@@ -36,11 +36,11 @@ from .error import throw_error, SUCCESS
             - musi być typu 'np.ndarray'
             - nie może być pusty
             - musi być jednowymiarowy
-            - musi mieć rozmiar adekwatny do rozmiaru macierzy A
+            - musi mieć rozmiar adekwatny do stopnia macierzy A
 
         [opcjonalny => walidacja tylko w przypadku podania parametru]
         - w (liczba zmiennoprzecinkowa => float)
-            - musi być typu 'float'
+            - musi być zmiennoprzecinkowe
             - musi być z zakresu (0, 2)
 
     Wyjście:
@@ -89,7 +89,7 @@ def validate_input_parameters(
     if b.ndim != 1:
         return throw_error(7)
 
-    # Sprawdzenie czy wektor 'b' ma rozmiar adekwatny do rozmiaru macierzy 'A'
+    # Sprawdzenie czy wektor 'b' ma odpowiedni rozmiar
     if b.size != A.shape[0]:
         return throw_error(8)
 

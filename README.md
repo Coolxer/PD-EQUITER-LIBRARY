@@ -165,18 +165,18 @@ Poniżej prezentowane są opisy poszczególnych argumentów:
     - musi być typu 'np.ndarray'
     - nie może być pusty
     - musi być jednowymiarowy
-    - musi mieć rozmiar adekwatny do rozmiaru macierzy A
+    - musi mieć rozmiar adekwatny do stopnia macierzy A
 
 - **_max_iterations (liczba całkowita => int)_** - maksymalna liczba iteracji, która determinuje koniec, gdy nie osiągnięto założonej dokładności obliczeń
 
   - **_Wymagania_**
-    - musi być typu 'int'
+    - musi być całkowite
     - musi być dodatnie
 
 - **_tolerance (liczba zmiennoprzecinkowa => float)_** - zadana dokładność (tolerancja) przybliżonego rozwiązania, która determinuje koniec obliczeń
 
   - **_Wymagania_**
-    - musi być typu 'float'
+    - musi być zmiennoprzecinkowe
     - musi być większe od 0
 
 - **_x0 (wektor => np.ndarray) [opcjonalne]_** - początkowy wektor przybliżeń rozwiązania
@@ -185,14 +185,14 @@ Poniżej prezentowane są opisy poszczególnych argumentów:
   - musi być typu 'np.ndarray'
   - nie może być pusty
   - musi być jednowymiarowy
-  - musi mieć rozmiar adekwatny do rozmiaru macierzy A
+  - musi mieć rozmiar adekwatny do stopnia macierzy A
 
   **_UWAGA!_** Jeśli argument x0 nie został podany, to jako pierwsze przybliżenie x0 przyjmuje się wektor złożony z samych 0
 
 - **_w (liczba zmiennoprzecinkowa => float)_** - parametr relaksacji (0, 2) dla metody SOR
 
   - **_Wymagania_**
-  - musi być typu 'float'
+  - musi być zmiennoprzecinkowe
   - musi być z zakresu (0, 2)
 
 ### Wartości zwracane przez poszczególne metody
