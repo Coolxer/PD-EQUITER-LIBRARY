@@ -67,8 +67,8 @@ def jacobi(
         # Obliczenie kolejnego wektora przybliżeń rozwiązania
         x = np.dot(D_inv, b - np.dot(L_plus_U, x_old))
 
-        # Sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
-        if sum(np.abs(x - x_old)) < tolerance:
+        # Sprawdzenie czy została osiągnięta wymagana dokładność (warunek stopu)
+        if (np.linalg.norm(np.dot(A, x) - b) / np.linalg.norm(b)) < tolerance:
             break
 
     # Obliczenie czasu operacji

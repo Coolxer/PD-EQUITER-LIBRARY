@@ -77,8 +77,8 @@ def sor(
         # Obliczenie kolejnego wektora przybliżeń rozwiązania
         x = np.dot(D_plus_wL_inv, (wb - np.dot(wU_plus_w_min_1_dot_D, x_old)))
 
-        # Sprawdzenie czy została osiągnięta podana tolerancja (warunek kończący)
-        if sum(np.abs(x - x_old)) < tolerance:
+        # Sprawdzenie czy została osiągnięta wymagana dokładność (warunek stopu)
+        if (np.linalg.norm(np.dot(A, x) - b) / np.linalg.norm(b)) < tolerance:
             break
 
     # Obliczenie czasu operacji
