@@ -5,9 +5,9 @@
 
 # ------------------------------------------------------------ Opis teoretyczny ----------------------------------------------------------- #
 
-Metoda jest ulepszeniem metody Gaussa-Seidela, ponieważ wykorzystując właściwość tej metody, wprowadza
-dodatkowe przemnożenie tzw. poprawki przez parametr, co prowadzi do przyspieszenia procesu poszukiwania
-rozwiązania.
+Metoda jest ulepszeniem metody Gaussa-Seidela, ponieważ wykorzystując właściwość tej metody, 
+wprowadza dodatkowe przemnożenie tzw. poprawki przez parametr, co prowadzi do przyspieszenia 
+procesu poszukiwania rozwiązania.
 
 Własności wynikające z wartości parametru w:
 
@@ -21,9 +21,11 @@ Własności wynikające z wartości parametru w:
 # ---------------------------------------------------------- Opis matematyczny --------------------------------------------------------- #
 
 Wzór dla metody SOR w postaci macierzowej : 
-x^(k + 1) = (D + wL)^(-1){wb - [wU + (w - 1)D]x^(k)}
+x^(k) = (D + wL)^(-1){wb - [wU + (w - 1)D]x^(k - 1)}
 
 Wzór dla metody SOR w postaci elementowej: 
-x_i^(k + 1) = (1 - w)x_i^(k) + (w/a_ii)[b_i - sum(a_ij * x_j^(k + 1)) - sum(a_ij * x_j^(k))]
+x_i^(k) = (1 - w)x_i^(k - 1) + (w/a_ii)[b_i - sum(a_ij * x_j^(k)) - sum(a_ij * x_j^(k - 1))]
+
+    , gdzie: i = 1, 2, ... n
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #

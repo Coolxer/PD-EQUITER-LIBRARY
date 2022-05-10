@@ -8,19 +8,14 @@
 Do metod stacjonarnych przybliżonych rozwiązywania URL zalicza się:
     - metodę Jacobiego
     - metodę Gaussa-Seidela
-    - metodę SOR
+    - metodę SOR (nadrelaksacji)
 
 # ---------------------------------------------------------- Opis matematyczny --------------------------------------------------------- #
 
-Warunek konieczny zbieżności ciągu kolejnych przybliżeń (macierz dominująca): 
+Warunek zbieżności ciągu kolejnych przybliżeń (macierz dominująca): 
     ^iE{1,2...,n}|aii| > SUM(|aij|, {j={1,2...,n, j != i}})"
 
-Warunek kończący wykonywanie iteracji (związany z dokładnością obliczeń) :
-    SUM(xi^(n+1) - xi^(n)) < tol {i = 1,2,...,n})
-    ,gdzie:
-            tol - tolerancja, z góry zakładana dokładność
-
-Alternatywnie Warunek kończący może być wyrażony za pomocą:
-    SUM(|~bi^(k) - i|) < tol, ~b^(k) = Ax^(k)
+Warunek kończący (stopu) wykonywanie iteracji (związany z dokładnością obliczeń) :
+   [||Ax^(k) - b || / ||b||] < tol
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
