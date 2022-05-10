@@ -30,7 +30,7 @@ def check_condition_of_convergence(A: np.ndarray) -> bool:
     # (wartość absolutna elementu głównej przekątnej musi być większa niż suma wartości absolutnych pozostałych elementów danego wiersza)
     for i in range(np.shape(A)[0]):
         if np.abs(A[i][i]) <= S[i]:
-            print("Warunek konieczny zbieżności ciągu nie jest spełniony")
+            print("Warunek zbieżności nie jest spełniony")
             return False
 
     # Jeśli warunek jest spełniony to zwróć True

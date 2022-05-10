@@ -12,11 +12,12 @@ Dzięki temu zostaje zredukowana liczba niezbędnych operacji.
 # ---------------------------------------------------------- Opis matematyczny --------------------------------------------------------- #
 
 Wzór dla metody Gaussa-Seidela w postaci macierzowej:
-    x^(k + 1) = (D + L)^(−1)(b − Ux^(k))
+    x^(k) = (D + L)^(−1)(b − Ux^(k - 1))
 
 Wzór dla metody Gaussa-Seidela w postaci elementowej:
-    x_i^(k + 1) = (1 / a_ii)*[b_i - sum(a_ij * xj^(k + 1)) - sum(aij * xj^(k))]
+    x_i^(k) = (1 / a_ii)*[b_i - sum(a_ij * xj^(k)) - sum(aij * xj^(k - 1))]
 
-
+    , gdzie: i = 1, 2, ... n
+    
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
 

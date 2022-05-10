@@ -21,7 +21,7 @@ tolerance = 0.0001
 x0 = np.array([1.1, 2.3])
 
 # Przewidywane wyniki
-# Warunek konieczny zbieżnosci ciągu nie jest spełniony!
+# Warunek zbieżnosci nie jest spełniony!
 
 # Definicja metody przykładu
 def gauss_seidel_example_2() -> NoReturn:
