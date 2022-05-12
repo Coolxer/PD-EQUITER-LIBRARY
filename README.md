@@ -4,10 +4,7 @@
 
 _Realizacja w ramach pracy dyplomowej "Analiza i realizacja wybranych algorytmów przybliżonego rozwiązywania układów równań liniowych" KRK/13/4028_
 
-**\*Autor:** Łukasz Miłoś 161883 \
-**\*Promotor:** dr inż. prof. PRz Mariusz Borkowski \
-**\*Uczelnia:** Politechnika Rzeszowska im. Ignacego Łukasiewicza \
-**\*Jednostka organizacyjna:** Katedra Elektrotechniki i Podstaw Informatyki (ET)
+**\*Autor:** Łukasz Miłoś 161883
 
 ---
 
