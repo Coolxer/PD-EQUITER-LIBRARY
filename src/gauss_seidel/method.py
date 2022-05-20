@@ -63,11 +63,8 @@ def gauss_seidel(
     # Pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations):
 
-        # Zapisanie poprzedniego wektora przybliżeń
-        x_old = x.copy()
-
         # Obliczenie kolejnego wektora przybliżeń rozwiązania
-        x = np.dot(D_plus_L_inv, b - np.dot(U, x_old))
+        x = np.dot(D_plus_L_inv, b - np.dot(U, x))
 
         # Sprawdzenie czy została osiągnięta wymagana dokładność (warunek stopu)
         if (np.linalg.norm(np.dot(A, x) - b) / np.linalg.norm(b)) < tolerance:

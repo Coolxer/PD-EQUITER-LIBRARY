@@ -71,11 +71,8 @@ def sor(
     # Pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations):
 
-        # Zapisanie poprzedniego wektora przybliżeń
-        x_old = x.copy()
-
         # Obliczenie kolejnego wektora przybliżeń rozwiązania
-        x = np.dot(D_plus_wL_inv, (wb - np.dot(wU_plus_w_min_1_dot_D, x_old)))
+        x = np.dot(D_plus_wL_inv, (wb - np.dot(wU_plus_w_min_1_dot_D, x)))
 
         # Sprawdzenie czy została osiągnięta wymagana dokładność (warunek stopu)
         if (np.linalg.norm(np.dot(A, x) - b) / np.linalg.norm(b)) < tolerance:
