@@ -61,11 +61,8 @@ def jacobi(
     # Pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations):
 
-        # Zapisanie poprzedniego wektora przybliżeń
-        x_old = x.copy()
-
         # Obliczenie kolejnego wektora przybliżeń rozwiązania
-        x = np.dot(D_inv, b - np.dot(L_plus_U, x_old))
+        x = np.dot(D_inv, b - np.dot(L_plus_U, x))
 
         # Sprawdzenie czy została osiągnięta wymagana dokładność (warunek stopu)
         if (np.linalg.norm(np.dot(A, x) - b) / np.linalg.norm(b)) < tolerance:
