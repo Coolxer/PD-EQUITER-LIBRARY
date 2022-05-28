@@ -16,6 +16,6 @@ Warunek zbieżności ciągu kolejnych przybliżeń (macierz dominująca):
     ^iE{1,2...,n}|aii| > SUM(|aij|, {j={1,2...,n, j != i}})"
 
 Warunek kończący (stopu) wykonywanie iteracji (związany z dokładnością obliczeń) :
-   [||Ax^(k) - b || / ||b||] < tol
+    [||Ax^(k) - b || / ||b||] < tol
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------- #
