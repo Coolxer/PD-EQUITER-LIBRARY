@@ -9,6 +9,7 @@
 import time
 from typing import Tuple
 import numpy as np
+from numpy.linalg import inv, norm
 
 from ..common import common
 
@@ -52,7 +53,7 @@ def jacobi(
     D = np.diag(np.diag(A))
 
     # Wyznaczenie odwrotności macierzy 'D'
-    D_inv = np.linalg.inv(D)
+    D_inv = inv(D)
 
     # Wyznaczenie sumy zmodyfikowanych macierzy dolno- i górno-trójkątnych (L + U)
     # Wnioskowanie:     A = (D + L + U)   =>  (L + U) = A - D
@@ -65,7 +66,7 @@ def jacobi(
         x = np.dot(D_inv, b - np.dot(L_plus_U, x))
 
         # Sprawdzenie czy została osiągnięta wymagana dokładność (warunek stopu)
-        if (np.linalg.norm(np.dot(A, x) - b) / np.linalg.norm(b)) < tolerance:
+        if (norm(np.dot(A, x) - b) / norm(b)) < tolerance:
             break
 
     # Obliczenie czasu operacji
