@@ -9,9 +9,9 @@
 import time
 from typing import Tuple
 import numpy as np
-from numpy.linalg import inv, norm
 
 from ..common import common
+from ..stop import check_stop_condition
 
 """
     Wejście (Parametry metod) [wymagania dla parametrów -> patrz: validation]:
@@ -59,7 +59,7 @@ def gauss_seidel(
     U = np.triu(A) - D
 
     # Wyznaczenie odwrotności sumy macierzy  'D' i 'L'
-    D_plus_L_inv = inv(D + L)
+    D_plus_L_inv = np.linalg.inv(D + L)
 
     # Pętla, która wykonuje się maksymalnie max_iterations-razy, chyba, że tolerancja zostanie wcześniej osiągnięta
     for iteration in range(max_iterations):
@@ -68,7 +68,7 @@ def gauss_seidel(
         x = np.dot(D_plus_L_inv, b - np.dot(U, x))
 
         # Sprawdzenie czy została osiągnięta wymagana dokładność (warunek stopu)
-        if (norm(np.dot(A, x) - b) / norm(b)) < tolerance:
+        if check_stop_condition(A, b, x, tolerance):
             break
 
     # Obliczenie czasu operacji
