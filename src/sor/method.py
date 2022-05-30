@@ -9,6 +9,7 @@
 import time
 from typing import Tuple
 import numpy as np
+from numpy.linalg import inv, norm
 
 from ..common import common
 
@@ -60,7 +61,7 @@ def sor(
     U = np.triu(A) - D
 
     # Wyznaczenie odwróconej sumy macierzy 'D' i iloczynu parametru 'w' z macierzą 'L'
-    D_plus_wL_inv = np.linalg.inv(D + (w * L))
+    D_plus_wL_inv = inv(D + (w * L))
 
     # Wyznaczenie iloczynu parametru 'w' z wektorem 'b'
     wb = w * b
@@ -75,7 +76,7 @@ def sor(
         x = np.dot(D_plus_wL_inv, (wb - np.dot(wU_plus_w_min_1_dot_D, x)))
 
         # Sprawdzenie czy została osiągnięta wymagana dokładność (warunek stopu)
-        if (np.linalg.norm(np.dot(A, x) - b) / np.linalg.norm(b)) < tolerance:
+        if (norm(np.dot(A, x) - b) / norm(b)) < tolerance:
             break
 
     # Obliczenie czasu operacji
